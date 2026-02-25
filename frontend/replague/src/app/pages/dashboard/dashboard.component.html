@@ -1,0 +1,172 @@
+<div class="container-xxl" id="kt_content_container">
+
+  <!-- Loading skeleton -->
+  <div *ngIf="loading" class="text-center py-20">
+    <span class="spinner-border text-primary" style="width:3rem;height:3rem;"></span>
+  </div>
+
+  <ng-container *ngIf="!loading">
+
+    <!-- Welcome banner -->
+    <div class="card mb-6" style="background: linear-gradient(135deg, #FF7A1A 0%, #E06700 100%);">
+      <div class="card-body d-flex align-items-center py-8 px-10">
+        <div class="flex-grow-1">
+          <h2 class="text-white fw-boldest mb-1">
+            Welcome back, {{ profile?.displayName || 'Athlete' }}!
+          </h2>
+          <p class="text-white opacity-75 mb-0">
+            Track your workouts, beat your PRs and climb the rankings.
+          </p>
+        </div>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a routerLink="/workouts" class="btn btn-white btn-sm fw-bold text-primary">
+            Log Workout
+          </a>
+          <a routerLink="/leagues" class="btn btn-outline btn-outline-white btn-sm fw-bold text-white">
+            My Leagues
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="row g-5 mb-6">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body d-flex align-items-center gap-4 py-6">
+            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-primary flex-shrink-0">
+              <i class="ki-duotone ki-fitness fs-2x text-primary">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </div>
+            <div>
+              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalWorkouts ?? 0 }}</div>
+              <div class="text-muted fw-semibold">Total Workouts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body d-flex align-items-center gap-4 py-6">
+            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-success flex-shrink-0">
+              <i class="ki-duotone ki-award fs-2x text-success">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+              </i>
+            </div>
+            <div>
+              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalPrs ?? 0 }}</div>
+              <div class="text-muted fw-semibold">Personal Records</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body d-flex align-items-center gap-4 py-6">
+            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-warning flex-shrink-0">
+              <i class="ki-duotone ki-crown fs-2x text-warning">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+            </div>
+            <div>
+              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalLeagues ?? 0 }}</div>
+              <div class="text-muted fw-semibold">Active Leagues</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent workouts + Leagues -->
+    <div class="row g-5">
+
+      <!-- Recent workouts -->
+      <div class="col-xl-8">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3 class="card-title">Recent Workouts (last 7 days)</h3>
+            <div class="card-toolbar">
+              <a routerLink="/workouts" class="btn btn-sm btn-light-primary">See all</a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div *ngIf="recentWorkouts.length === 0" class="text-center py-10 text-muted">
+              <p class="mb-3">No workouts in the last 7 days.</p>
+              <a routerLink="/workouts" class="btn btn-sm btn-primary">Log your first workout</a>
+            </div>
+            <div *ngIf="recentWorkouts.length > 0" class="table-responsive">
+              <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
+                <thead>
+                  <tr class="fw-bolder text-muted bg-light">
+                    <th class="ps-4 rounded-start">Date</th>
+                    <th>Type</th>
+                    <th>Details</th>
+                    <th class="rounded-end pe-4">PR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let w of recentWorkouts">
+                    <td class="ps-4 text-muted fs-7">{{ w.date | date:'MMM d' }}</td>
+                    <td>
+                      <span class="badge"
+                        [class.badge-light-warning]="w.type === 'Strength'"
+                        [class.badge-light-danger]="w.type === 'WOD'"
+                        [class.badge-light-info]="w.type === 'Cardio'">
+                        {{ w.type }}
+                      </span>
+                    </td>
+                    <td class="text-muted fs-7">
+                      <span *ngIf="w.exercises?.length">{{ w.exercises.length }} exercise(s)</span>
+                      <span *ngIf="w.wods?.length">{{ w.wods.length }} WOD(s)</span>
+                      <span *ngIf="!w.exercises?.length && !w.wods?.length">—</span>
+                    </td>
+                    <td class="pe-4">
+                      <span *ngIf="w.isPr" class="badge badge-light-success">
+                        <i class="ki-duotone ki-award fs-7 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        PR
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- My Leagues -->
+      <div class="col-xl-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3 class="card-title">My Leagues</h3>
+            <div class="card-toolbar">
+              <a routerLink="/leagues" class="btn btn-sm btn-light-warning">View all</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div *ngIf="leagues.length === 0" class="text-center py-6 text-muted">
+              <p class="mb-3">You're not in any leagues yet.</p>
+              <a routerLink="/leagues" class="btn btn-sm btn-warning">Join or create</a>
+            </div>
+            <div *ngFor="let league of leagues" class="d-flex align-items-center mb-4">
+              <div class="w-40px h-40px rounded-circle bg-light-warning d-flex align-items-center justify-content-center me-3 flex-shrink-0">
+                <span class="text-warning fw-bold fs-7">{{ league.name.charAt(0).toUpperCase() }}</span>
+              </div>
+              <div class="flex-grow-1">
+                <a [routerLink]="['/leagues', league.id]" class="fw-semibold text-dark text-hover-primary d-block">
+                  {{ league.name }}
+                </a>
+                <span class="text-muted fs-7">{{ league.memberCount }} member(s)</span>
+              </div>
+              <a [routerLink]="['/leagues', league.id]" class="btn btn-icon btn-sm btn-light">
+                <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+</div>

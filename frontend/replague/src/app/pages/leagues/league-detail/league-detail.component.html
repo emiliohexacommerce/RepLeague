@@ -1,0 +1,137 @@
+<div class="container-xxl" id="kt_content_container">
+  <div *ngIf="loading" class="text-center py-10">
+    <span class="spinner-border text-primary"></span>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <ng-container *ngIf="league && !loading">
+    <!-- Header -->
+    <div class="d-flex flex-wrap flex-stack mb-6">
+      <div>
+        <h3 class="fw-bolder my-2">{{ league.name }}</h3>
+        <p *ngIf="league.description" class="text-muted mb-0">{{ league.description }}</p>
+      </div>
+      <div class="d-flex gap-3 my-2">
+        <button class="btn btn-sm btn-light-primary" (click)="showInviteForm = !showInviteForm">
+          <i class="ki-duotone ki-share fs-4 me-1"></i> Invite
+        </button>
+        <a routerLink="/leagues" class="btn btn-sm btn-light">Back</a>
+      </div>
+    </div>
+
+    <!-- Invite panel -->
+    <div *ngIf="showInviteForm" class="card mb-6">
+      <div class="card-body py-4">
+        <h5 class="mb-3">Generate Invite Token</h5>
+        <div class="d-flex gap-3 align-items-center mb-3">
+          <input type="email" class="form-control form-control-solid form-control-sm w-250px" placeholder="Email (optional)" [(ngModel)]="inviteEmail" />
+          <button class="btn btn-sm btn-primary" (click)="generateInvite()" [disabled]="inviting">
+            <span *ngIf="!inviting">Generate</span>
+            <span *ngIf="inviting">...</span>
+          </button>
+        </div>
+        <div *ngIf="inviteError" class="text-danger fs-7">{{ inviteError }}</div>
+        <div *ngIf="inviteToken" class="d-flex gap-2 align-items-center">
+          <input type="text" class="form-control form-control-sm form-control-solid" [value]="inviteToken" readonly />
+          <button class="btn btn-sm btn-light" (click)="copyToken()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x mb-5 fs-6">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'ranking'" (click)="activeTab = 'ranking'" role="button">
+          Ranking
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'members'" (click)="activeTab = 'members'" role="button">
+          Members
+        </a>
+      </li>
+    </ul>
+
+    <!-- Ranking tab -->
+    <div *ngIf="activeTab === 'ranking'">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+              <thead>
+                <tr class="fw-bolder text-muted bg-light">
+                  <th class="ps-4 w-50px rounded-start">Rank</th>
+                  <th>Athlete</th>
+                  <th class="text-end">Points</th>
+                  <th class="text-end rounded-end pe-4">PRs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let entry of ranking">
+                  <td class="ps-4">
+                    <span class="fw-bold fs-5" [class.text-warning]="entry.rank === 1" [class.text-secondary]="entry.rank === 2" [class.text-info]="entry.rank === 3">
+                      #{{ entry.rank }}
+                    </span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="symbol symbol-40px me-3">
+                        <img *ngIf="entry.avatarUrl" [src]="entry.avatarUrl" alt="avatar" />
+                        <span *ngIf="!entry.avatarUrl" class="symbol-label bg-light-primary text-primary fw-bold">
+                          {{ entry.displayName.charAt(0).toUpperCase() }}
+                        </span>
+                      </div>
+                      <span class="fw-semibold">{{ entry.displayName }}</span>
+                    </div>
+                  </td>
+                  <td class="text-end fw-bold text-primary">{{ entry.points }}</td>
+                  <td class="text-end pe-4 text-muted">{{ entry.totalPrs }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="ranking.length === 0" class="text-center py-10 text-muted">No activity yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members tab -->
+    <div *ngIf="activeTab === 'members'">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+              <thead>
+                <tr class="fw-bolder text-muted bg-light">
+                  <th class="ps-4 rounded-start">Member</th>
+                  <th class="rounded-end pe-4">Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let m of members">
+                  <td class="ps-4">
+                    <div class="d-flex align-items-center">
+                      <div class="symbol symbol-40px me-3">
+                        <img *ngIf="m.avatarUrl" [src]="m.avatarUrl" alt="avatar" />
+                        <span *ngIf="!m.avatarUrl" class="symbol-label bg-light-success text-success fw-bold">
+                          {{ m.displayName.charAt(0).toUpperCase() }}
+                        </span>
+                      </div>
+                      <div>
+                        <span class="fw-semibold">{{ m.displayName }}</span>
+                        <span *ngIf="m.isOwner" class="badge badge-light-warning ms-2 fs-8">Owner</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="pe-4 text-muted fs-7">{{ m.joinedAt | date:'mediumDate' }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="members.length === 0" class="text-center py-10 text-muted">No members yet.</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

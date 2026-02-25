@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --version)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(ng version)",
+      "Bash(dotnet new sln -n RepLeague)",
+      "Bash(dotnet new classlib -n RepLeague.Domain -o src/RepLeague.Domain)",
+      "Bash(dotnet new classlib -n RepLeague.Application -o src/RepLeague.Application)",
+      "Bash(dotnet new classlib -n RepLeague.Infrastructure -o src/RepLeague.Infrastructure)",
+      "Bash(dotnet new webapi -n RepLeague.API -o src/RepLeague.API)",
+      "Bash(dotnet sln add src/RepLeague.Domain/RepLeague.Domain.csproj src/RepLeague.Application/RepLeague.Application.csproj src/RepLeague.Infrastructure/RepLeague.Infrastructure.csproj src/RepLeague.API/RepLeague.API.csproj)",
+      "Bash(npm install -g @angular/cli@latest)",
+      "Bash(dotnet add src/RepLeague.Infrastructure/RepLeague.Infrastructure.csproj package Microsoft.EntityFrameworkCore.SqlServer)",
+      "Bash(dotnet add src/RepLeague.Infrastructure/RepLeague.Infrastructure.csproj package Microsoft.EntityFrameworkCore.Tools)",
+      "Bash(dotnet add src/RepLeague.Application/RepLeague.Application.csproj package MediatR)",
+      "Bash(dotnet add src/RepLeague.Application/RepLeague.Application.csproj package FluentValidation.DependencyInjectionExtensions)",
+      "Bash(dotnet add src/RepLeague.Application/RepLeague.Application.csproj package AutoMapper)",
+      "Bash(dotnet add src/RepLeague.API/RepLeague.API.csproj package Microsoft.AspNetCore.Authentication.JwtBearer)",
+      "Bash(dotnet add src/RepLeague.API/RepLeague.API.csproj package Swashbuckle.AspNetCore)",
+      "Bash(dotnet add src/RepLeague.Infrastructure/RepLeague.Infrastructure.csproj package Azure.Storage.Blobs)",
+      "Bash(dotnet add src/RepLeague.Infrastructure/RepLeague.Infrastructure.csproj package SendGrid)",
+      "Bash(dotnet build)",
+      "Bash(ng build --configuration=development)"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+# ── Backend ───────────────────────────────────────────────────────────────────
+backend/src/**/bin/
+backend/src/**/obj/
+backend/**/*.user
+backend/**/.vs/
+backend/**/appsettings.Development.json
+
+# ── Frontend ──────────────────────────────────────────────────────────────────
+frontend/**/node_modules/
+frontend/**/dist/
+frontend/**/.angular/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ncrunch*
+.DS_Store
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+**/appsettings.Production.json
+**/.env
+**/*.pfx
+**/*.p12
