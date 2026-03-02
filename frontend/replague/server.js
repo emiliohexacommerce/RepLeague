@@ -4,7 +4,7 @@ const path = require('path');
 const url = require('url');
 
 const PORT = process.env.PORT || 8080;
-const DIST_DIR = path.join(__dirname);
+const DIST_DIR = path.join(__dirname, 'dist');
 
 const mimeTypes = {
   '.html': 'text/html',
