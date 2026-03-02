@@ -1,0 +1,30 @@
+ASUNTO: Restablece tu contraseña de RepLeague
+
+---
+
+RepLeague — Seguridad de cuenta
+
+---
+
+Hola, {{ first_name }}.
+
+Recibimos una solicitud para restablecer la contraseña de tu cuenta en RepLeague. Si fuiste tú, usa el enlace a continuación.
+
+RESTABLECER CONTRASEÑA:
+{{ reset_url }}
+
+Este enlace expira en {{ token_exp_minutes }} minutos.
+
+---
+
+IMPORTANTE: Si no solicitaste este cambio, ignora este correo con seguridad.
+Tu contraseña actual no cambiará y tu cuenta permanecerá protegida.
+
+---
+
+¿Tienes preguntas? Contáctanos en:
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

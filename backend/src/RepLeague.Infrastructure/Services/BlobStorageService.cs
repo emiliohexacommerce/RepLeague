@@ -16,7 +16,14 @@ public class BlobStorageService(IConfiguration configuration) : IBlobStorageServ
     {
         var container = await GetContainerAsync(ct);
 
-        var blobName = $"avatars/{userId}/{Guid.NewGuid()}";
+        var ext = contentType switch
+        {
+            "image/jpeg" => ".jpg",
+            "image/png"  => ".png",
+            "image/webp" => ".webp",
+            _            => ""
+        };
+        var blobName = $"avatars/{userId}/{Guid.NewGuid()}{ext}";
         var blobClient = container.GetBlobClient(blobName);
 
         await blobClient.UploadAsync(fileStream, new BlobHttpHeaders { ContentType = contentType }, cancellationToken: ct);

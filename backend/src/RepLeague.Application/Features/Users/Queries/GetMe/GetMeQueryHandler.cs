@@ -26,7 +26,15 @@ public class GetMeQueryHandler(IAppDbContext db) : IRequestHandler<GetMeQuery, P
             user.Country,
             user.Bio,
             user.CreatedAt,
-            new UserStatsDto(totalWorkouts, totalPrs, leagueCount)
+            new UserStatsDto(totalWorkouts, totalPrs, leagueCount),
+            user.Phone,
+            user.BirthDate,
+            user.City,
+            user.GymName,
+            user.Units,
+            user.OneRmMethod,
+            user.Visibility,
+            user.MarketingConsent
         );
     }
 }

@@ -1,0 +1,147 @@
+<!--begin::Page header-->
+<div class="d-flex flex-wrap flex-stack mb-6">
+  <h3 class="fw-bolder my-2">{{ 'PRS.TITLE' | translate }}</h3>
+</div>
+<!--end::Page header-->
+
+<!--begin::Loading-->
+<div *ngIf="loading" class="text-center py-20">
+  <span class="spinner-border text-primary" role="status"></span>
+</div>
+<!--end::Loading-->
+
+<!--begin::Error-->
+<div *ngIf="error && !loading" class="alert alert-danger">{{ error }}</div>
+<!--end::Error-->
+
+<ng-container *ngIf="!loading">
+
+  <!--begin::Stats row-->
+  <div class="row g-5 g-xl-8 mb-6">
+    <div class="col-xl-4">
+      <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-100"
+           style="background-color:#F1416C;background-image:url('/assets/media/patterns/vector-4.png')">
+        <div class="card-header pt-5">
+          <div class="card-title d-flex flex-column">
+            <span class="fs-2hx fw-bold text-white me-2">{{ allPrs.length }}</span>
+            <span class="text-white opacity-75 fs-7 fw-semibold">{{ 'PRS.TOTAL_PRS' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-100"
+           style="background-color:#7239EA;background-image:url('/assets/media/patterns/vector-4.png')">
+        <div class="card-header pt-5">
+          <div class="card-title d-flex flex-column">
+            <span class="fs-2hx fw-bold text-white me-2">{{ strengthCount }}</span>
+            <span class="text-white opacity-75 fs-7 fw-semibold">{{ 'PRS.STRENGTH_PRS' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4">
+      <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-100"
+           style="background-color:#009EF7;background-image:url('/assets/media/patterns/vector-4.png')">
+        <div class="card-header pt-5">
+          <div class="card-title d-flex flex-column">
+            <span class="fs-2hx fw-bold text-white me-2">{{ wodCount }}</span>
+            <span class="text-white opacity-75 fs-7 fw-semibold">{{ 'PRS.WOD_PRS' | translate }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Stats row-->
+
+  <!--begin::Filter tabs-->
+  <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder mb-6">
+    <li class="nav-item">
+      <a class="nav-link text-active-primary cursor-pointer"
+         [class.active]="activeTab === 'all'"
+         (click)="activeTab = 'all'">
+        {{ 'PRS.ALL' | translate }} ({{ allPrs.length }})
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-active-primary cursor-pointer"
+         [class.active]="activeTab === 'Strength'"
+         (click)="activeTab = 'Strength'">
+        {{ 'PRS.STRENGTH' | translate }} ({{ strengthCount }})
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-active-primary cursor-pointer"
+         [class.active]="activeTab === 'WOD'"
+         (click)="activeTab = 'WOD'">
+        {{ 'PRS.WOD' | translate }} ({{ wodCount }})
+      </a>
+    </li>
+  </ul>
+  <!--end::Filter tabs-->
+
+  <!--begin::Empty state-->
+  <div *ngIf="filtered.length === 0" class="card">
+    <div class="card-body text-center py-20">
+      <app-keenicon name="trophy" class="fs-5x text-muted mb-5 d-block"></app-keenicon>
+      <h4 class="fw-bold text-gray-600 mb-2">{{ 'PRS.EMPTY_TITLE' | translate }}</h4>
+      <p class="text-muted">{{ 'PRS.EMPTY_SUBTITLE' | translate }}</p>
+      <a routerLink="/workouts" class="btn btn-primary mt-4">
+        {{ 'PRS.LOG_WORKOUT' | translate }}
+      </a>
+    </div>
+  </div>
+  <!--end::Empty state-->
+
+  <!--begin::PR cards-->
+  <div *ngIf="filtered.length > 0" class="row g-5">
+    <div *ngFor="let pr of filtered" class="col-md-6 col-xl-4">
+      <div class="card card-flush h-100">
+        <div class="card-header align-items-center">
+          <div class="card-title">
+            <span class="fw-bold fs-5 text-gray-800">{{ pr.name }}</span>
+          </div>
+          <div class="card-toolbar">
+            <span class="badge"
+                  [class.badge-light-primary]="pr.type === 'Strength'"
+                  [class.badge-light-info]="pr.type === 'WOD'">
+              {{ pr.type === 'Strength' ? ('PRS.STRENGTH' | translate) : ('PRS.WOD' | translate) }}
+            </span>
+          </div>
+        </div>
+        <div class="card-body pt-3">
+          <!--begin::Strength PR-->
+          <ng-container *ngIf="pr.type === 'Strength'">
+            <div class="d-flex align-items-center mb-3">
+              <span class="fs-2hx fw-bold text-primary me-2">{{ pr.weightKg }}</span>
+              <span class="text-muted fs-5 fw-semibold">kg</span>
+              <span class="ms-3 badge badge-light-success fs-7">🏆 PR</span>
+            </div>
+            <div class="text-muted fs-7">
+              {{ pr.sets }} {{ 'PRS.SETS' | translate }} × {{ pr.reps }} {{ 'PRS.REPS' | translate }}
+            </div>
+          </ng-container>
+          <!--end::Strength PR-->
+
+          <!--begin::WOD PR-->
+          <ng-container *ngIf="pr.type === 'WOD'">
+            <div class="d-flex align-items-center mb-3">
+              <span class="fs-2hx fw-bold text-info me-2">{{ pr.duration }}</span>
+              <span class="ms-3 badge badge-light-success fs-7">🏆 PR</span>
+            </div>
+            <div class="text-muted fs-7">{{ 'PRS.BEST_TIME' | translate }}</div>
+          </ng-container>
+          <!--end::WOD PR-->
+
+          <div class="separator my-4"></div>
+          <div class="text-muted fs-8">
+            <app-keenicon name="calendar" class="fs-7 me-1"></app-keenicon>
+            {{ formatDate(pr.achievedAt) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::PR cards-->
+
+</ng-container>

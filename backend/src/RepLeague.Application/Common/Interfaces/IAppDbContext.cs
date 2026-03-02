@@ -14,6 +14,13 @@ public interface IAppDbContext
     DbSet<Invitation> Invitations { get; }
     DbSet<RankingEntry> RankingEntries { get; }
     DbSet<RefreshToken> RefreshTokens { get; }
+    DbSet<WodEntry> WodEntries { get; }
+    DbSet<WodExercise> WodExercises { get; }
+    DbSet<WodResultAmrap> WodResultAmraps { get; }
+    DbSet<WodResultEmom> WodResultEmoms { get; }
+    DbSet<LiftSession> LiftSessions { get; }
+    DbSet<StrengthSet> StrengthSets { get; }
+    DbSet<PushSubscription> PushSubscriptions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

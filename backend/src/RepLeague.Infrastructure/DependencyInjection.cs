@@ -21,6 +21,7 @@ public static class DependencyInjection
         services.AddScoped<IPasswordHasher, PasswordHashingService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IBlobStorageService, BlobStorageService>();
+        services.AddScoped<IWebPushService, WebPushService>();
 
         return services;
     }

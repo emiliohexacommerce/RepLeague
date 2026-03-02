@@ -8,7 +8,7 @@ using RepLeague.Domain.Enums;
 
 namespace RepLeague.Application.Features.Leagues.Commands.JoinLeague;
 
-public class JoinLeagueCommandHandler(IAppDbContext db)
+public class JoinLeagueCommandHandler(IAppDbContext db, IEmailService emailService)
     : IRequestHandler<JoinLeagueCommand, LeagueDto>
 {
     public async Task<LeagueDto> Handle(JoinLeagueCommand request, CancellationToken ct)
@@ -41,12 +41,32 @@ public class JoinLeagueCommandHandler(IAppDbContext db)
             JoinedAt = DateTime.UtcNow
         };
 
+        // Calculate historical points from workouts done before joining
+        var historicalStats = await db.Workouts
+            .Where(w => w.UserId == request.UserId)
+            .GroupBy(w => w.UserId)
+            .Select(g => new
+            {
+                WorkoutCount = g.Count(),
+                PrCount = g.Count(w => w.IsPR)
+            })
+            .FirstOrDefaultAsync(ct);
+
+        const int PointsPerWorkout = 10;
+        const int PointsPerPr = 30;
+
+        var workoutCount = historicalStats?.WorkoutCount ?? 0;
+        var prCount = historicalStats?.PrCount ?? 0;
+        var historicalPoints = workoutCount * PointsPerWorkout + prCount * PointsPerPr;
+
         var rankingEntry = new RankingEntry
         {
             Id = Guid.NewGuid(),
             LeagueId = invitation.LeagueId,
             UserId = request.UserId,
-            Points = 0,
+            Points = historicalPoints,
+            WorkoutCount = workoutCount,
+            PrCount = prCount,
             UpdatedAt = DateTime.UtcNow
         };
 
@@ -58,8 +78,41 @@ public class JoinLeagueCommandHandler(IAppDbContext db)
             .CountAsync(m => m.LeagueId == invitation.LeagueId, ct);
 
         var l = invitation.League;
+
+        // Notify league owner — fire-and-forget
+        _ = NotifyOwnerAsync(l.OwnerUserId, request.UserId, l.Id, l.Name, ct);
+
         return new LeagueDto(
             l.Id, l.OwnerUserId, l.Name, l.Description, l.ImageUrl,
             memberCount, l.OwnerUserId == request.UserId, l.CreatedAt);
+    }
+
+    private async Task NotifyOwnerAsync(
+        Guid ownerId, Guid newMemberId, Guid leagueId, string leagueName, CancellationToken ct)
+    {
+        try
+        {
+            var owner = await db.Users
+                .Where(u => u.Id == ownerId)
+                .Select(u => new { u.Email, u.DisplayName })
+                .FirstOrDefaultAsync(ct);
+
+            var newMemberName = await db.Users
+                .Where(u => u.Id == newMemberId)
+                .Select(u => u.DisplayName)
+                .FirstOrDefaultAsync(ct) ?? "Un atleta";
+
+            if (owner == null) return;
+
+            var ownerFirstName = owner.DisplayName.Split(' ')[0];
+            var leagueUrl = $"/leagues/{leagueId}";
+
+            await emailService.SendInvitationAcceptedEmailAsync(
+                owner.Email, ownerFirstName, newMemberName, leagueName, leagueUrl, ct);
+        }
+        catch
+        {
+            // Email failure must not affect the join flow
+        }
     }
 }

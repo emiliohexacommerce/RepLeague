@@ -1,0 +1,49 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "Tu invitación a {{ league_name }} vence pronto",
+      "Último aviso — {{ league_name }} te espera",
+      "Quedan pocas horas para unirte a {{ league_name }}"
+    ],
+    "preheader": "No pierdas tu lugar en la liga. Vence el {{ expires_at }}.",
+    "type": "transactional",
+    "variables": {
+      "first_name": { "required": true, "type": "string", "description": "Nombre del destinatario invitado" },
+      "inviter_name": { "required": true, "type": "string", "description": "Nombre del usuario que envió la invitación original" },
+      "league_name": { "required": true, "type": "string", "description": "Nombre de la liga a la que se invita" },
+      "join_url": { "required": true, "type": "string", "description": "URL con token para unirse a la liga (el mismo que la invitación original)" },
+      "expires_at": { "required": true, "type": "string", "description": "Fecha/hora formateada de expiración de la invitación (ej: '15 feb 2026')" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "Enviar este recordatorio 24-48h antes de la expiración del token de invitación",
+      "Solo enviar UN recordatorio por invitación — no programar múltiples",
+      "Verificar que el token join_url aún sea válido al momento del envío",
+      "No incluir enlace de desuscripción — es email transaccional de una invitación activa",
+      "El banner urgente negro debe contrastar bien en modo oscuro de clientes email"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "Tu invitación a {{ league_name }} vence pronto",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "inviter_name": "Felipe",
+        "league_name": "Team Quilicura",
+        "join_url": "https://app.repleague.com/invite/abc123",
+        "expires_at": "15 feb 2026",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}

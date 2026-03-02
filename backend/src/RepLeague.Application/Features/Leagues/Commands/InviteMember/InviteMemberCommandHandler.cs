@@ -55,8 +55,22 @@ public class InviteMemberCommandHandler(IAppDbContext db, IEmailService emailSer
         {
             try
             {
+                var inviterName = await db.Users
+                    .Where(u => u.Id == request.RequesterId)
+                    .Select(u => u.DisplayName)
+                    .FirstOrDefaultAsync(ct) ?? "Un atleta";
+
+                var recipientDisplayName = await db.Users
+                    .Where(u => u.Email == request.Email.ToLower())
+                    .Select(u => u.DisplayName)
+                    .FirstOrDefaultAsync(ct);
+
+                var firstName = recipientDisplayName != null
+                    ? recipientDisplayName.Split(' ')[0]
+                    : "Atleta";
+
                 await emailService.SendLeagueInvitationAsync(
-                    request.Email, league.Name, joinUrl, ct);
+                    request.Email, league.Name, joinUrl, inviterName, firstName, ct);
             }
             catch
             {

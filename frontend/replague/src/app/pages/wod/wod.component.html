@@ -1,0 +1,288 @@
+<!-- WOD History Page -->
+<div class="d-flex flex-column flex-column-fluid">
+  <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <div class="app-container container-xxl d-flex flex-stack">
+      <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+        <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+          {{ 'WOD.TITLE' | translate }}
+        </h1>
+      </div>
+      <button class="btn btn-sm btn-primary" (click)="toggleForm()">
+        <app-keenicon name="plus" class="fs-2"></app-keenicon>
+        {{ showForm ? ('WOD.CANCEL' | translate) : ('WOD.LOG_WOD' | translate) }}
+      </button>
+    </div>
+  </div>
+
+  <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div class="app-container container-xxl">
+
+      <!-- Alerts -->
+      <div *ngIf="error" class="alert alert-danger d-flex align-items-center mb-5">
+        <app-keenicon name="shield-cross" class="fs-2hx text-danger me-4"></app-keenicon>
+        <div>{{ error }}</div>
+      </div>
+      <div *ngIf="successMessage" class="alert alert-success d-flex align-items-center mb-5">
+        <app-keenicon name="check-circle" class="fs-2hx text-success me-4"></app-keenicon>
+        <div>{{ successMessage }}</div>
+      </div>
+
+      <!-- ── Log WOD Form ──────────────────────────────────────────────────── -->
+      <div *ngIf="showForm" class="card card-flush mb-8 shadow-sm">
+        <div class="card-header pt-6">
+          <h3 class="card-title fw-bold text-gray-900">{{ 'WOD.LOG_WOD' | translate }}</h3>
+        </div>
+        <div class="card-body pt-0">
+          <form [formGroup]="wodForm" (ngSubmit)="submit()">
+
+            <!-- Row 1: Type, Date, Title -->
+            <div class="row g-5 mb-5">
+              <div class="col-md-3">
+                <label class="form-label required">{{ 'WOD.TYPE' | translate }}</label>
+                <select class="form-select form-select-solid" formControlName="type">
+                  <option *ngFor="let t of wodTypes" [value]="t">{{ t }}</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label required">{{ 'WOD.DATE' | translate }}</label>
+                <input type="date" class="form-control form-control-solid" formControlName="date" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">{{ 'WOD.TITLE' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" formControlName="title"
+                  placeholder="e.g. Fran, Helen, or custom" />
+              </div>
+              <div class="col-md-2 d-flex align-items-end pb-2">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="rxSwitch" formControlName="rxScaled" />
+                  <label class="form-check-label fw-bold" for="rxSwitch">Rx</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Time Cap + Elapsed (time-based) -->
+            <div *ngIf="isTimeBased" class="row g-5 mb-5">
+              <div class="col-md-3">
+                <label class="form-label">{{ 'WOD.TIME_CAP' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" formControlName="timeCap"
+                  placeholder="mm:ss" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label required">{{ 'WOD.ELAPSED_TIME' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" formControlName="elapsedTime"
+                  placeholder="mm:ss" />
+              </div>
+            </div>
+
+            <!-- AMRAP result -->
+            <div *ngIf="isAmrap" class="row g-5 mb-5">
+              <div class="col-md-3">
+                <label class="form-label required">{{ 'WOD.AMRAP_ROUNDS' | translate }}</label>
+                <input type="number" min="0" class="form-control form-control-solid" formControlName="amrapRoundsCompleted" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">{{ 'WOD.AMRAP_EXTRA_REPS' | translate }}</label>
+                <input type="number" min="0" class="form-control form-control-solid" formControlName="amrapExtraReps" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">{{ 'WOD.TIME_CAP' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" formControlName="timeCap" placeholder="mm:ss" />
+              </div>
+            </div>
+
+            <!-- EMOM result -->
+            <div *ngIf="isEmom" class="row g-5 mb-5">
+              <div class="col-md-3">
+                <label class="form-label required">{{ 'WOD.EMOM_TOTAL_MINUTES' | translate }}</label>
+                <input type="number" min="1" class="form-control form-control-solid" formControlName="emomTotalMinutes" />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">{{ 'WOD.EMOM_INTERVALS_DONE' | translate }}</label>
+                <input type="number" min="0" class="form-control form-control-solid" formControlName="emomIntervalsDone" />
+              </div>
+            </div>
+
+            <!-- Exercises -->
+            <div class="separator separator-dashed my-5"></div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h5 class="fw-bold text-gray-700 mb-0">{{ 'WOD.EXERCISES' | translate }}</h5>
+              <button type="button" class="btn btn-sm btn-light-primary" (click)="addExercise()">
+                <app-keenicon name="plus" class="fs-3"></app-keenicon>
+                {{ 'WOD.ADD_EXERCISE' | translate }}
+              </button>
+            </div>
+
+            <div formArrayName="exercises">
+              <div *ngFor="let ex of exercises.controls; let i = index" [formGroupName]="i"
+                class="card card-dashed mb-4 p-4">
+                <div class="row g-3 align-items-end">
+                  <div class="col-md-3">
+                    <label class="form-label required">{{ 'WOD.EXERCISE_NAME' | translate }}</label>
+                    <input type="text" class="form-control form-control-solid" formControlName="name"
+                      placeholder="e.g. Thruster" />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">{{ 'WOD.MOVEMENT_TYPE' | translate }}</label>
+                    <select class="form-select form-select-solid" formControlName="movementType">
+                      <option *ngFor="let m of movementTypes" [value]="m">{{ m }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">{{ 'WOD.LOAD' | translate }}</label>
+                    <div class="input-group">
+                      <input type="number" min="0" step="0.5" class="form-control form-control-solid"
+                        formControlName="loadValue" placeholder="0" />
+                      <select class="form-select form-select-solid w-auto" formControlName="loadUnit"
+                        style="max-width:70px">
+                        <option *ngFor="let u of loadUnits" [value]="u">{{ u }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">{{ 'WOD.REPS' | translate }}</label>
+                    <input type="number" min="1" class="form-control form-control-solid" formControlName="reps" />
+                  </div>
+                  <div class="col-md-2">
+                    <label class="form-label">{{ 'WOD.NOTES' | translate }}</label>
+                    <input type="text" class="form-control form-control-solid" formControlName="notes" />
+                  </div>
+                  <div class="col-md-1 d-flex align-items-end">
+                    <button type="button" class="btn btn-sm btn-light-danger"
+                      (click)="removeExercise(i)" [disabled]="exercises.length === 1">
+                      <app-keenicon name="trash" class="fs-3"></app-keenicon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="mb-5">
+              <label class="form-label">{{ 'WOD.NOTES' | translate }}</label>
+              <textarea class="form-control form-control-solid" rows="2" formControlName="notes"
+                placeholder="{{ 'WOD.NOTES_PLACEHOLDER' | translate }}"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="d-flex justify-content-end gap-3">
+              <button type="button" class="btn btn-light" (click)="toggleForm()">
+                {{ 'WOD.CANCEL' | translate }}
+              </button>
+              <button type="submit" class="btn btn-primary" [disabled]="wodForm.invalid || creating">
+                <span *ngIf="!creating">{{ 'WOD.SAVE' | translate }}</span>
+                <span *ngIf="creating">
+                  <span class="spinner-border spinner-border-sm me-2"></span>
+                  {{ 'COMMON.PLEASE_WAIT' | translate }}
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ── Filter Tabs ────────────────────────────────────────────────────── -->
+      <ul class="nav nav-tabs nav-line-tabs mb-6 fs-6">
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="selectedType === ''"
+            (click)="onTypeFilter('')" style="cursor:pointer">
+            {{ 'WOD.ALL' | translate }}
+          </a>
+        </li>
+        <li class="nav-item" *ngFor="let t of wodTypes">
+          <a class="nav-link" [class.active]="selectedType === t"
+            (click)="onTypeFilter(t)" style="cursor:pointer">
+            {{ t }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- ── Loading spinner ────────────────────────────────────────────────── -->
+      <div *ngIf="loading" class="d-flex justify-content-center py-10">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- ── Empty state ────────────────────────────────────────────────────── -->
+      <div *ngIf="!loading && entries.length === 0" class="text-center py-10">
+        <app-keenicon name="timer" class="fs-5x text-gray-300 mb-4"></app-keenicon>
+        <p class="text-gray-500 fs-5 mb-4">{{ 'WOD.EMPTY_TITLE' | translate }}</p>
+        <p class="text-gray-400 fs-7 mb-6">{{ 'WOD.EMPTY_SUBTITLE' | translate }}</p>
+        <button class="btn btn-primary" (click)="toggleForm()">
+          {{ 'WOD.LOG_WOD' | translate }}
+        </button>
+      </div>
+
+      <!-- ── WOD Entry Cards ────────────────────────────────────────────────── -->
+      <div *ngIf="!loading && entries.length > 0" class="row g-5">
+        <div *ngFor="let entry of entries" class="col-md-6 col-lg-4">
+          <div class="card card-flush h-100 shadow-sm">
+            <div class="card-header pt-5">
+              <div class="card-title flex-column">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="badge {{ wodTypeBadgeClass(entry.type) }} fs-8">{{ entry.type }}</span>
+                  <span *ngIf="!entry.rxScaled" class="badge badge-light-secondary fs-8">Scaled</span>
+                </div>
+                <span class="text-gray-900 fw-bold fs-5">
+                  {{ entry.title || entry.type }}
+                </span>
+                <span class="text-gray-400 fs-7">{{ entry.date }}</span>
+              </div>
+              <div class="card-toolbar">
+                <button class="btn btn-sm btn-icon btn-light-danger" (click)="deleteEntry(entry.id)"
+                  title="{{ 'WOD.DELETE' | translate }}">
+                  <app-keenicon name="trash" class="fs-3"></app-keenicon>
+                </button>
+              </div>
+            </div>
+
+            <div class="card-body pt-3 pb-4">
+              <!-- Time results -->
+              <div *ngIf="entry.elapsedTime" class="d-flex align-items-center gap-2 mb-3">
+                <app-keenicon name="timer" class="fs-3 text-primary"></app-keenicon>
+                <span class="fw-bold text-gray-800">{{ entry.elapsedTime }}</span>
+                <span *ngIf="entry.timeCap" class="text-gray-400 fs-8">/ {{ entry.timeCap }} cap</span>
+              </div>
+
+              <!-- AMRAP result -->
+              <div *ngIf="entry.amrapResult" class="d-flex align-items-center gap-2 mb-3">
+                <app-keenicon name="arrows-circle" class="fs-3 text-success"></app-keenicon>
+                <span class="fw-bold text-gray-800">
+                  {{ entry.amrapResult.roundsCompleted }}+{{ entry.amrapResult.extraReps }} rds
+                </span>
+                <span *ngIf="entry.timeCap" class="text-gray-400 fs-8">in {{ entry.timeCap }}</span>
+              </div>
+
+              <!-- EMOM result -->
+              <div *ngIf="entry.emomResult" class="d-flex align-items-center gap-2 mb-3">
+                <app-keenicon name="time" class="fs-3 text-warning"></app-keenicon>
+                <span class="fw-bold text-gray-800">
+                  {{ entry.emomResult.intervalsDone }}/{{ entry.emomResult.totalMinutes }} intervals
+                </span>
+              </div>
+
+              <!-- Exercises -->
+              <div *ngIf="entry.exercises.length > 0">
+                <p class="text-gray-600 fs-8 fw-bold text-uppercase mb-2">
+                  {{ 'WOD.EXERCISES' | translate }}
+                </p>
+                <div *ngFor="let ex of entry.exercises" class="d-flex align-items-center gap-2 mb-1 fs-8">
+                  <span class="bullet bullet-dot bg-primary"></span>
+                  <span class="text-gray-700">{{ ex.name }}</span>
+                  <span *ngIf="ex.reps" class="text-gray-500">× {{ ex.reps }}</span>
+                  <span *ngIf="ex.loadValue" class="text-gray-500">&#64; {{ ex.loadValue }}{{ ex.loadUnit }}</span>
+                </div>
+              </div>
+
+              <!-- Notes -->
+              <p *ngIf="entry.notes" class="text-gray-500 fs-8 mt-3 mb-0 fst-italic">
+                "{{ entry.notes }}"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

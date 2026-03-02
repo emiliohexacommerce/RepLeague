@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "{{ activity_title }} — RepLeague",
+      "B": "Tienes una nueva notificación en RepLeague",
+      "C": "Algo nuevo te espera en RepLeague"
+    },
+    "preheader": "{{ activity_excerpt }}",
+    "type": "transactional",
+    "variables": {
+      "first_name":        { "required": true,  "type": "string", "description": "Nombre del destinatario" },
+      "activity_title":    { "required": true,  "type": "string", "description": "Título de la actividad/notificación (ej: Felipe superó tu PR en Back Squat)" },
+      "activity_excerpt":  { "required": true,  "type": "string", "description": "Descripción breve de la actividad (≤160 caracteres recomendado)" },
+      "action_url":        { "required": true,  "type": "url",    "description": "Enlace para ver el detalle de la actividad" },
+      "support_url":       { "required": true,  "type": "url",    "description": "URL de soporte" },
+      "preferences_url":   { "required": true,  "type": "url",    "description": "URL de preferencias de email" }
+    },
+    "qa_notes": [
+      "Plantilla genérica — activity_title y activity_excerpt deben ser sanitizados en el backend antes de inyectar",
+      "Evitar HTML en activity_excerpt; solo texto plano",
+      "Verificar que action_url sea una URL válida y absoluta",
+      "Probar asunto A con títulos largos (> 60 chars) para confirmar truncamiento correcto en Gmail"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "{{ activity_title }} — RepLeague",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "activity_title": "Felipe superó tu PR en Back Squat",
+        "activity_excerpt": "Felipe registró 185 kg en Back Squat. ¡Tienes competencia!",
+        "action_url": "https://app.repleague.com/dashboard",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"]
+}

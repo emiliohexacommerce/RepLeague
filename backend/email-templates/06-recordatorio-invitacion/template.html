@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RepLeague — Recordatorio de invitación</title>
+  <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .content-padding { padding: 24px 20px !important; }
+      .btn-full { width: 100% !important; display: block !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F2F2F2;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- Preheader (hidden) -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">No pierdas tu lugar en la liga. Vence el {{ expires_at }}. &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2F2F2;">
+    <tr>
+      <td align="center" style="padding:24px 16px;">
+
+        <!-- Container -->
+        <table role="presentation" class="email-container" width="100%" style="max-width:600px;background-color:#FFFFFF;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color:#FF7A1A;padding:24px 32px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td>
+                    <span style="font-size:24px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Rep<span style="color:#121212;">League</span></span>
+                  </td>
+                  <td align="right">
+                    <span style="font-size:12px;color:rgba(255,255,255,0.8);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Recordatorio</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- URGENT BANNER -->
+          <tr>
+            <td style="background-color:#121212;padding:16px 32px;text-align:center;">
+              <p style="margin:0;font-size:14px;font-weight:700;color:#FF7A1A;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;letter-spacing:0.5px;">
+                &#9201;&#65039;&nbsp; INVITACIÓN POR VENCER
+              </p>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content-padding" style="padding:36px 32px;">
+
+              <!-- Timer icon + heading -->
+              <table role="presentation" width="100%" style="margin:0 0 24px;">
+                <tr>
+                  <td align="center">
+                    <div style="font-size:56px;margin-bottom:16px;line-height:1;">&#9201;&#65039;</div>
+                    <h1 style="margin:0 0 8px;font-size:24px;font-weight:800;color:#121212;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;">¡Hola, {{ first_name }}!</h1>
+                    <p style="margin:0;font-size:15px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;">Todavía tienes una invitación pendiente.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 20px;font-size:15px;color:#2F2F2F;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                <strong>{{ inviter_name }}</strong> te invitó a unirte a la liga <strong>{{ league_name }}</strong> en RepLeague. Aún no has aceptado y el tiempo se acaba.
+              </p>
+
+              <!-- Expiry countdown card -->
+              <table role="presentation" width="100%" style="margin:0 0 24px;">
+                <tr>
+                  <td style="background:linear-gradient(135deg,#E15E0A 0%,#B84D08 100%);border-radius:12px;padding:20px 24px;text-align:center;">
+                    <p style="margin:0 0 4px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:1px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Tu invitación a {{ league_name }} vence el</p>
+                    <p style="margin:0;font-size:26px;font-weight:800;color:#FFFFFF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">{{ expires_at }}</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA Button -->
+              <table role="presentation" width="100%" style="margin:0 0 20px;">
+                <tr>
+                  <td align="center">
+                    <a href="{{ join_url }}" class="btn-full" style="display:inline-block;background-color:#FF7A1A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:44px;line-height:1.2;">
+                      Unirme ahora
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- URL fallback -->
+              <p style="margin:0 0 24px;font-size:12px;color:#9CA3AF;text-align:center;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;word-break:break-all;">
+                Enlace directo:<br>
+                <span style="color:#FF7A1A;">{{ join_url }}</span>
+              </p>
+
+              <!-- Info note -->
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="background-color:#F2F2F2;border-radius:8px;padding:14px 16px;text-align:center;">
+                    <p style="margin:0;font-size:13px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.5;">
+                      Si no quieres unirte, puedes ignorar este correo. No recibirás más recordatorios sobre esta invitación.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:#F2F2F2;padding:24px 32px;border-top:1px solid #E5E5E5;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="font-size:12px;color:#6B7280;text-align:center;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                    <p style="margin:0 0 8px;">© 2026 RepLeague. Todos los derechos reservados.</p>
+                    <p style="margin:0 0 8px;">
+                      <a href="{{ support_url }}" style="color:#FF7A1A;text-decoration:none;">Soporte</a>
+                      &nbsp;·&nbsp;
+                      <a href="{{ preferences_url }}" style="color:#FF7A1A;text-decoration:none;">Preferencias</a>
+                    </p>
+                    <p style="margin:0;color:#9CA3AF;">RepLeague · Santiago, Chile</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

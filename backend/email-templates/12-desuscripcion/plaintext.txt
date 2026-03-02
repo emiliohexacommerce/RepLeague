@@ -1,0 +1,24 @@
+ASUNTO: Te dimos de baja de {{ list_name }} en RepLeague
+
+RepLeague
+=========================================
+
+✅ DESUSCRIPCIÓN CONFIRMADA
+
+Hola {{ first_name }}, tu solicitud fue procesada exitosamente.
+
+LISTA DESACTIVADA
+-----------------
+  {{ list_name }}
+
+IMPORTANTE: Seguirás recibiendo emails esenciales de tu cuenta (verificación, seguridad, contraseña), ya que son necesarios para el funcionamiento del servicio.
+
+¿CAMBIASTE DE OPINIÓN?
+-----------------------
+Puedes volver a activar esta lista cuando quieras:
+{{ resubscribe_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias de email: {{ preferences_url }}
+© 2026 RepLeague · Santiago, Chile

@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -11,7 +12,12 @@ using RepLeague.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // ── Controllers ───────────────────────────────────────────────────────────────
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 
 // ── Swagger / OpenAPI ─────────────────────────────────────────────────────────
 builder.Services.AddEndpointsApiExplorer();
@@ -87,10 +93,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// ── Serve static files from wwwroot (Angular build output) ────────────────────
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.UseCors("AllowFrontend");
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+// ── Fallback to index.html for Angular routing ────────────────────────────────
+app.MapFallbackToFile("index.html");
 
 app.Run();

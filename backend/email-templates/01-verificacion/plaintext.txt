@@ -1,0 +1,34 @@
+ASUNTO: Confirma tu cuenta en RepLeague
+
+---
+
+RepLeague — Confirmación de cuenta
+
+---
+
+Hola, {{ first_name }}.
+
+Gracias por registrarte en RepLeague. Para activar tu cuenta y empezar a competir, confirma tu dirección de email.
+
+TU CÓDIGO DE VERIFICACIÓN:
+
+  {{ verification_code }}
+
+Este código expira en 24 horas.
+
+O haz clic en el siguiente enlace para verificar tu email directamente:
+
+{{ verification_url }}
+
+---
+
+NOTA DE SEGURIDAD: Este enlace expira en 24 horas. Si no creaste esta cuenta, puedes ignorar este correo con seguridad.
+
+---
+
+¿Tienes preguntas? Contáctanos en:
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

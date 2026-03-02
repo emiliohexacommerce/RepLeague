@@ -38,8 +38,8 @@ export class LeaguesService {
     return this.http.post<{ token: string }>(`${this.url}/${leagueId}/invite`, { email });
   }
 
-  joinLeague(token: string): Observable<void> {
-    return this.http.post<void>(`${this.url}/join/${token}`, {});
+  joinLeague(token: string): Observable<League> {
+    return this.http.post<League>(`${this.url}/join/${token}`, {});
   }
 
   removeMember(leagueId: string, userId: string): Observable<void> {

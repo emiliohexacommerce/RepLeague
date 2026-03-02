@@ -1,0 +1,106 @@
+<!-- Loading -->
+<div *ngIf="state === 'loading'" class="d-flex flex-column align-items-center justify-content-center min-h-300px py-20">
+  <span class="spinner-border spinner-border-lg text-primary mb-4" style="width:3rem;height:3rem"></span>
+  <p class="text-gray-600 fw-semibold fs-5">Validando invitación…</p>
+</div>
+
+<!-- Success -->
+<div *ngIf="state === 'success'" class="d-flex justify-content-center py-10">
+  <div class="card shadow-sm w-100 mw-500px">
+    <div class="card-body text-center py-12 px-10">
+      <div class="mb-6">
+        <span class="svg-icon svg-icon-5x text-success d-inline-block">
+          <i class="ki-outline ki-shield-tick fs-5x text-success"></i>
+        </span>
+      </div>
+      <h2 class="fs-2x fw-bold text-gray-900 mb-3">¡Te has unido!</h2>
+      <p class="fs-5 text-gray-600 mb-2">Ahora eres miembro de</p>
+      <p class="fs-3 fw-bold text-primary mb-8">{{ league?.name }}</p>
+      <div class="d-flex flex-column gap-3">
+        <button class="btn btn-primary w-100" (click)="goToLeague()">
+          <i class="ki-outline ki-arrow-right fs-4 me-2"></i>
+          Ver la liga
+        </button>
+        <button class="btn btn-light w-100" (click)="goToLeagues()">
+          Mis ligas
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Already member -->
+<div *ngIf="state === 'already_member'" class="d-flex justify-content-center py-10">
+  <div class="card shadow-sm w-100 mw-500px">
+    <div class="card-body text-center py-12 px-10">
+      <div class="mb-6">
+        <i class="ki-outline ki-information-2 fs-5x text-warning"></i>
+      </div>
+      <h2 class="fs-2x fw-bold text-gray-900 mb-3">Ya eres miembro</h2>
+      <p class="fs-5 text-gray-600 mb-8">Ya perteneces a esta liga. No es necesario unirte de nuevo.</p>
+      <div class="d-flex flex-column gap-3">
+        <button class="btn btn-primary w-100" (click)="goToLeague()">
+          <i class="ki-outline ki-arrow-right fs-4 me-2"></i>
+          Ir a la liga
+        </button>
+        <button class="btn btn-light w-100" (click)="goToLeagues()">
+          Mis ligas
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Expired / used -->
+<div *ngIf="state === 'expired'" class="d-flex justify-content-center py-10">
+  <div class="card shadow-sm w-100 mw-500px">
+    <div class="card-body text-center py-12 px-10">
+      <div class="mb-6">
+        <i class="ki-outline ki-time fs-5x text-danger"></i>
+      </div>
+      <h2 class="fs-2x fw-bold text-gray-900 mb-3">Invitación vencida</h2>
+      <p class="fs-5 text-gray-600 mb-8">
+        Este enlace de invitación ya fue utilizado o expiró (válido por 7 días).<br>
+        Solicita una nueva invitación al dueño de la liga.
+      </p>
+      <button class="btn btn-light w-100" (click)="goToLeagues()">
+        Ir a mis ligas
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Not found -->
+<div *ngIf="state === 'not_found'" class="d-flex justify-content-center py-10">
+  <div class="card shadow-sm w-100 mw-500px">
+    <div class="card-body text-center py-12 px-10">
+      <div class="mb-6">
+        <i class="ki-outline ki-cross-circle fs-5x text-danger"></i>
+      </div>
+      <h2 class="fs-2x fw-bold text-gray-900 mb-3">Invitación no encontrada</h2>
+      <p class="fs-5 text-gray-600 mb-8">
+        El enlace de invitación no es válido o no existe.<br>
+        Verifica el enlace o solicita una nueva invitación.
+      </p>
+      <button class="btn btn-light w-100" (click)="goToLeagues()">
+        Ir a mis ligas
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Generic error -->
+<div *ngIf="state === 'error'" class="d-flex justify-content-center py-10">
+  <div class="card shadow-sm w-100 mw-500px">
+    <div class="card-body text-center py-12 px-10">
+      <div class="mb-6">
+        <i class="ki-outline ki-warning-2 fs-5x text-danger"></i>
+      </div>
+      <h2 class="fs-2x fw-bold text-gray-900 mb-3">Error al unirse</h2>
+      <p class="fs-5 text-gray-600 mb-8">{{ errorMessage }}</p>
+      <button class="btn btn-light w-100" (click)="goToLeagues()">
+        Ir a mis ligas
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+ASUNTO: 🏆 {{ podium_1 }} ganó {{ league_name }} — ¡ver resultados!
+
+RepLeague
+=========================================
+
+🏆 TEMPORADA FINALIZADA
+Liga: {{ league_name }}
+
+Hola {{ first_name }}, la temporada de {{ league_name }} ha concluido.
+¡Aquí están los resultados finales!
+
+PODIO FINAL
+-----------
+  🥇 1er lugar : {{ podium_1 }}
+  🥈 2do lugar : {{ podium_2 }}
+  🥉 3er lugar : {{ podium_3 }}
+
+Gracias a todos los competidores por una temporada increíble. ¡El esfuerzo y la dedicación de cada uno es lo que hace grande a RepLeague!
+
+VER RANKING COMPLETO
+--------------------
+{{ leaderboard_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+Desuscribirse: {{ unsubscribe_url }}
+© 2026 RepLeague · Santiago, Chile

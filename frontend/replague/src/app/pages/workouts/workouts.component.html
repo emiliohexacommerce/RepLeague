@@ -1,16 +1,16 @@
 <div class="container-xxl" id="kt_content_container">
   <!-- Header -->
   <div class="d-flex flex-wrap flex-stack mb-6">
-    <h3 class="fw-bolder my-2">My Workouts</h3>
+    <h3 class="fw-bolder my-2">{{ 'WORKOUTS.TITLE' | translate }}</h3>
     <div class="d-flex gap-3 align-items-center flex-wrap my-2">
       <!-- Range filter -->
       <div class="btn-group">
-        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last7'" [class.btn-light]="selectedRange !== 'last7'" (click)="onRangeChange('last7')">7 days</button>
-        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last30'" [class.btn-light]="selectedRange !== 'last30'" (click)="onRangeChange('last30')">30 days</button>
-        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last90'" [class.btn-light]="selectedRange !== 'last90'" (click)="onRangeChange('last90')">90 days</button>
+        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last7'" [class.btn-light]="selectedRange !== 'last7'" (click)="onRangeChange('last7')">{{ 'WORKOUTS.DAYS_7' | translate }}</button>
+        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last30'" [class.btn-light]="selectedRange !== 'last30'" (click)="onRangeChange('last30')">{{ 'WORKOUTS.DAYS_30' | translate }}</button>
+        <button type="button" class="btn btn-sm" [class.btn-primary]="selectedRange === 'last90'" [class.btn-light]="selectedRange !== 'last90'" (click)="onRangeChange('last90')">{{ 'WORKOUTS.DAYS_90' | translate }}</button>
       </div>
       <button class="btn btn-primary btn-sm" (click)="toggleForm()">
-        <i class="ki-duotone ki-plus fs-3"></i> Log Workout
+        <i class="ki-duotone ki-plus fs-3"></i> {{ 'WORKOUTS.LOG_WORKOUT' | translate }}
       </button>
     </div>
   </div>
@@ -22,100 +22,100 @@
   <!-- Create Form -->
   <div *ngIf="showForm" class="card mb-6">
     <div class="card-header">
-      <h4 class="card-title">Log New Workout</h4>
+      <h4 class="card-title">{{ 'WORKOUTS.LOG_TITLE' | translate }}</h4>
       <div class="card-toolbar">
-        <button type="button" class="btn btn-sm btn-light" (click)="toggleForm()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-light" (click)="toggleForm()">{{ 'COMMON.CANCEL' | translate }}</button>
       </div>
     </div>
     <div class="card-body">
       <form [formGroup]="workoutForm" (ngSubmit)="submit()">
         <div class="row g-4">
           <div class="col-md-4">
-            <label class="form-label required">Date</label>
+            <label class="form-label required">{{ 'WORKOUTS.DATE' | translate }}</label>
             <input type="date" class="form-control form-control-solid" formControlName="date" />
           </div>
           <div class="col-md-4">
-            <label class="form-label required">Type</label>
+            <label class="form-label required">{{ 'WORKOUTS.TYPE' | translate }}</label>
             <select class="form-select form-select-solid" formControlName="type">
-              <option value="Strength">Strength</option>
-              <option value="WOD">WOD</option>
-              <option value="Cardio">Cardio</option>
+              <option value="Strength">{{ 'WORKOUTS.STRENGTH' | translate }}</option>
+              <option value="WOD">{{ 'WORKOUTS.WOD' | translate }}</option>
+              <option value="Cardio">{{ 'WORKOUTS.CARDIO' | translate }}</option>
             </select>
           </div>
           <div class="col-md-4">
-            <label class="form-label">Notes</label>
-            <input type="text" class="form-control form-control-solid" formControlName="notes" placeholder="Optional notes" />
+            <label class="form-label">{{ 'WORKOUTS.NOTES' | translate }}</label>
+            <input type="text" class="form-control form-control-solid" formControlName="notes" [placeholder]="'WORKOUTS.OPTIONAL_NOTES' | translate" />
           </div>
         </div>
 
         <!-- Strength exercises -->
         <div *ngIf="workoutType === 'Strength'" class="mt-6">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="mb-0">Exercises</h5>
+            <h5 class="mb-0">{{ 'WORKOUTS.EXERCISES' | translate }}</h5>
             <button type="button" class="btn btn-sm btn-light-primary" (click)="addExercise()">
-              <i class="ki-duotone ki-plus fs-4"></i> Add Exercise
+              <i class="ki-duotone ki-plus fs-4"></i> {{ 'WORKOUTS.ADD_EXERCISE' | translate }}
             </button>
           </div>
           <div formArrayName="exercises">
             <div *ngFor="let ex of exercises.controls; let i = index" [formGroupName]="i" class="row g-3 mb-3 align-items-end">
               <div class="col-md-4">
-                <label class="form-label">Exercise</label>
+                <label class="form-label">{{ 'WORKOUTS.EXERCISE' | translate }}</label>
                 <input type="text" class="form-control form-control-solid form-control-sm" formControlName="exerciseName" placeholder="e.g. Bench Press" />
               </div>
               <div class="col-md-2">
-                <label class="form-label">Sets</label>
+                <label class="form-label">{{ 'WORKOUTS.SETS' | translate }}</label>
                 <input type="number" class="form-control form-control-solid form-control-sm" formControlName="sets" min="1" />
               </div>
               <div class="col-md-2">
-                <label class="form-label">Reps</label>
+                <label class="form-label">{{ 'WORKOUTS.REPS' | translate }}</label>
                 <input type="number" class="form-control form-control-solid form-control-sm" formControlName="reps" min="1" />
               </div>
               <div class="col-md-2">
-                <label class="form-label">Weight (kg)</label>
+                <label class="form-label">{{ 'WORKOUTS.WEIGHT_KG' | translate }}</label>
                 <input type="number" class="form-control form-control-solid form-control-sm" formControlName="weightKg" min="0" step="0.5" />
               </div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-sm btn-light-danger w-100" (click)="removeExercise(i)">Remove</button>
+                <button type="button" class="btn btn-sm btn-light-danger w-100" (click)="removeExercise(i)">{{ 'COMMON.REMOVE' | translate }}</button>
               </div>
             </div>
           </div>
-          <div *ngIf="exercises.length === 0" class="text-muted fs-6 mt-2">No exercises added yet.</div>
+          <div *ngIf="exercises.length === 0" class="text-muted fs-6 mt-2">{{ 'WORKOUTS.NO_EXERCISES' | translate }}</div>
         </div>
 
         <!-- WOD -->
         <div *ngIf="workoutType === 'WOD'" class="mt-6">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="mb-0">WODs</h5>
+            <h5 class="mb-0">{{ 'WORKOUTS.WODS_TITLE' | translate }}</h5>
             <button type="button" class="btn btn-sm btn-light-primary" (click)="addWod()">
-              <i class="ki-duotone ki-plus fs-4"></i> Add WOD
+              <i class="ki-duotone ki-plus fs-4"></i> {{ 'WORKOUTS.ADD_WOD' | translate }}
             </button>
           </div>
           <div formArrayName="wods">
             <div *ngFor="let w of wods.controls; let i = index" [formGroupName]="i" class="row g-3 mb-3 align-items-end">
               <div class="col-md-4">
-                <label class="form-label">WOD Name</label>
+                <label class="form-label">{{ 'WORKOUTS.WOD_NAME' | translate }}</label>
                 <input type="text" class="form-control form-control-solid form-control-sm" formControlName="wodName" placeholder="e.g. Fran" />
               </div>
               <div class="col-md-3">
-                <label class="form-label">Duration (seconds)</label>
+                <label class="form-label">{{ 'WORKOUTS.DURATION' | translate }}</label>
                 <input type="number" class="form-control form-control-solid form-control-sm" formControlName="durationSeconds" min="1" />
               </div>
               <div class="col-md-2">
-                <label class="form-label">Rounds</label>
+                <label class="form-label">{{ 'WORKOUTS.ROUNDS' | translate }}</label>
                 <input type="number" class="form-control form-control-solid form-control-sm" formControlName="rounds" min="1" />
               </div>
               <div class="col-md-3">
-                <button type="button" class="btn btn-sm btn-light-danger w-100" (click)="removeWod(i)">Remove</button>
+                <button type="button" class="btn btn-sm btn-light-danger w-100" (click)="removeWod(i)">{{ 'COMMON.REMOVE' | translate }}</button>
               </div>
             </div>
           </div>
-          <div *ngIf="wods.length === 0" class="text-muted fs-6 mt-2">No WODs added yet.</div>
+          <div *ngIf="wods.length === 0" class="text-muted fs-6 mt-2">{{ 'WORKOUTS.NO_WODS' | translate }}</div>
         </div>
 
         <div class="mt-6">
           <button type="submit" class="btn btn-primary" [disabled]="workoutForm.invalid || creating">
-            <span *ngIf="!creating">Save Workout</span>
-            <span *ngIf="creating">Saving...</span>
+            <span *ngIf="!creating">{{ 'WORKOUTS.SAVE' | translate }}</span>
+            <span *ngIf="creating">{{ 'WORKOUTS.SAVING' | translate }}</span>
           </button>
         </div>
       </form>
@@ -131,8 +131,8 @@
   <div *ngIf="!loading && workouts.length === 0" class="card">
     <div class="card-body text-center py-10">
       <i class="ki-duotone ki-fitness fs-3x text-muted mb-4 d-block"></i>
-      <h4 class="text-muted">No workouts logged yet</h4>
-      <p class="text-muted">Click "Log Workout" to track your first session.</p>
+      <h4 class="text-muted">{{ 'WORKOUTS.EMPTY_TITLE' | translate }}</h4>
+      <p class="text-muted">{{ 'WORKOUTS.EMPTY_SUBTITLE' | translate }}</p>
     </div>
   </div>
 

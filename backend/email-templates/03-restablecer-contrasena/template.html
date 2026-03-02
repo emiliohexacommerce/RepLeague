@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RepLeague — Restablecer contraseña</title>
+  <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .content-padding { padding: 24px 20px !important; }
+      .btn-full { width: 100% !important; display: block !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F2F2F2;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- Preheader (hidden) -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Haz clic para restablecer tu contraseña. Expira en {{ token_exp_minutes }} min. &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2F2F2;">
+    <tr>
+      <td align="center" style="padding:24px 16px;">
+
+        <!-- Container -->
+        <table role="presentation" class="email-container" width="100%" style="max-width:600px;background-color:#FFFFFF;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color:#FF7A1A;padding:24px 32px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td>
+                    <span style="font-size:24px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Rep<span style="color:#121212;">League</span></span>
+                  </td>
+                  <td align="right">
+                    <span style="font-size:12px;color:rgba(255,255,255,0.8);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Seguridad de cuenta</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content-padding" style="padding:40px 32px;">
+
+              <!-- Icon + heading -->
+              <table role="presentation" width="100%" style="margin:0 0 24px;">
+                <tr>
+                  <td align="center">
+                    <div style="width:72px;height:72px;background-color:#FFF7ED;border:2px solid #FDE8CC;border-radius:50%;margin:0 auto 20px;display:inline-block;line-height:72px;text-align:center;font-size:36px;">&#128272;</div>
+                    <h1 style="margin:0 0 8px;font-size:26px;font-weight:800;color:#121212;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;">Restablece tu contraseña</h1>
+                    <p style="margin:0;font-size:15px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;text-align:center;">Hola, <strong style="color:#121212;">{{ first_name }}</strong></p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 24px;font-size:15px;color:#2F2F2F;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                Recibimos una solicitud para restablecer la contraseña de tu cuenta en RepLeague. Si fuiste tú, haz clic en el botón a continuación.
+              </p>
+
+              <!-- CTA Button -->
+              <table role="presentation" width="100%" style="margin:0 0 20px;">
+                <tr>
+                  <td align="center">
+                    <a href="{{ reset_url }}" class="btn-full" style="display:inline-block;background-color:#FF7A1A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:44px;line-height:1.2;">
+                      Restablecer contraseña
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Expiry note -->
+              <table role="presentation" width="100%" style="margin:0 0 24px;">
+                <tr>
+                  <td align="center">
+                    <div style="display:inline-block;background-color:#F2F2F2;border-radius:6px;padding:10px 20px;">
+                      <p style="margin:0;font-size:13px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                        &#8987;&nbsp; Este enlace expira en <strong style="color:#121212;">{{ token_exp_minutes }} minutos</strong>
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Security warning -->
+              <table role="presentation" width="100%" style="margin:24px 0;">
+                <tr>
+                  <td style="background-color:#FEF2F2;border-left:4px solid #EF4444;border-radius:0 8px 8px 0;padding:16px;">
+                    <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#B91C1C;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      &#9888;&#65039; Si no solicitaste esto
+                    </p>
+                    <p style="margin:0;font-size:13px;color:#7F1D1D;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      Ignora este correo con seguridad. Tu contraseña actual no cambiará y tu cuenta permanecerá segura.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="border-top:1px solid #E5E5E5;padding-top:20px;">
+                    <p style="margin:0;font-size:12px;color:#9CA3AF;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;word-break:break-all;">
+                      Si el botón no funciona, copia y pega esta URL en tu navegador:<br>
+                      <span style="color:#FF7A1A;">{{ reset_url }}</span>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:#F2F2F2;padding:24px 32px;border-top:1px solid #E5E5E5;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="font-size:12px;color:#6B7280;text-align:center;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                    <p style="margin:0 0 8px;">© 2026 RepLeague. Todos los derechos reservados.</p>
+                    <p style="margin:0 0 8px;">
+                      <a href="{{ support_url }}" style="color:#FF7A1A;text-decoration:none;">Soporte</a>
+                      &nbsp;·&nbsp;
+                      <a href="{{ preferences_url }}" style="color:#FF7A1A;text-decoration:none;">Preferencias</a>
+                    </p>
+                    <p style="margin:0;color:#9CA3AF;">RepLeague · Santiago, Chile</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

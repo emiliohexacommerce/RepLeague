@@ -8,24 +8,14 @@
         <span class="menu-icon">
           <app-keenicon name="element-11" class="fs-2"></app-keenicon>
         </span>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">{{ 'MENU.DASHBOARD' | translate }}</span>
       </a>
     </div>
     <!-- Separator -->
     <div class="menu-item">
       <div class="menu-content pt-8 pb-2">
-        <span class="menu-section text-muted text-uppercase fs-8 ls-1">RepLeague</span>
+        <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{ 'MENU.SECTION' | translate }}</span>
       </div>
-    </div>
-
-    <!-- Workouts -->
-    <div class="menu-item">
-      <a class="menu-link without-sub" routerLink="/workouts" routerLinkActive="active">
-        <span class="menu-icon">
-          <app-keenicon name="fitness" class="fs-2"></app-keenicon>
-        </span>
-        <span class="menu-title">Workouts</span>
-      </a>
     </div>
 
     <!-- Leagues -->
@@ -34,7 +24,27 @@
         <span class="menu-icon">
           <app-keenicon name="crown" class="fs-2"></app-keenicon>
         </span>
-        <span class="menu-title">Leagues</span>
+        <span class="menu-title">{{ 'MENU.LEAGUES' | translate }}</span>
+      </a>
+    </div>
+
+    <!-- WOD -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/wod" routerLinkActive="active">
+        <span class="menu-icon">
+          <app-keenicon name="timer" class="fs-2"></app-keenicon>
+        </span>
+        <span class="menu-title">{{ 'MENU.WOD' | translate }}</span>
+      </a>
+    </div>
+
+    <!-- Strength -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" routerLink="/strength" routerLinkActive="active">
+        <span class="menu-icon">
+          <app-keenicon name="weight" class="fs-2"></app-keenicon>
+        </span>
+        <span class="menu-title">{{ 'MENU.STRENGTH' | translate }}</span>
       </a>
     </div>
 
@@ -44,7 +54,24 @@
         <span class="menu-icon">
           <app-keenicon name="profile-circle" class="fs-2"></app-keenicon>
         </span>
-        <span class="menu-title">My Profile</span>
+        <span class="menu-title">{{ 'MENU.PROFILE' | translate }}</span>
+      </a>
+    </div>
+
+    <!-- Separator -->
+    <div class="menu-item">
+      <div class="menu-content pt-8 pb-2">
+        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Ayuda</span>
+      </div>
+    </div>
+
+    <!-- Cómo funciona -->
+    <div class="menu-item">
+      <a class="menu-link without-sub" href="/assets/docs/acknowledge.html" target="_blank">
+        <span class="menu-icon">
+          <app-keenicon name="information" class="fs-2"></app-keenicon>
+        </span>
+        <span class="menu-title">Cómo funciona</span>
       </a>
     </div>
   </div>

@@ -1,0 +1,25 @@
+ASUNTO: 🏆 ¡Nuevo PR en {{ movement_name }}, {{ first_name }}!
+
+RepLeague
+=========================================
+
+🏆 ¡PR CONSEGUIDO, {{ first_name }}!
+
+Superaste tu marca personal en {{ movement_name }}. El trabajo duro tiene su recompensa.
+
+RESULTADO
+---------
+  Marca anterior : {{ previous_pr_value }}
+  Nuevo PR ✓     : {{ pr_value }}
+  Movimiento     : {{ movement_name }}
+
+"Cada kilo extra es la prueba de que no te rendiste. Sigue así."
+
+COMPARTE TU LOGRO
+-----------------
+{{ share_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+© 2026 RepLeague · Santiago, Chile

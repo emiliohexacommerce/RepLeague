@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "🏆 ¡Nuevo PR en {{ movement_name }}, {{ first_name }}!",
+      "B": "{{ movement_name }}: {{ pr_value }} — ¡nueva marca personal! 💪",
+      "C": "¡Lo superaste! Tu nuevo récord en {{ movement_name }}"
+    },
+    "preheader": "De {{ previous_pr_value }} a {{ pr_value }}. ¡Eso es progreso real!",
+    "type": "transactional",
+    "variables": {
+      "first_name":          { "required": true,  "type": "string",  "description": "Nombre del atleta" },
+      "movement_name":       { "required": true,  "type": "string",  "description": "Nombre del movimiento/ejercicio (ej: Back Squat)" },
+      "pr_value":            { "required": true,  "type": "string",  "description": "Nuevo valor de PR con unidad (ej: 180 kg)" },
+      "previous_pr_value":   { "required": true,  "type": "string",  "description": "Valor anterior del PR (ej: 175 kg)" },
+      "share_url":           { "required": true,  "type": "url",     "description": "Enlace para compartir el logro" },
+      "support_url":         { "required": true,  "type": "url",     "description": "URL de soporte" },
+      "preferences_url":     { "required": true,  "type": "url",     "description": "URL de preferencias de email" }
+    },
+    "qa_notes": [
+      "Verificar contraste blanco sobre verde #22C55E (ratio ≥4.5:1 ✓)",
+      "El bloque de métricas usa colspan=2 — validar en Outlook",
+      "gradient en hero no renderiza en Outlook; usar background-color:#22C55E como fallback",
+      "Botón mínimo 44px de altura — cumple con padding:14px",
+      "Probar en Gmail Dark Mode: fondo blanco del contenido debe mantenerse",
+      "share_url debe ser una URL pública válida"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "🏆 ¡Nuevo PR en {{ movement_name }}, {{ first_name }}!",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "movement_name": "Back Squat",
+        "pr_value": "180 kg",
+        "previous_pr_value": "175 kg",
+        "share_url": "https://app.repleague.com/share/pr/xyz",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"]
+}

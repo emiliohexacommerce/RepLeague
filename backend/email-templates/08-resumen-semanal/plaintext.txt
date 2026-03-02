@@ -1,0 +1,28 @@
+ASUNTO: Tu resumen semanal está listo, {{ first_name }} 📊
+
+RepLeague — Resumen Semanal
+=========================================
+
+📊 TU SEMANA EN REPLEAGUE
+
+Hola {{ first_name }}, aquí está tu resumen de la semana. ¡Cada sesión cuenta!
+
+MÉTRICAS
+--------
+  🏋️  Sesiones      : {{ sessions_count }}
+  🏆  PRs conseguidos: {{ prs_count }}
+  ⚡  Liga activa    : {{ highlight_league }}
+
+{{#if prs_count}}
+🏆 ¡FELICITACIONES! Conseguiste {{ prs_count }} PR(s) esta semana. Estás avanzando a un ritmo increíble.
+{{/if}}
+
+VER REPORTE COMPLETO
+--------------------
+{{ weekly_report_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+Desuscribirse del Resumen Semanal: {{ unsubscribe_url }}
+© 2026 RepLeague · Santiago, Chile

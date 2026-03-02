@@ -114,7 +114,7 @@ export const DarkHeaderConfig: ILayout = {
     pageLoader: {
       componentName: 'page-loader',
       type: 'none',
-      logoImage: 'default.svg',
+      logoImage: 'logo.png',
       logoClass: 'mh-75px',
     },
   },

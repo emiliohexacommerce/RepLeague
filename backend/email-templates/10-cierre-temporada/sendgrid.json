@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "🏆 {{ podium_1 }} ganó {{ league_name }} — ¡ver resultados!",
+      "B": "Temporada cerrada en {{ league_name }} — ¿dónde quedaste?",
+      "C": "Los resultados finales de {{ league_name }} ya están disponibles"
+    },
+    "preheader": "{{ podium_1 }} lidera el podio. Mira los resultados completos.",
+    "type": "marketing",
+    "asm_group": "Novedades de Liga (ID: 1002)",
+    "variables": {
+      "first_name":      { "required": true,  "type": "string", "description": "Nombre del atleta" },
+      "league_name":     { "required": true,  "type": "string", "description": "Nombre de la liga" },
+      "podium_1":        { "required": true,  "type": "string", "description": "Nombre del ganador del 1er lugar" },
+      "podium_2":        { "required": true,  "type": "string", "description": "Nombre del 2do lugar" },
+      "podium_3":        { "required": true,  "type": "string", "description": "Nombre del 3er lugar" },
+      "leaderboard_url": { "required": true,  "type": "url",    "description": "Enlace al ranking final de la liga" },
+      "support_url":     { "required": true,  "type": "url",    "description": "URL de soporte" },
+      "preferences_url": { "required": true,  "type": "url",    "description": "URL de preferencias" },
+      "unsubscribe_url": { "required": true,  "type": "url",    "description": "URL de desuscripción (ASM)" }
+    },
+    "qa_notes": [
+      "Gradiente en tarjeta de 1er lugar (oro) no renderiza en Outlook — usar background-color:#FEF3C7 como fallback MSO",
+      "Verificar contraste de texto oscuro sobre fondos de podio",
+      "Enviar solo a miembros de la liga — segmentar por league_id",
+      "podium_2 y podium_3 pueden ser opcionales si la liga tiene < 3 participantes — agregar lógica {{#if podium_2}}"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "🏆 {{ podium_1 }} ganó {{ league_name }} — ¡ver resultados!",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "league_name": "Team Quilicura",
+        "podium_1": "Emilio S.",
+        "podium_2": "Felipe R.",
+        "podium_3": "Carlo M.",
+        "leaderboard_url": "https://app.repleague.com/leagues/123/leaderboard",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences",
+        "unsubscribe_url": "https://links.repleague.com/u/unsub?k=token"
+      }
+    }
+  ],
+  "categories": ["repLeague", "marketing"],
+  "asm": {
+    "group_id": 1002,
+    "groups_to_display": [1001, 1002]
+  }
+}

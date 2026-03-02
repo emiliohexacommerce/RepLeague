@@ -23,7 +23,7 @@ public class CreateWorkoutCommandValidator : AbstractValidator<CreateWorkoutComm
             });
         });
 
-        When(x => x.Type == WorkoutType.Wod, () =>
+        When(x => x.Type == WorkoutType.WOD, () =>
         {
             RuleFor(x => x.Wod)
                 .NotNull().WithMessage("A WOD workout must include WOD details.");

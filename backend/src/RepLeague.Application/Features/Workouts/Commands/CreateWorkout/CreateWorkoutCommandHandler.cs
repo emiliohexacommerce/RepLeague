@@ -7,11 +7,13 @@ using RepLeague.Domain.Enums;
 
 namespace RepLeague.Application.Features.Workouts.Commands.CreateWorkout;
 
-public class CreateWorkoutCommandHandler(IAppDbContext db)
+public class CreateWorkoutCommandHandler(IAppDbContext db, IEmailService emailService)
     : IRequestHandler<CreateWorkoutCommand, WorkoutDto>
 {
     private const int PointsPerWorkout = 10;
     private const int PointsPerPr = 30;
+
+    private record PrDetail(string MovementName, string PreviousValue, string NewValue);
 
     public async Task<WorkoutDto> Handle(CreateWorkoutCommand request, CancellationToken ct)
     {
@@ -38,7 +40,7 @@ public class CreateWorkoutCommandHandler(IAppDbContext db)
             }).ToList();
         }
 
-        if (request.Type == WorkoutType.Wod && request.Wod != null)
+        if (request.Type == WorkoutType.WOD && request.Wod != null)
         {
             workout.Wod = new WorkoutWod
             {
@@ -52,7 +54,8 @@ public class CreateWorkoutCommandHandler(IAppDbContext db)
         }
 
         // ── PR Detection ──────────────────────────────────────────────────────
-        workout.IsPR = await DetectPrAsync(workout, request.UserId, ct);
+        var prDetail = await DetectPrDetailsAsync(workout, request.UserId, ct);
+        workout.IsPR = prDetail != null;
 
         db.Workouts.Add(workout);
 
@@ -61,23 +64,27 @@ public class CreateWorkoutCommandHandler(IAppDbContext db)
 
         await db.SaveChangesAsync(ct);
 
+        // ── PR email (fire-and-forget) ────────────────────────────────────────
+        if (prDetail != null)
+            _ = SendPrEmailAsync(request.UserId, prDetail, ct);
+
         return ToDto(workout);
     }
 
     // ── PR Detection ──────────────────────────────────────────────────────────
 
-    private async Task<bool> DetectPrAsync(Workout workout, Guid userId, CancellationToken ct)
+    private async Task<PrDetail?> DetectPrDetailsAsync(Workout workout, Guid userId, CancellationToken ct)
     {
         if (workout.Type == WorkoutType.Strength)
-            return await DetectStrengthPrAsync(workout.Exercises, userId, ct);
+            return await DetectStrengthPrDetailsAsync(workout.Exercises, userId, ct);
 
-        if (workout.Type == WorkoutType.Wod && workout.Wod?.Duration != null)
-            return await DetectWodPrAsync(workout.Wod, userId, ct);
+        if (workout.Type == WorkoutType.WOD && workout.Wod?.Duration != null)
+            return await DetectWodPrDetailsAsync(workout.Wod, userId, ct);
 
-        return false;
+        return null;
     }
 
-    private async Task<bool> DetectStrengthPrAsync(
+    private async Task<PrDetail?> DetectStrengthPrDetailsAsync(
         ICollection<WorkoutExercise> exercises, Guid userId, CancellationToken ct)
     {
         foreach (var exercise in exercises)
@@ -87,15 +94,16 @@ public class CreateWorkoutCommandHandler(IAppDbContext db)
                          && e.Workout.UserId == userId)
                 .MaxAsync(e => (decimal?)e.WeightKg, ct);
 
-            // New PR if no previous record or heavier than best
             if (maxPrevWeight == null || exercise.WeightKg > maxPrevWeight)
-                return true;
+            {
+                var prev = maxPrevWeight.HasValue ? $"{maxPrevWeight:0.##} kg" : "Primera vez";
+                return new PrDetail(exercise.ExerciseName, prev, $"{exercise.WeightKg:0.##} kg");
+            }
         }
-
-        return false;
+        return null;
     }
 
-    private async Task<bool> DetectWodPrAsync(WorkoutWod wod, Guid userId, CancellationToken ct)
+    private async Task<PrDetail?> DetectWodPrDetailsAsync(WorkoutWod wod, Guid userId, CancellationToken ct)
     {
         var minPrevDuration = await db.WorkoutWods
             .Where(w => w.WodName == wod.WodName
@@ -103,8 +111,37 @@ public class CreateWorkoutCommandHandler(IAppDbContext db)
                      && w.Workout.UserId == userId)
             .MinAsync(w => (TimeSpan?)w.Duration, ct);
 
-        // New PR if no previous record or faster than best
-        return minPrevDuration == null || wod.Duration < minPrevDuration;
+        if (minPrevDuration == null || wod.Duration < minPrevDuration)
+        {
+            var prev = minPrevDuration.HasValue
+                ? minPrevDuration.Value.ToString(@"mm\:ss")
+                : "Primera vez";
+            return new PrDetail(wod.WodName, prev, wod.Duration!.Value.ToString(@"mm\:ss"));
+        }
+        return null;
+    }
+
+    // ── PR email ──────────────────────────────────────────────────────────────
+
+    private async Task SendPrEmailAsync(Guid userId, PrDetail pr, CancellationToken ct)
+    {
+        try
+        {
+            var user = await db.Users
+                .Where(u => u.Id == userId)
+                .Select(u => new { u.Email, u.DisplayName })
+                .FirstOrDefaultAsync(ct);
+
+            if (user == null) return;
+
+            var firstName = user.DisplayName.Split(' ')[0];
+            await emailService.SendNewPrEmailAsync(
+                user.Email, firstName, pr.MovementName, pr.PreviousValue, pr.NewValue, ct);
+        }
+        catch
+        {
+            // Email failure must not affect the workout save
+        }
     }
 
     // ── Ranking update ────────────────────────────────────────────────────────

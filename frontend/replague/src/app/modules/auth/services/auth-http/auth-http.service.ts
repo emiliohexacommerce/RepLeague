@@ -28,6 +28,14 @@ export class AuthHTTPService {
     return this.http.post<boolean>(`${API_URL}/auth/forgot`, { email });
   }
 
+  resetPassword(token: string, newPassword: string): Observable<void> {
+    return this.http.post<void>(`${API_URL}/auth/reset-password`, { token, newPassword });
+  }
+
+  verifyEmail(token: string): Observable<void> {
+    return this.http.post<void>(`${API_URL}/auth/verify-email`, { token });
+  }
+
   getUserByToken(token: string): Observable<UserModel> {
     const httpHeaders = new HttpHeaders({ Authorization: `Bearer ${token}` });
     return this.http.get<any>(`${API_URL}/me`, { headers: httpHeaders }).pipe(

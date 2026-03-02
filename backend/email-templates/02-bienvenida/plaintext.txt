@@ -1,0 +1,46 @@
+ASUNTO: ¡Bienvenido/a a RepLeague, {{ first_name }}!
+
+---
+
+RepLeague — Bienvenida
+
+---
+
+¡Bienvenido/a a RepLeague, {{ first_name }}!
+
+Tu cuenta está lista. El marcador te espera.
+
+En RepLeague, cada entrenamiento cuenta. Registra tus workouts, rompe récords personales y compite en ligas con tus amigos.
+
+ASÍ SE JUEGA:
+
+1. REGISTRA TUS WORKOUTS
+   Sube tus sesiones y gana puntos por cada entrenamiento.
+   +10 puntos por workout.
+
+2. ROMPE RÉCORDS PERSONALES
+   Cada PR te da +30 puntos extra en el ranking de tu liga.
+
+3. ÚNETE A LIGAS
+   Compite con amigos y sube al podio de tu liga favorita.
+
+---
+
+SISTEMA DE PUNTOS:
+  +10 pts por workout
+  +30 pts extra por cada PR
+  Sin límite de ligas
+
+---
+
+Para empezar, completa tu perfil:
+{{ profile_url }}
+
+---
+
+¿Tienes preguntas? Estamos aquí para ayudarte.
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

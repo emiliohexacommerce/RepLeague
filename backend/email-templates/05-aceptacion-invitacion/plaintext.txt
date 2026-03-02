@@ -1,0 +1,30 @@
+ASUNTO: {{ new_member_name }} se unió a {{ league_name }}
+
+---
+
+RepLeague — Actividad de Liga
+
+---
+
+Hola, {{ inviter_name }}.
+
+¡Nuevo miembro en tu liga!
+
+Tu invitación fue aceptada. Hay un nuevo competidor en el ranking de {{ league_name }}.
+
+NUEVO MIEMBRO:
+  {{ new_member_name }} se unió a {{ league_name }}
+
+La competencia se pone buena. Ve a revisar el ranking y mantén tu posición.
+
+VER TU LIGA:
+{{ action_url }}
+
+---
+
+¿Tienes preguntas? Contáctanos en:
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

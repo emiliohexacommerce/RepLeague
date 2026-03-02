@@ -1,0 +1,31 @@
+ASUNTO: {{ inviter_name }} te invitó a '{{ league_name }}' en RepLeague
+
+---
+
+RepLeague — Invitación a Liga
+
+---
+
+Hola, {{ first_name }}.
+
+{{ inviter_name }} te invita a unirte a la liga:
+
+  {{ league_name }}
+
+Tienes un cupo reservado. Acepta la invitación y empieza a competir por el podio.
+
+UNIRSE A {{ league_name }}:
+{{ join_url }}
+
+---
+
+Esta invitación expira en 7 días. No esperes demasiado.
+
+---
+
+¿Tienes preguntas? Contáctanos en:
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

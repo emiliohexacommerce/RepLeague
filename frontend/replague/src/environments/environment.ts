@@ -9,4 +9,6 @@ export const environment = {
   appPreviewUrl: '',
   appPreviewChangelogUrl: '',
   appDemos: {} as Record<string, { title: string; thumbnail: string; published: boolean }>,
+  // PWA / Push (dev: SW disabled, keys unused)
+  vapidPublicKey: '',
 };

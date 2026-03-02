@@ -39,12 +39,12 @@ export class AuthService implements OnDestroy {
     this.currentUserSubject = new BehaviorSubject<UserType>(undefined);
     this.currentUser$ = this.currentUserSubject.asObservable();
     this.isLoading$ = this.isLoadingSubject.asObservable();
-    const subscr = this.getUserByToken().subscribe();
-    this.unsubscribe.push(subscr);
+    // APP_INITIALIZER in app.module.ts handles auth initialization before app bootstraps
   }
 
   // public methods
   login(email: string, password: string): Observable<UserType> {
+    console.log("Iniciando login");
     this.isLoadingSubject.next(true);
     return this.authHttpService.login(email, password).pipe(
       map((auth: AuthModel) => {
@@ -83,6 +83,10 @@ export class AuthService implements OnDestroy {
         }
         return user;
       }),
+      catchError((err) => {
+        console.error('getUserByToken failed', err);
+        return of(undefined);
+      }),
       finalize(() => this.isLoadingSubject.next(false))
     );
   }
@@ -107,6 +111,20 @@ export class AuthService implements OnDestroy {
     this.isLoadingSubject.next(true);
     return this.authHttpService
       .forgotPassword(email)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+  }
+
+  resetPassword(token: string, newPassword: string): Observable<void> {
+    this.isLoadingSubject.next(true);
+    return this.authHttpService
+      .resetPassword(token, newPassword)
+      .pipe(finalize(() => this.isLoadingSubject.next(false)));
+  }
+
+  verifyEmail(token: string): Observable<void> {
+    this.isLoadingSubject.next(true);
+    return this.authHttpService
+      .verifyEmail(token)
       .pipe(finalize(() => this.isLoadingSubject.next(false)));
   }
 

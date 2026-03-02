@@ -1,0 +1,42 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "¡Bienvenido/a a RepLeague, {{ first_name }}!",
+      "Estás dentro — empieza tu primera semana en RepLeague",
+      "El marcador te espera, {{ first_name }}"
+    ],
+    "preheader": "Tu cuenta está lista. Completa tu perfil y únete a una liga hoy.",
+    "type": "transactional",
+    "variables": {
+      "first_name": { "required": true, "type": "string", "description": "Nombre del usuario recién registrado" },
+      "profile_url": { "required": true, "type": "string", "description": "URL para completar el perfil del usuario" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "Verificar que las 3 tarjetas de tips se renderizan en columnas en desktop y en bloque en mobile",
+      "Probar que el botón CTA lleva al perfil del usuario autenticado",
+      "No incluir enlace de desuscripción — es email transaccional de bienvenida",
+      "Este email debe enviarse inmediatamente después de la verificación exitosa del email"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "¡Bienvenido/a a RepLeague, {{ first_name }}!",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "profile_url": "https://app.repleague.com/profile",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}

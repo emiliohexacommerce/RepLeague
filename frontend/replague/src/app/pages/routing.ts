@@ -18,6 +18,14 @@ const Routing: Routes = [
     loadChildren: () => import('./profile/profile-page.module').then((m) => m.ProfilePageModule),
   },
   {
+    path: 'wod',
+    loadChildren: () => import('./wod/wod.module').then((m) => m.WodModule),
+  },
+  {
+    path: 'strength',
+    loadChildren: () => import('./strength/strength.module').then((m) => m.StrengthModule),
+  },
+  {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full',

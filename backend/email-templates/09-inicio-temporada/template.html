@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>¡Arranca la temporada! — RepLeague</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F2F2F2;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- Preheader -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">La temporada corre del {{ start_date }} al {{ end_date }}. ¡A entrenar y escalar el ranking! &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F2F2F2;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color:#FF7A1A;padding:24px 32px;border-radius:12px 12px 0 0;">
+              <span style="font-size:24px;font-weight:800;color:#FFFFFF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Rep<span style="color:#121212;">League</span></span>
+            </td>
+          </tr>
+
+          <!-- HERO -->
+          <tr>
+            <td style="background-color:#E15E0A;padding:40px 32px;text-align:center;">
+              <p style="margin:0 0 12px;font-size:52px;line-height:1;">🏁</p>
+              <h1 style="margin:0 0 8px;font-size:30px;font-weight:900;color:#FFFFFF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.2;">¡Arranca la temporada!</h1>
+              <p style="margin:0;font-size:18px;font-weight:700;color:#FFE4CC;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">{{ league_name }}</p>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td style="background-color:#FFFFFF;padding:40px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+                <!-- Saludo -->
+                <tr>
+                  <td style="padding-bottom:24px;">
+                    <p style="margin:0;font-size:16px;color:#2F2F2F;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      Hola <strong>{{ first_name }}</strong>, la competencia oficial de <strong>{{ league_name }}</strong> comienza ahora. ¡Prepárate para dar lo mejor de ti!
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Fechas -->
+                <tr>
+                  <td style="padding-bottom:24px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFF7ED;border-radius:10px;border:1px solid #FED7AA;">
+                      <tr>
+                        <td style="padding:20px 24px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="width:50%;text-align:center;padding:8px;">
+                                <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#9A3412;letter-spacing:1px;text-transform:uppercase;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">🏁 Inicio</p>
+                                <p style="margin:0;font-size:18px;font-weight:800;color:#EA580C;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">{{ start_date }}</p>
+                              </td>
+                              <td style="width:0;border-left:1px solid #FED7AA;"></td>
+                              <td style="width:50%;text-align:center;padding:8px;">
+                                <p style="margin:0 0 4px;font-size:11px;font-weight:700;color:#9A3412;letter-spacing:1px;text-transform:uppercase;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">🏆 Cierre</p>
+                                <p style="margin:0;font-size:18px;font-weight:800;color:#EA580C;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">{{ end_date }}</p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Reglas -->
+                <tr>
+                  <td style="padding-bottom:32px;">
+                    <h3 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#121212;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">📋 Reglas de la temporada</h3>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding:10px 0;border-bottom:1px solid #F3F4F6;">
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="width:32px;vertical-align:top;font-size:18px;">💪</td>
+                              <td style="font-size:14px;color:#2F2F2F;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;padding-left:8px;"><strong>+10 puntos</strong> por cada entrenamiento registrado durante la temporada.</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:10px 0;border-bottom:1px solid #F3F4F6;">
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="width:32px;vertical-align:top;font-size:18px;">🏆</td>
+                              <td style="font-size:14px;color:#2F2F2F;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;padding-left:8px;"><strong>+30 puntos adicionales</strong> cada vez que superes un récord personal (PR).</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:10px 0;">
+                          <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="width:32px;vertical-align:top;font-size:18px;">📊</td>
+                              <td style="font-size:14px;color:#2F2F2F;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;padding-left:8px;">El ranking se actualiza en tiempo real. En caso de empate, gana quien tenga más PRs acumulados.</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- CTA Principal -->
+                <tr>
+                  <td align="center" style="padding-bottom:16px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="border-radius:8px;background-color:#FF7A1A;">
+                          <a href="{{ action_url }}" target="_blank" style="display:inline-block;padding:14px 36px;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;border-radius:8px;min-height:44px;line-height:1.5;">🏁 Ver mi liga</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- CTA Secundario -->
+                <tr>
+                  <td align="center">
+                    <p style="margin:0;font-size:13px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      <a href="{{ action_url }}" style="color:#FF7A1A;word-break:break-all;">{{ action_url }}</a>
+                    </p>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER (marketing) -->
+          <tr>
+            <td style="background-color:#F2F2F2;padding:24px 32px;border-radius:0 0 12px 12px;border-top:1px solid #E5E7EB;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="text-align:center;">
+                    <p style="margin:0 0 8px;font-size:12px;color:#6B7280;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">© 2026 RepLeague. Todos los derechos reservados.</p>
+                    <p style="margin:0 0 8px;font-size:12px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      <a href="{{ support_url }}" style="color:#FF7A1A;text-decoration:none;">Soporte</a>
+                      &nbsp;·&nbsp;
+                      <a href="{{ preferences_url }}" style="color:#FF7A1A;text-decoration:none;">Preferencias</a>
+                      &nbsp;·&nbsp;
+                      <a href="{{ unsubscribe_url }}" style="color:#6B7280;text-decoration:underline;">Desuscribirse</a>
+                    </p>
+                    <p style="margin:0;font-size:11px;color:#9CA3AF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Recibes este correo por ser miembro de {{ league_name }}.<br>RepLeague · Santiago, Chile</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

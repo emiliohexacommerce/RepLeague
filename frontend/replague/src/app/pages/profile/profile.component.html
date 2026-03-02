@@ -1,92 +1,428 @@
 <div class="container-xxl" id="kt_content_container">
+
   <div *ngIf="loading" class="text-center py-10">
     <span class="spinner-border text-primary"></span>
   </div>
 
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+  <div *ngIf="error" class="alert alert-danger mb-5">{{ error }}</div>
+  <div *ngIf="successMessage" class="alert alert-success mb-5">{{ successMessage }}</div>
 
   <ng-container *ngIf="profile && !loading">
-    <div class="row g-5 g-xl-10">
-      <!-- Avatar card -->
-      <div class="col-xl-4">
-        <div class="card mb-5">
-          <div class="card-body d-flex flex-column align-items-center py-10">
-            <div class="symbol symbol-100px mb-5">
-              <img *ngIf="profile.avatarUrl" [src]="profile.avatarUrl" alt="avatar" class="rounded" />
-              <span *ngIf="!profile.avatarUrl" class="symbol-label bg-light-primary text-primary fw-bold fs-2">
-                {{ profile.displayName.charAt(0).toUpperCase() }}
-              </span>
+
+    <!-- ── Profile header card ──────────────────────────────────────── -->
+    <div class="card mb-5 mb-xl-10">
+      <div class="card-body pt-9 pb-0">
+        <div class="d-flex flex-wrap flex-sm-nowrap gap-7 mb-6">
+
+          <!-- Avatar -->
+          <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+            <img *ngIf="profile.avatarUrl" [src]="profile.avatarUrl" alt="avatar" class="rounded" />
+            <span *ngIf="!profile.avatarUrl"
+              class="symbol-label fs-2 fw-bold bg-light-primary text-primary">
+              {{ profile.displayName.charAt(0).toUpperCase() }}
+            </span>
+          </div>
+
+          <!-- Name + meta -->
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+              <div class="d-flex flex-column">
+                <h1 class="text-gray-800 fw-bold mb-1">{{ profile.displayName }}</h1>
+                <div class="d-flex align-items-center text-muted fs-6 gap-4 flex-wrap">
+                  <span>
+                    <i class="ki-duotone ki-sms fs-5 me-1"><span class="path1"></span><span class="path2"></span></i>
+                    {{ profile.email }}
+                  </span>
+                  <span *ngIf="profile.city">
+                    <i class="ki-duotone ki-geolocation fs-5 me-1"><span class="path1"></span><span class="path2"></span></i>
+                    {{ profile.city }}
+                  </span>
+                  <span *ngIf="profile.gymName">
+                    <i class="ki-duotone ki-abstract-26 fs-5 me-1"><span class="path1"></span><span class="path2"></span></i>
+                    {{ profile.gymName }}
+                  </span>
+                </div>
+                <p *ngIf="profile.bio" class="text-muted fs-6 mt-2 mb-0">{{ profile.bio }}</p>
+              </div>
+
+              <!-- Avatar upload -->
+              <div class="mt-3">
+                <label class="btn btn-sm btn-light-primary" [class.disabled]="uploading">
+                  <span *ngIf="!uploading">{{ 'PROFILE.CHANGE_AVATAR' | translate }}</span>
+                  <span *ngIf="uploading">{{ 'PROFILE.UPLOADING' | translate }}</span>
+                  <input type="file" accept="image/*" class="d-none"
+                    (change)="onAvatarChange($event)" [disabled]="uploading" />
+                </label>
+              </div>
             </div>
-            <h3 class="fw-bold mb-1">{{ profile.displayName }}</h3>
-            <p class="text-muted mb-4">{{ profile.email }}</p>
-            <label class="btn btn-sm btn-light-primary" [class.disabled]="uploading">
-              <span *ngIf="!uploading">Change Avatar</span>
-              <span *ngIf="uploading">Uploading...</span>
-              <input type="file" accept="image/*" class="d-none" (change)="onAvatarChange($event)" [disabled]="uploading" />
-            </label>
           </div>
         </div>
 
-        <!-- Stats card -->
-        <div class="card">
-          <div class="card-header">
-            <h5 class="card-title">Stats</h5>
-          </div>
-          <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
-              <span class="text-muted">Workouts</span>
-              <span class="fw-bold">{{ profile.totalWorkouts }}</span>
-            </div>
-            <div class="d-flex justify-content-between mb-3">
-              <span class="text-muted">Personal Records</span>
-              <span class="fw-bold text-success">{{ profile.totalPrs }}</span>
-            </div>
-            <div class="d-flex justify-content-between">
-              <span class="text-muted">Leagues</span>
-              <span class="fw-bold text-primary">{{ profile.totalLeagues }}</span>
-            </div>
-          </div>
-        </div>
+        <!-- Tab nav -->
+        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
+          <li class="nav-item mt-2">
+            <a class="nav-link text-active-primary ms-0 me-10 py-5"
+              [class.active]="activeTab === 'overview'"
+              (click)="setTab('overview')" href="javascript:void(0)">
+              {{ 'PROFILE.TAB_OVERVIEW' | translate }}
+            </a>
+          </li>
+          <li class="nav-item mt-2">
+            <a class="nav-link text-active-primary ms-0 me-10 py-5"
+              [class.active]="activeTab === 'personal'"
+              (click)="setTab('personal')" href="javascript:void(0)">
+              {{ 'PROFILE.TAB_PERSONAL' | translate }}
+            </a>
+          </li>
+          <li class="nav-item mt-2">
+            <a class="nav-link text-active-primary ms-0 me-10 py-5"
+              [class.active]="activeTab === 'preferences'"
+              (click)="setTab('preferences')" href="javascript:void(0)">
+              {{ 'PROFILE.TAB_PREFERENCES' | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── OVERVIEW TAB ─────────────────────────────────────────────── -->
+    <ng-container *ngIf="activeTab === 'overview'">
+
+      <div *ngIf="loadingSummary" class="text-center py-10">
+        <span class="spinner-border text-primary"></span>
       </div>
 
-      <!-- Edit form -->
-      <div class="col-xl-8">
-        <div class="card">
-          <div class="card-header">
-            <h4 class="card-title">Edit Profile</h4>
+      <ng-container *ngIf="summary && !loadingSummary">
+
+        <!-- Stats row -->
+        <div class="row g-5 mb-5">
+          <div class="col-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center py-8">
+                <span class="fs-2tx fw-bold text-primary">{{ summary.streakWeeks }}</span>
+                <span class="text-muted fs-6 mt-1">{{ 'PROFILE.STREAK' | translate }}</span>
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-              <div class="mb-5">
-                <label class="form-label required">Display Name</label>
-                <input type="text" class="form-control form-control-solid" formControlName="displayName" />
-                <div *ngIf="profileForm.get('displayName')?.touched && profileForm.get('displayName')?.invalid" class="text-danger fs-7 mt-1">
-                  Display name must be between 3 and 100 characters.
+          <div class="col-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center py-8">
+                <span class="fs-2tx fw-bold text-info">{{ summary.totalWods }}</span>
+                <span class="text-muted fs-6 mt-1">{{ 'PROFILE.TOTAL_WODS' | translate }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center py-8">
+                <span class="fs-2tx fw-bold text-success">{{ summary.totalLiftSessions }}</span>
+                <span class="text-muted fs-6 mt-1">{{ 'PROFILE.TOTAL_SESSIONS' | translate }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-xl-3">
+            <div class="card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center py-8">
+                <span class="fs-2tx fw-bold text-warning">{{ summary.leagues.length }}</span>
+                <span class="text-muted fs-6 mt-1">{{ 'PROFILE.LEAGUES_CARD' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+
+          <!-- Left column: Leagues + Recent WODs -->
+          <div class="col-xl-4">
+
+            <!-- My Leagues -->
+            <div class="card mb-5">
+              <div class="card-header border-0 pt-5">
+                <h4 class="card-title align-items-start flex-column">
+                  <span class="card-label fw-bold text-gray-800">{{ 'PROFILE.LEAGUES_CARD' | translate }}</span>
+                </h4>
+              </div>
+              <div class="card-body p-0">
+                <div *ngIf="summary.leagues.length === 0" class="text-center text-muted py-8 px-6">
+                  {{ 'PROFILE.NO_DATA' | translate }}
+                </div>
+                <div *ngFor="let league of summary.leagues"
+                  class="d-flex align-items-center px-7 py-4 border-bottom border-gray-200">
+                  <div class="flex-grow-1">
+                    <span class="fw-bold text-gray-800 d-block">{{ league.leagueName }}</span>
+                    <span class="text-muted fs-7">{{ league.membersCount }} {{ 'LEAGUES.MEMBERS' | translate }}</span>
+                  </div>
+                  <div class="text-end">
+                    <span class="badge badge-light-primary fw-bold fs-7">#{{ league.rank }}</span>
+                    <span class="text-muted fs-7 d-block">{{ league.points }} pts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent WODs -->
+            <div class="card">
+              <div class="card-header border-0 pt-5">
+                <h4 class="card-title align-items-start flex-column">
+                  <span class="card-label fw-bold text-gray-800">{{ 'PROFILE.WODS_CARD' | translate }}</span>
+                </h4>
+              </div>
+              <div class="card-body p-0">
+                <div *ngIf="summary.recentWods.length === 0" class="text-center text-muted py-8 px-6">
+                  {{ 'PROFILE.NO_DATA' | translate }}
+                </div>
+                <div *ngFor="let wod of summary.recentWods"
+                  class="d-flex align-items-center px-7 py-4 border-bottom border-gray-200">
+                  <div class="flex-grow-1">
+                    <span class="fw-bold text-gray-800 d-block">
+                      {{ wod.type }}<span *ngIf="wod.title"> — {{ wod.title }}</span>
+                    </span>
+                    <span class="text-muted fs-7">{{ wod.date }}</span>
+                    <span *ngIf="wod.elapsedTime" class="text-muted fs-7"> · {{ wod.elapsedTime }}</span>
+                  </div>
+                  <div>
+                    <span *ngIf="wod.rxScaled" class="badge badge-light-success">RX</span>
+                    <span *ngIf="!wod.rxScaled" class="badge badge-light-warning">Scaled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right column: Top PRs + Strength chart -->
+          <div class="col-xl-8">
+            <div class="card">
+              <div class="card-header border-0 pt-5">
+                <h4 class="card-title align-items-start flex-column">
+                  <span class="card-label fw-bold text-gray-800">{{ 'PROFILE.PRS_CARD' | translate }}</span>
+                </h4>
+              </div>
+              <div class="card-body">
+
+                <div *ngIf="summary.topPrs.length === 0" class="text-center text-muted py-8">
+                  {{ 'PROFILE.NO_LIFT_DATA' | translate }}
+                </div>
+
+                <ng-container *ngIf="summary.topPrs.length > 0">
+                  <!-- PR table -->
+                  <div class="table-responsive mb-6">
+                    <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-3">
+                      <thead>
+                        <tr class="fw-bold text-muted text-uppercase fs-7">
+                          <th>{{ 'PROFILE.EXERCISE' | translate }}</th>
+                          <th class="text-end">{{ 'PROFILE.BEST_WEIGHT' | translate }}</th>
+                          <th class="text-end">{{ 'PROFILE.BEST_1RM' | translate }}</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let pr of summary.topPrs"
+                          [class.table-active]="pr.exerciseName === selectedExercise">
+                          <td class="fw-bold text-gray-800">{{ pr.exerciseName }}</td>
+                          <td class="text-end text-muted">{{ pr.bestWeightKg | number:'1.1-1' }} kg</td>
+                          <td class="text-end fw-bold text-primary">
+                            {{ pr.best1RmKg | number:'1.1-1' }} kg
+                          </td>
+                          <td class="text-end">
+                            <button class="btn btn-xs btn-light-primary py-1 px-3"
+                              (click)="loadChart(pr.exerciseName)">
+                              {{ 'PROFILE.VIEW_CHART' | translate }}
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!-- Chart area -->
+                  <div *ngIf="selectedExercise" class="mt-4">
+                    <h6 class="fw-bold text-gray-700 mb-4">
+                      {{ 'PROFILE.PROGRESS_CARD' | translate }}: <span class="text-primary">{{ selectedExercise }}</span>
+                    </h6>
+                    <div *ngIf="loadingChart" class="text-center py-6">
+                      <span class="spinner-border spinner-border-sm text-primary"></span>
+                    </div>
+                    <apx-chart *ngIf="!loadingChart && chartSeries.length > 0"
+                      [series]="chartSeries"
+                      [chart]="chartChart"
+                      [xaxis]="chartXaxis"
+                      [yaxis]="chartYaxis"
+                      [stroke]="chartStroke"
+                      [markers]="chartMarkers"
+                      [tooltip]="chartTooltip"
+                      [grid]="chartGrid"
+                      [colors]="chartColors">
+                    </apx-chart>
+                    <div *ngIf="!loadingChart && chartSeries.length === 0"
+                      class="text-center text-muted py-6">
+                      {{ 'PROFILE.NO_LIFT_DATA' | translate }}
+                    </div>
+                  </div>
+
+                  <div *ngIf="!selectedExercise" class="text-center text-muted py-6 fst-italic">
+                    {{ 'PROFILE.SELECT_EXERCISE' | translate }}
+                  </div>
+                </ng-container>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- ── PERSONAL DATA TAB ────────────────────────────────────────── -->
+    <ng-container *ngIf="activeTab === 'personal'">
+      <div class="card">
+        <div class="card-header border-0 pt-5">
+          <h4 class="card-title">{{ 'PROFILE.TAB_PERSONAL' | translate }}</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+            <div class="row">
+
+              <div class="col-md-6 mb-5">
+                <label class="form-label required">{{ 'PROFILE.DISPLAY_NAME' | translate }}</label>
+                <input type="text" class="form-control form-control-solid"
+                  formControlName="displayName" />
+                <div *ngIf="profileForm.get('displayName')?.touched && profileForm.get('displayName')?.invalid"
+                  class="text-danger fs-7 mt-1">
+                  {{ 'PROFILE.DISPLAY_NAME_ERROR' | translate }}
                 </div>
               </div>
 
-              <div class="mb-5">
-                <label class="form-label">Country</label>
-                <input type="text" class="form-control form-control-solid" formControlName="country" placeholder="e.g. Argentina" />
+              <div class="col-md-6 mb-5">
+                <label class="form-label">{{ 'PROFILE.COUNTRY' | translate }}</label>
+                <input type="text" class="form-control form-control-solid"
+                  formControlName="country"
+                  [placeholder]="'PROFILE.COUNTRY_PLACEHOLDER' | translate" />
               </div>
 
-              <div class="mb-5">
-                <label class="form-label">Bio</label>
-                <textarea class="form-control form-control-solid" formControlName="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
-                <div class="text-muted fs-7 mt-1">{{ profileForm.get('bio')?.value?.length || 0 }}/500</div>
+              <div class="col-md-6 mb-5">
+                <label class="form-label">{{ 'PROFILE.PHONE' | translate }}</label>
+                <input type="tel" class="form-control form-control-solid"
+                  formControlName="phone" placeholder="+54 11 1234 5678" />
               </div>
 
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid || saving">
-                  <span *ngIf="!saving">Save Changes</span>
-                  <span *ngIf="saving">Saving...</span>
-                </button>
+              <div class="col-md-6 mb-5">
+                <label class="form-label">{{ 'PROFILE.BIRTHDAY' | translate }}</label>
+                <input type="date" class="form-control form-control-solid"
+                  formControlName="birthDate" />
+                <div *ngIf="profileForm.get('birthDate')?.value" class="text-muted fs-7 mt-1">
+                  {{ 'PROFILE.AGE' | translate }}: {{ calculateAge(profileForm.get('birthDate')?.value) }} {{ 'PROFILE.YEARS' | translate }}
+                </div>
               </div>
-            </form>
-          </div>
+
+              <div class="col-md-6 mb-5">
+                <label class="form-label">{{ 'PROFILE.CITY' | translate }}</label>
+                <input type="text" class="form-control form-control-solid"
+                  formControlName="city" placeholder="Buenos Aires" />
+              </div>
+
+              <div class="col-md-6 mb-5">
+                <label class="form-label">{{ 'PROFILE.GYM_NAME' | translate }}</label>
+                <input type="text" class="form-control form-control-solid"
+                  formControlName="gymName" placeholder="CrossFit Box" />
+              </div>
+
+              <div class="col-12 mb-5">
+                <label class="form-label">{{ 'PROFILE.BIO' | translate }}</label>
+                <textarea class="form-control form-control-solid" formControlName="bio"
+                  rows="3" [placeholder]="'PROFILE.BIO_PLACEHOLDER' | translate"></textarea>
+                <div class="text-muted fs-7 mt-1">
+                  {{ profileForm.get('bio')?.value?.length || 0 }}/500
+                </div>
+              </div>
+
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary" [disabled]="profileForm.invalid || saving">
+                <span *ngIf="!saving">{{ 'PROFILE.SAVE' | translate }}</span>
+                <span *ngIf="saving" class="d-flex align-items-center gap-2">
+                  <span class="spinner-border spinner-border-sm"></span>
+                  {{ 'PROFILE.SAVING' | translate }}
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+    </ng-container>
+
+    <!-- ── PREFERENCES TAB ──────────────────────────────────────────── -->
+    <ng-container *ngIf="activeTab === 'preferences'">
+      <div class="card">
+        <div class="card-header border-0 pt-5">
+          <h4 class="card-title">{{ 'PROFILE.TAB_PREFERENCES' | translate }}</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="prefsForm" (ngSubmit)="savePrefs()">
+
+            <!-- Units -->
+            <div class="mb-8">
+              <label class="form-label fw-bold fs-6">{{ 'PROFILE.UNITS' | translate }}</label>
+              <div class="d-flex gap-6 mt-2">
+                <label class="d-flex align-items-center gap-3 cursor-pointer">
+                  <input type="radio" class="form-check-input" formControlName="units" value="kg" />
+                  <span class="fw-semibold">{{ 'PROFILE.UNITS_KG' | translate }}</span>
+                </label>
+                <label class="d-flex align-items-center gap-3 cursor-pointer">
+                  <input type="radio" class="form-check-input" formControlName="units" value="lb" />
+                  <span class="fw-semibold">{{ 'PROFILE.UNITS_LB' | translate }}</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 1RM Method -->
+            <div class="mb-8">
+              <label class="form-label fw-bold fs-6">{{ 'PROFILE.ONE_RM_METHOD' | translate }}</label>
+              <div class="d-flex gap-6 mt-2">
+                <label class="d-flex align-items-center gap-3 cursor-pointer">
+                  <input type="radio" class="form-check-input" formControlName="oneRmMethod" value="Epley" />
+                  <span class="fw-semibold">{{ 'PROFILE.EPLEY' | translate }}</span>
+                </label>
+                <label class="d-flex align-items-center gap-3 cursor-pointer">
+                  <input type="radio" class="form-check-input" formControlName="oneRmMethod" value="Brzycki" />
+                  <span class="fw-semibold">{{ 'PROFILE.BRZYCKI' | translate }}</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Visibility -->
+            <div class="mb-8">
+              <label class="form-label fw-bold fs-6">{{ 'PROFILE.VISIBILITY' | translate }}</label>
+              <select class="form-select form-select-solid mt-2" formControlName="visibility">
+                <option value="private">{{ 'PROFILE.VIS_PRIVATE' | translate }}</option>
+                <option value="leagues">{{ 'PROFILE.VIS_LEAGUES' | translate }}</option>
+                <option value="public">{{ 'PROFILE.VIS_PUBLIC' | translate }}</option>
+              </select>
+            </div>
+
+            <!-- Marketing consent -->
+            <div class="mb-8">
+              <label class="d-flex align-items-center gap-3 cursor-pointer">
+                <input type="checkbox" class="form-check-input" formControlName="marketingConsent" />
+                <span class="fw-semibold fs-6">{{ 'PROFILE.MARKETING' | translate }}</span>
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary" [disabled]="saving">
+                <span *ngIf="!saving">{{ 'PROFILE.SAVE' | translate }}</span>
+                <span *ngIf="saving" class="d-flex align-items-center gap-2">
+                  <span class="spinner-border spinner-border-sm"></span>
+                  {{ 'PROFILE.SAVING' | translate }}
+                </span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </ng-container>
+
   </ng-container>
 </div>

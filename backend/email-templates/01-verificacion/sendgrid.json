@@ -1,0 +1,45 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "Confirma tu cuenta en RepLeague",
+      "Un paso para entrar al juego — verifica tu email",
+      "Tu código de verificación RepLeague"
+    ],
+    "preheader": "Ingresa tu código o haz clic en el enlace para activar tu cuenta.",
+    "type": "transactional",
+    "variables": {
+      "first_name": { "required": true, "type": "string", "description": "Nombre del usuario" },
+      "verification_url": { "required": true, "type": "string", "description": "URL completa para verificar email con token embebido" },
+      "verification_code": { "required": true, "type": "string", "description": "Código numérico de 6 dígitos para verificación manual" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "Verificar que el código de 6 dígitos se renderiza con font monoespaciado en todos los clientes",
+      "Probar que el botón CTA es clickeable en Gmail, Outlook y Apple Mail",
+      "El enlace de verificación debe expirar exactamente a las 24 horas de creación",
+      "No incluir enlace de desuscripción — es email transaccional",
+      "Probar que el preheader no se muestra visualmente en el cuerpo del email"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "Confirma tu cuenta en RepLeague",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "verification_url": "https://app.repleague.com/verify?t=xyz",
+        "verification_code": "847291",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}

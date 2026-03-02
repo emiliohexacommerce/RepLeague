@@ -31,6 +31,8 @@ public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddlewa
                 new[] { exception.Message }),
             UnauthorizedException => (StatusCodes.Status401Unauthorized,
                 new[] { exception.Message }),
+            AppException => (StatusCodes.Status400BadRequest,
+                new[] { exception.Message }),
             _ => (StatusCodes.Status500InternalServerError,
                 new[] { "An unexpected error occurred." })
         };

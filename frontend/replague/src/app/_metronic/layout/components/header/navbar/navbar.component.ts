@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { menuReinitialization } from 'src/app/_metronic/kt/kt-helpers';
+import { TranslationService } from 'src/app/modules/i18n';
+import { AuthService, UserType } from 'src/app/modules/auth';
 
 @Component({
 	selector: 'app-navbar',
@@ -15,12 +18,31 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 	userAvatarClass: string = 'symbol-35px symbol-md-40px';
 	btnIconClass: string = 'fs-2 fs-md-1';
 
-	constructor() { }
+	user$: Observable<UserType>;
+
+	currentLang: string;
+	languages = [
+		{ code: 'en', label: 'EN', flag: '🇺🇸' },
+		{ code: 'es', label: 'ES', flag: '🇪🇸' },
+	];
+
+	constructor(
+		private translationService: TranslationService,
+		private auth: AuthService,
+	) {}
 
 	ngAfterViewInit(): void {
 		menuReinitialization();
 	}
 
-	ngOnInit(): void { }
+	ngOnInit(): void {
+		this.currentLang = this.translationService.getSelectedLanguage();
+		this.user$ = this.auth.currentUserSubject.asObservable();
+	}
+
+	setLanguage(lang: string): void {
+		this.translationService.setLanguage(lang);
+		this.currentLang = lang;
+	}
 
 }

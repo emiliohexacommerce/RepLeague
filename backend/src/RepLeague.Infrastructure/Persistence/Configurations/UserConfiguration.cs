@@ -16,5 +16,13 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.AvatarUrl).HasMaxLength(500);
         builder.Property(u => u.Country).HasMaxLength(3);
         builder.Property(u => u.Bio).HasMaxLength(500);
+
+        // Extended profile fields
+        builder.Property(u => u.Phone).HasMaxLength(20);
+        builder.Property(u => u.City).HasMaxLength(100);
+        builder.Property(u => u.GymName).HasMaxLength(80);
+        builder.Property(u => u.Units).HasMaxLength(2).HasDefaultValue("kg");
+        builder.Property(u => u.OneRmMethod).HasMaxLength(8).HasDefaultValue("Epley");
+        builder.Property(u => u.Visibility).HasMaxLength(8).HasDefaultValue("leagues");
     }
 }

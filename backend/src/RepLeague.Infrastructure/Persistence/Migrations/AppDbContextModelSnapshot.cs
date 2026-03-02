@@ -119,6 +119,80 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.ToTable("LeagueMembers");
                 });
 
+            modelBuilder.Entity("RepLeague.Domain.Entities.LiftSession", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "Date")
+                        .HasFilter("[IsDeleted] = 0");
+
+                    b.ToTable("LiftSessions");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.PushSubscription", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Auth")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Endpoint")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("P256dh")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Endpoint")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PushSubscriptions");
+                });
+
             modelBuilder.Entity("RepLeague.Domain.Entities.RankingEntry", b =>
                 {
                     b.Property<Guid>("Id")
@@ -188,6 +262,49 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("RepLeague.Domain.Entities.StrengthSet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ExerciseName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsPr")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsWarmup")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("LiftSessionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<decimal?>("OneRepMaxKg")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.Property<int>("Reps")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SetNumber")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("WeightKg")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LiftSessionId", "ExerciseName", "SetNumber");
+
+                    b.ToTable("StrengthSets");
+                });
+
             modelBuilder.Entity("RepLeague.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -201,6 +318,13 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.Property<string>("Bio")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateOnly?>("BirthDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("City")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Country")
                         .HasMaxLength(3)
@@ -219,9 +343,56 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("EmailVerificationToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EmailVerificationTokenExpiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GymName")
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<bool>("IsEmailVerified")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MarketingConsent")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OneRmMethod")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)")
+                        .HasDefaultValue("Epley");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordResetToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PasswordResetTokenExpiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Units")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)")
+                        .HasDefaultValue("kg");
+
+                    b.Property<string>("Visibility")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)")
+                        .HasDefaultValue("leagues");
 
                     b.HasKey("Id");
 
@@ -229,6 +400,143 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodEntry", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("ElapsedSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int?>("Rounds")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("RxScaled")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("TimeCapSeconds")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Type", "Date")
+                        .HasFilter("[IsDeleted] = 0");
+
+                    b.HasIndex("UserId", "Date")
+                        .HasFilter("[IsDeleted] = 0");
+
+                    b.HasIndex("UserId", "Title")
+                        .HasFilter("[IsDeleted] = 0 AND [Title] IS NOT NULL");
+
+                    b.ToTable("WodEntries");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodExercise", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoadUnit")
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<decimal?>("LoadValue")
+                        .HasPrecision(6, 2)
+                        .HasColumnType("decimal(6,2)");
+
+                    b.Property<string>("MovementType")
+                        .IsRequired()
+                        .HasMaxLength(24)
+                        .HasColumnType("nvarchar(24)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<int>("OrderIndex")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Reps")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("WodEntryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WodEntryId", "OrderIndex")
+                        .IsUnique();
+
+                    b.ToTable("WodExercises");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodResultAmrap", b =>
+                {
+                    b.Property<Guid>("WodEntryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ExtraReps")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoundsCompleted")
+                        .HasColumnType("int");
+
+                    b.HasKey("WodEntryId");
+
+                    b.ToTable("WodResultAmraps");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodResultEmom", b =>
+                {
+                    b.Property<Guid>("WodEntryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("IntervalsDone")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalMinutes")
+                        .HasColumnType("int");
+
+                    b.HasKey("WodEntryId");
+
+                    b.ToTable("WodResultEmoms");
                 });
 
             modelBuilder.Entity("RepLeague.Domain.Entities.Workout", b =>
@@ -362,6 +670,28 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("RepLeague.Domain.Entities.LiftSession", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.PushSubscription", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("RepLeague.Domain.Entities.RankingEntry", b =>
                 {
                     b.HasOne("RepLeague.Domain.Entities.League", "League")
@@ -390,6 +720,61 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.StrengthSet", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.LiftSession", "LiftSession")
+                        .WithMany("Sets")
+                        .HasForeignKey("LiftSessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("LiftSession");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodEntry", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodExercise", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.WodEntry", "WodEntry")
+                        .WithMany("Exercises")
+                        .HasForeignKey("WodEntryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WodEntry");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodResultAmrap", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.WodEntry", "WodEntry")
+                        .WithOne("AmrapResult")
+                        .HasForeignKey("RepLeague.Domain.Entities.WodResultAmrap", "WodEntryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WodEntry");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodResultEmom", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.WodEntry", "WodEntry")
+                        .WithOne("EmomResult")
+                        .HasForeignKey("RepLeague.Domain.Entities.WodResultEmom", "WodEntryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WodEntry");
                 });
 
             modelBuilder.Entity("RepLeague.Domain.Entities.Workout", b =>
@@ -434,6 +819,11 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.Navigation("Rankings");
                 });
 
+            modelBuilder.Entity("RepLeague.Domain.Entities.LiftSession", b =>
+                {
+                    b.Navigation("Sets");
+                });
+
             modelBuilder.Entity("RepLeague.Domain.Entities.User", b =>
                 {
                     b.Navigation("LeagueMemberships");
@@ -443,6 +833,15 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.Navigation("RankingEntries");
 
                     b.Navigation("Workouts");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.WodEntry", b =>
+                {
+                    b.Navigation("AmrapResult");
+
+                    b.Navigation("EmomResult");
+
+                    b.Navigation("Exercises");
                 });
 
             modelBuilder.Entity("RepLeague.Domain.Entities.Workout", b =>

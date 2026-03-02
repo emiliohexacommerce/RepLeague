@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "Tu resumen semanal está listo, {{ first_name }} 📊",
+      "B": "{{ sessions_count }} sesiones esta semana — ¿cómo te fue?",
+      "C": "{{ first_name }}, así fue tu semana en RepLeague"
+    },
+    "preheader": "{{ sessions_count }} entrenamientos, {{ prs_count }} PRs y más. Mira tus avances.",
+    "type": "marketing",
+    "asm_group": "Resumen Semanal (ID: 1001)",
+    "variables": {
+      "first_name":         { "required": true,  "type": "string",  "description": "Nombre del atleta" },
+      "sessions_count":     { "required": true,  "type": "number",  "description": "Número de entrenamientos en la semana" },
+      "prs_count":          { "required": true,  "type": "number",  "description": "Número de PRs conseguidos (0 oculta el bloque verde)" },
+      "highlight_league":   { "required": true,  "type": "string",  "description": "Nombre de la liga más activa de la semana" },
+      "weekly_report_url":  { "required": true,  "type": "url",     "description": "Enlace al reporte semanal completo" },
+      "support_url":        { "required": true,  "type": "url",     "description": "URL de soporte" },
+      "preferences_url":    { "required": true,  "type": "url",     "description": "URL de preferencias de email" },
+      "unsubscribe_url":    { "required": true,  "type": "url",     "description": "URL de desuscripción del grupo Resumen Semanal (inyectado por SendGrid ASM)" }
+    },
+    "qa_notes": [
+      "Bloque verde de PR usa {{#if prs_count}} — verificar que SendGrid Handlebars interprete número 0 como falsy",
+      "Tabla de 3 columnas puede colapsar en Outlook; considerar tablas nested o stack en mobile",
+      "Incluir asm.group_id correcto según configuración de SendGrid del cliente",
+      "Probar que unsubscribe_url se inyecte correctamente por ASM o manualmente",
+      "Verificar legibilidad en dark mode: fondos de tarjetas deben mantenerse claros"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "Tu resumen semanal está listo, {{ first_name }} 📊",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "sessions_count": 5,
+        "prs_count": 2,
+        "highlight_league": "Team Quilicura",
+        "weekly_report_url": "https://app.repleague.com/reports/weekly",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences",
+        "unsubscribe_url": "https://links.repleague.com/u/unsub?k=token"
+      }
+    }
+  ],
+  "categories": ["repLeague", "marketing"],
+  "asm": {
+    "group_id": 1001,
+    "groups_to_display": [1001, 1002]
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RepLeague — Confirma tu email</title>
+  <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .content-padding { padding: 24px 20px !important; }
+      .btn-full { width: 100% !important; display: block !important; text-align: center !important; }
+      .code-block { font-size: 36px !important; letter-spacing: 10px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F2F2F2;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+
+  <!-- Preheader (hidden) -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Ingresa tu código o haz clic en el enlace para activar tu cuenta. &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+  <!-- Wrapper -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F2F2F2;">
+    <tr>
+      <td align="center" style="padding:24px 16px;">
+
+        <!-- Container -->
+        <table role="presentation" class="email-container" width="100%" style="max-width:600px;background-color:#FFFFFF;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background-color:#FF7A1A;padding:24px 32px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td>
+                    <span style="font-size:24px;font-weight:800;color:#FFFFFF;letter-spacing:-0.5px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Rep<span style="color:#121212;">League</span></span>
+                  </td>
+                  <td align="right">
+                    <span style="font-size:12px;color:rgba(255,255,255,0.8);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Verificación de cuenta</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- HERO STRIP -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#FF7A1A 0%,#E15E0A 100%);padding:32px;text-align:center;">
+              <div style="width:64px;height:64px;background-color:rgba(255,255,255,0.2);border-radius:50%;margin:0 auto 16px;display:inline-block;line-height:64px;text-align:center;font-size:32px;">&#9993;</div>
+              <h1 style="margin:0;font-size:26px;font-weight:800;color:#FFFFFF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.2;">Confirma tu email</h1>
+              <p style="margin:8px 0 0;font-size:15px;color:rgba(255,255,255,0.9);font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Hola, <strong>{{ first_name }}</strong> — ya casi estás dentro.</p>
+            </td>
+          </tr>
+
+          <!-- CONTENT -->
+          <tr>
+            <td class="content-padding" style="padding:36px 32px;">
+
+              <p style="margin:0 0 16px;font-size:15px;color:#2F2F2F;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                Gracias por registrarte en <strong>RepLeague</strong>. Para activar tu cuenta y empezar a competir, confirma tu dirección de email.
+              </p>
+
+              <!-- Code block -->
+              <table role="presentation" width="100%" style="margin:24px 0;">
+                <tr>
+                  <td align="center">
+                    <p style="margin:0 0 12px;font-size:13px;font-weight:600;color:#6B7280;text-transform:uppercase;letter-spacing:1px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Tu código de verificación</p>
+                    <div style="background-color:#F2F2F2;border:2px dashed #FF7A1A;border-radius:8px;padding:20px 32px;display:inline-block;">
+                      <span class="code-block" style="font-size:44px;font-weight:800;letter-spacing:12px;color:#121212;font-family:'Courier New',Courier,monospace;">{{ verification_code }}</span>
+                    </div>
+                    <p style="margin:12px 0 0;font-size:13px;color:#9CA3AF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">Expira en 24 horas</p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Divider -->
+              <table role="presentation" width="100%" style="margin:24px 0;">
+                <tr>
+                  <td style="border-top:1px solid #E5E5E5;padding:0;"></td>
+                  <td style="padding:0 16px;white-space:nowrap;font-size:13px;color:#9CA3AF;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">o haz clic aquí</td>
+                  <td style="border-top:1px solid #E5E5E5;padding:0;"></td>
+                </tr>
+              </table>
+
+              <!-- CTA Button -->
+              <table role="presentation" width="100%" style="margin:0 0 24px;">
+                <tr>
+                  <td align="center">
+                    <a href="{{ verification_url }}" class="btn-full" style="display:inline-block;background-color:#FF7A1A;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:700;padding:14px 40px;border-radius:8px;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;min-height:44px;line-height:1.2;mso-padding-alt:14px 40px;">
+                      Verificar email
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Security note -->
+              <table role="presentation" width="100%" style="margin:24px 0 0;">
+                <tr>
+                  <td style="background-color:#FFF7ED;border-left:4px solid #FF7A1A;border-radius:0 8px 8px 0;padding:16px;">
+                    <p style="margin:0;font-size:13px;color:#92400E;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                      <strong>Nota de seguridad:</strong> Este enlace expira en <strong>24 horas</strong>. Si no creaste esta cuenta, puedes ignorar este correo.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- URL fallback -->
+              <p style="margin:24px 0 0;font-size:12px;color:#9CA3AF;line-height:1.5;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;word-break:break-all;">
+                Si el botón no funciona, copia y pega esta URL en tu navegador:<br>
+                <span style="color:#FF7A1A;">{{ verification_url }}</span>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:#F2F2F2;padding:24px 32px;border-top:1px solid #E5E5E5;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="font-size:12px;color:#6B7280;text-align:center;line-height:1.6;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                    <p style="margin:0 0 8px;">© 2026 RepLeague. Todos los derechos reservados.</p>
+                    <p style="margin:0 0 8px;">
+                      <a href="{{ support_url }}" style="color:#FF7A1A;text-decoration:none;">Soporte</a>
+                      &nbsp;·&nbsp;
+                      <a href="{{ preferences_url }}" style="color:#FF7A1A;text-decoration:none;">Preferencias</a>
+                    </p>
+                    <p style="margin:0;color:#9CA3AF;">RepLeague · Santiago, Chile</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

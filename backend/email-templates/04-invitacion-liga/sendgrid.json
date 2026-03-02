@@ -1,0 +1,47 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "{{ inviter_name }} te invitó a '{{ league_name }}' en RepLeague",
+      "Hay un cupo para ti en {{ league_name }}",
+      "Tu lugar en la liga te espera — {{ league_name }}"
+    ],
+    "preheader": "Acepta la invitación de {{ inviter_name }} y empieza a competir.",
+    "type": "transactional",
+    "variables": {
+      "first_name": { "required": true, "type": "string", "description": "Nombre del destinatario invitado" },
+      "inviter_name": { "required": true, "type": "string", "description": "Nombre del usuario que envió la invitación" },
+      "league_name": { "required": true, "type": "string", "description": "Nombre de la liga a la que se invita" },
+      "join_url": { "required": true, "type": "string", "description": "URL con token único para unirse a la liga" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "El token de invitación expira en 7 días — verificar fecha de expiración en el backend",
+      "La tarjeta del nombre de la liga debe mostrar nombres largos sin desbordarse",
+      "Probar el botón en clientes email que no renderizan gradientes CSS",
+      "No incluir enlace de desuscripción — es email transaccional",
+      "Si el invitado ya tiene cuenta, redirigir al login antes de unirse; si no, al registro"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "{{ inviter_name }} te invitó a '{{ league_name }}' en RepLeague",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "inviter_name": "Felipe",
+        "league_name": "Team Quilicura",
+        "join_url": "https://app.repleague.com/invite/abc123",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}

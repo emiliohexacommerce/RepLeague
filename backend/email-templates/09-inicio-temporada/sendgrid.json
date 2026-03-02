@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "🏁 ¡Arranca la temporada en {{ league_name }}!",
+      "B": "{{ league_name }} inicia el {{ start_date }} — ¡prepárate!",
+      "C": "Que empiece la competencia — {{ league_name }} en marcha"
+    },
+    "preheader": "La temporada corre del {{ start_date }} al {{ end_date }}. ¡A entrenar!",
+    "type": "marketing",
+    "asm_group": "Novedades de Liga (ID: 1002)",
+    "variables": {
+      "first_name":      { "required": true,  "type": "string", "description": "Nombre del atleta" },
+      "league_name":     { "required": true,  "type": "string", "description": "Nombre de la liga" },
+      "start_date":      { "required": true,  "type": "string", "description": "Fecha de inicio formateada (ej: 1 mar 2026)" },
+      "end_date":        { "required": true,  "type": "string", "description": "Fecha de cierre formateada (ej: 1 jun 2026)" },
+      "action_url":      { "required": true,  "type": "url",    "description": "Enlace a la página de la liga" },
+      "support_url":     { "required": true,  "type": "url",    "description": "URL de soporte" },
+      "preferences_url": { "required": true,  "type": "url",    "description": "URL de preferencias" },
+      "unsubscribe_url": { "required": true,  "type": "url",    "description": "URL de desuscripción (inyectado por SendGrid ASM)" }
+    },
+    "qa_notes": [
+      "Tabla de 2 columnas (fechas): verificar colapso en Outlook 2016 y mobile",
+      "Gradient en hero cae a background-color:#E15E0A en clientes sin soporte CSS",
+      "Enviar solo a miembros de la liga correspondiente — segmentar por league_id",
+      "Verificar que start_date y end_date sean strings formateados, no objetos Date"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "🏁 ¡Arranca la temporada en {{ league_name }}!",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "league_name": "Team Quilicura",
+        "start_date": "1 mar 2026",
+        "end_date": "1 jun 2026",
+        "action_url": "https://app.repleague.com/leagues/123",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences",
+        "unsubscribe_url": "https://links.repleague.com/u/unsub?k=token"
+      }
+    }
+  ],
+  "categories": ["repLeague", "marketing"],
+  "asm": {
+    "group_id": 1002,
+    "groups_to_display": [1001, 1002]
+  }
+}

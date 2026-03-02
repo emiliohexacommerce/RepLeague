@@ -1,0 +1,46 @@
+<!-- Cargando -->
+<ng-container *ngIf="state === 'loading'">
+  <div class="text-center py-10">
+    <span class="spinner-border spinner-border-lg text-primary me-3"></span>
+    <span class="text-gray-600 fw-semibold fs-6">Verificando tu email...</span>
+  </div>
+</ng-container>
+
+<!-- Sin token -->
+<ng-container *ngIf="state === 'noToken'">
+  <div class="text-center mb-10">
+    <h1 class="text-gray-900 fw-bolder mb-3">Enlace inválido</h1>
+    <div class="text-gray-500 fw-semibold fs-6">No se encontró un token de verificación en el enlace.</div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a routerLink="/auth/login" class="btn btn-primary">Ir al inicio de sesión</a>
+  </div>
+</ng-container>
+
+<!-- Éxito -->
+<ng-container *ngIf="state === 'success'">
+  <div class="text-center mb-10">
+    <p style="font-size:48px;">✅</p>
+    <h1 class="text-gray-900 fw-bolder mb-3">Email verificado</h1>
+    <div class="text-gray-500 fw-semibold fs-6">Tu email ha sido confirmado correctamente.</div>
+  </div>
+  <div class="mb-10 bg-light-success p-8 rounded text-center">
+    <div class="text-success fw-semibold">Ya puedes disfrutar de todas las funciones de RepLeague.</div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a routerLink="/dashboard" class="btn btn-primary">Ir al dashboard</a>
+  </div>
+</ng-container>
+
+<!-- Error -->
+<ng-container *ngIf="state === 'error'">
+  <div class="text-center mb-10">
+    <h1 class="text-gray-900 fw-bolder mb-3">Error de verificación</h1>
+  </div>
+  <div class="mb-10 alert alert-danger">
+    <div class="alert-text">{{ errorMessage }}</div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a routerLink="/auth/login" class="btn btn-primary">Ir al inicio de sesión</a>
+  </div>
+</ng-container>

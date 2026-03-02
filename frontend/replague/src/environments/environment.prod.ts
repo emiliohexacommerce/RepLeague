@@ -9,4 +9,6 @@ export const environment = {
   appPreviewUrl: '',
   appPreviewChangelogUrl: '',
   appDemos: {} as Record<string, { title: string; thumbnail: string; published: boolean }>,
+  // PWA / Push — Sustituir con claves reales generadas con: npx web-push generate-vapid-keys
+  vapidPublicKey: 'REPLACE_WITH_YOUR_VAPID_PUBLIC_KEY',
 };

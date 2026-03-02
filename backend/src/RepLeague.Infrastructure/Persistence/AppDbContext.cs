@@ -15,6 +15,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Invitation> Invitations => Set<Invitation>();
     public DbSet<RankingEntry> RankingEntries => Set<RankingEntry>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+    public DbSet<WodEntry> WodEntries => Set<WodEntry>();
+    public DbSet<WodExercise> WodExercises => Set<WodExercise>();
+    public DbSet<WodResultAmrap> WodResultAmraps => Set<WodResultAmrap>();
+    public DbSet<WodResultEmom> WodResultEmoms => Set<WodResultEmom>();
+    public DbSet<LiftSession> LiftSessions => Set<LiftSession>();
+    public DbSet<StrengthSet> StrengthSets => Set<StrengthSet>();
+    public DbSet<PushSubscription> PushSubscriptions => Set<PushSubscription>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

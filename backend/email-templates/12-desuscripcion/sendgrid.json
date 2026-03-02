@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "subjects": {
+      "A": "Te dimos de baja de {{ list_name }} en RepLeague",
+      "B": "Confirmación: ya no recibirás {{ list_name }}",
+      "C": "Desuscripción exitosa — RepLeague"
+    },
+    "preheader": "Ya no recibirás correos de {{ list_name }}. Siempre puedes volver.",
+    "type": "transactional",
+    "note": "Email obligatorio. NO incluir asm ni unsubscribe link. El usuario ya se desuscribió.",
+    "variables": {
+      "first_name":        { "required": true,  "type": "string", "description": "Nombre del usuario" },
+      "list_name":         { "required": true,  "type": "string", "description": "Nombre de la lista/grupo de la que se desuscribió (ej: Resumen Semanal)" },
+      "resubscribe_url":   { "required": true,  "type": "url",    "description": "URL para volver a suscribirse a la lista" },
+      "support_url":       { "required": true,  "type": "url",    "description": "URL de soporte" },
+      "preferences_url":   { "required": true,  "type": "url",    "description": "URL de preferencias de email (para gestionar otras listas)" }
+    },
+    "qa_notes": [
+      "NO incluir asm — este es un email transaccional de confirmación",
+      "NO incluir enlace de desuscripción en el footer — el usuario ya se desuscribió",
+      "El botón de re-suscripción usa estilo outlined (sin fondo sólido) para no parecer un CTA primario agresivo",
+      "Verificar que list_name coincida exactamente con el nombre del grupo ASM en SendGrid",
+      "Este email debe enviarse inmediatamente tras el evento de unsubscribe — no en batch"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "Te dimos de baja de {{ list_name }} en RepLeague",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "list_name": "Resumen Semanal",
+        "resubscribe_url": "https://app.repleague.com/resubscribe",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional", "unsubscribe"]
+}

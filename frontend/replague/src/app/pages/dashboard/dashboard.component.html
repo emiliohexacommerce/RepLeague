@@ -1,129 +1,327 @@
 <div class="container-xxl" id="kt_content_container">
 
-  <!-- Loading skeleton -->
+  <!-- Loading spinner -->
   <div *ngIf="loading" class="text-center py-20">
     <span class="spinner-border text-primary" style="width:3rem;height:3rem;"></span>
   </div>
 
-  <ng-container *ngIf="!loading">
+  <ng-container *ngIf="!loading && overview">
 
-    <!-- Welcome banner -->
+    <!-- ── Row 1: Welcome Banner ── -->
     <div class="card mb-6" style="background: linear-gradient(135deg, #FF7A1A 0%, #E06700 100%);">
-      <div class="card-body d-flex align-items-center py-8 px-10">
-        <div class="flex-grow-1">
-          <h2 class="text-white fw-boldest mb-1">
-            Welcome back, {{ profile?.displayName || 'Athlete' }}!
-          </h2>
-          <p class="text-white opacity-75 mb-0">
-            Track your workouts, beat your PRs and climb the rankings.
-          </p>
+      <div class="card-body d-flex align-items-center justify-content-between flex-wrap gap-4 py-8 px-10">
+
+        <!-- Avatar + greeting -->
+        <div class="d-flex align-items-center gap-4">
+          <div class="symbol symbol-60px symbol-circle">
+            <img *ngIf="overview.welcome.avatarUrl"
+              [src]="overview.welcome.avatarUrl" alt="avatar"
+              class="object-fit-cover w-100 h-100 rounded-circle" />
+            <div *ngIf="!overview.welcome.avatarUrl"
+              class="symbol-label bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center"
+              style="width:60px;height:60px;">
+              <span class="text-white fw-bold fs-2">{{ overview.welcome.firstName.charAt(0).toUpperCase() }}</span>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-white fw-boldest mb-1">
+              {{ 'DASHBOARD.WELCOME' | translate:{ name: overview.welcome.firstName } }}
+            </h2>
+            <p class="text-white opacity-75 mb-0">{{ 'DASHBOARD.SUBTITLE' | translate }}</p>
+          </div>
         </div>
-        <div class="d-none d-md-flex align-items-center gap-3">
-          <a routerLink="/workouts" class="btn btn-white btn-sm fw-bold text-primary">
-            Log Workout
-          </a>
-          <a routerLink="/leagues" class="btn btn-outline btn-outline-white btn-sm fw-bold text-white">
-            My Leagues
-          </a>
+
+        <!-- Streak + CTA buttons -->
+        <div class="d-flex align-items-center gap-6">
+          <div class="text-center" *ngIf="overview.streak.weeks > 0">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <i class="ki-duotone ki-fire fs-2x text-warning">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+              <span class="text-white fw-boldest fs-2x">{{ overview.streak.weeks }}</span>
+            </div>
+            <span class="text-white opacity-75 fs-7">{{ 'DASHBOARD.STREAK_WEEKS' | translate }}</span>
+          </div>
+          <div class="d-none d-md-flex flex-column gap-2">
+            <a routerLink="/wod" class="btn btn-white btn-sm fw-bold text-danger">
+              {{ 'DASHBOARD.LOG_WOD' | translate }}
+            </a>
+            <a routerLink="/strength" class="btn btn-outline btn-outline-white btn-sm fw-bold text-white">
+              {{ 'DASHBOARD.LOG_LIFT' | translate }}
+            </a>
+          </div>
         </div>
+
       </div>
     </div>
 
-    <!-- Stats row -->
+    <!-- ── Row 2: KPI Cards ── -->
     <div class="row g-5 mb-6">
-      <div class="col-md-4">
-        <div class="card">
+      <div *ngFor="let kpi of overview.kpis" class="col-sm-6 col-xl-3">
+        <div class="card h-100">
           <div class="card-body d-flex align-items-center gap-4 py-6">
-            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-primary flex-shrink-0">
-              <i class="ki-duotone ki-fitness fs-2x text-primary">
-                <span class="path1"></span><span class="path2"></span>
-              </i>
+            <div class="flex-shrink-0">
+              <div *ngIf="kpi.key === 'sessions'"
+                class="w-50px h-50px rounded-circle d-flex align-items-center justify-content-center bg-light-primary">
+                <i class="ki-duotone ki-fitness fs-2x text-primary"><span class="path1"></span><span class="path2"></span></i>
+              </div>
+              <div *ngIf="kpi.key === 'prs'"
+                class="w-50px h-50px rounded-circle d-flex align-items-center justify-content-center bg-light-success">
+                <i class="ki-duotone ki-award fs-2x text-success"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+              </div>
+              <div *ngIf="kpi.key === 'volume'"
+                class="w-50px h-50px rounded-circle d-flex align-items-center justify-content-center bg-light-warning">
+                <i class="ki-duotone ki-chart-line-up fs-2x text-warning"><span class="path1"></span><span class="path2"></span></i>
+              </div>
+              <div *ngIf="kpi.key === 'leagues'"
+                class="w-50px h-50px rounded-circle d-flex align-items-center justify-content-center bg-light-danger">
+                <i class="ki-duotone ki-crown fs-2x text-danger"><span class="path1"></span><span class="path2"></span></i>
+              </div>
             </div>
             <div>
-              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalWorkouts ?? 0 }}</div>
-              <div class="text-muted fw-semibold">Total Workouts</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body d-flex align-items-center gap-4 py-6">
-            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-success flex-shrink-0">
-              <i class="ki-duotone ki-award fs-2x text-success">
-                <span class="path1"></span><span class="path2"></span><span class="path3"></span>
-              </i>
-            </div>
-            <div>
-              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalPrs ?? 0 }}</div>
-              <div class="text-muted fw-semibold">Personal Records</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body d-flex align-items-center gap-4 py-6">
-            <div class="w-55px h-55px rounded-circle d-flex align-items-center justify-content-center bg-light-warning flex-shrink-0">
-              <i class="ki-duotone ki-crown fs-2x text-warning">
-                <span class="path1"></span><span class="path2"></span>
-              </i>
-            </div>
-            <div>
-              <div class="fw-boldest fs-2x text-dark">{{ profile?.totalLeagues ?? 0 }}</div>
-              <div class="text-muted fw-semibold">Active Leagues</div>
+              <div class="fw-boldest fs-2x text-dark">{{ kpi.value }}</div>
+              <div class="text-muted fw-semibold fs-7">{{ kpi.label }}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Recent workouts + Leagues -->
-    <div class="row g-5">
+    <!-- ── Row 3: Recommendations ── -->
+    <div class="row g-5 mb-6" *ngIf="overview.recommendations.length > 0">
+      <div *ngFor="let rec of overview.recommendations" class="col-sm-6 col-xl-4">
+        <div class="card h-100 border border-dashed border-gray-300">
+          <div class="card-body py-5 px-6">
+            <div class="d-flex align-items-start gap-3">
+              <div class="flex-shrink-0 mt-1">
+                <i class="ki-duotone fs-2x"
+                  [ngClass]="[recommendationIcon(rec.code), recommendationColor(rec.code)]">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+              </div>
+              <div class="flex-grow-1">
+                <h5 class="fw-bold mb-1 fs-6">{{ rec.title }}</h5>
+                <p class="text-muted fs-7 mb-3">{{ rec.body }}</p>
+                <a [routerLink]="rec.cta.url" class="btn btn-sm btn-light-primary">{{ rec.cta.label }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <!-- Recent workouts -->
-      <div class="col-xl-8">
+    <!-- ── Row 4: Charts ── -->
+    <div class="row g-5 mb-6">
+
+      <!-- 1RM Progress -->
+      <div class="col-xl-4">
+        <div class="card h-100">
+          <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+              <span class="card-label fw-bold fs-5 text-dark">{{ 'DASHBOARD.CHART_1RM' | translate }}</span>
+              <span *ngIf="overview.charts.topExercise" class="text-muted mt-1 fw-semibold fs-7">
+                {{ overview.charts.topExercise }}
+              </span>
+            </h3>
+          </div>
+          <div class="card-body pt-2">
+            <ng-container *ngIf="overview.charts.strength1Rm.data.length > 0; else noData1Rm">
+              <apx-chart
+                [series]="strengthChart.series!"
+                [chart]="strengthChart.chart!"
+                [xaxis]="strengthChart.xaxis!"
+                [yaxis]="strengthChart.yaxis!"
+                [stroke]="strengthChart.stroke!"
+                [markers]="strengthChart.markers!"
+                [grid]="strengthChart.grid!"
+                [colors]="strengthChart.colors!"
+                [dataLabels]="strengthChart.dataLabels!">
+              </apx-chart>
+            </ng-container>
+            <ng-template #noData1Rm>
+              <div class="d-flex flex-column align-items-center justify-content-center py-10 text-muted">
+                <i class="ki-duotone ki-chart-line-up fs-3x mb-3 text-gray-300">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+                <span class="fs-7">{{ 'DASHBOARD.NO_LIFT_DATA' | translate }}</span>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Volume -->
+      <div class="col-xl-4">
+        <div class="card h-100">
+          <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+              <span class="card-label fw-bold fs-5 text-dark">{{ 'DASHBOARD.CHART_VOLUME' | translate }}</span>
+              <span class="text-muted mt-1 fw-semibold fs-7">{{ 'DASHBOARD.LAST_8_WEEKS' | translate }}</span>
+            </h3>
+          </div>
+          <div class="card-body pt-2">
+            <ng-container *ngIf="overview.charts.weeklyVolume.data.length > 0; else noDataVol">
+              <apx-chart
+                [series]="volumeChart.series!"
+                [chart]="volumeChart.chart!"
+                [xaxis]="volumeChart.xaxis!"
+                [yaxis]="volumeChart.yaxis!"
+                [grid]="volumeChart.grid!"
+                [colors]="volumeChart.colors!"
+                [dataLabels]="volumeChart.dataLabels!">
+              </apx-chart>
+            </ng-container>
+            <ng-template #noDataVol>
+              <div class="d-flex flex-column align-items-center justify-content-center py-10 text-muted">
+                <i class="ki-duotone ki-chart-simple fs-3x mb-3 text-gray-300">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+                <span class="fs-7">{{ 'DASHBOARD.NO_LIFT_DATA' | translate }}</span>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <!-- ForTime Best -->
+      <div class="col-xl-4">
+        <div class="card h-100">
+          <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+              <span class="card-label fw-bold fs-5 text-dark">{{ 'DASHBOARD.CHART_FORTIME' | translate }}</span>
+              <span class="text-muted mt-1 fw-semibold fs-7">{{ 'DASHBOARD.LOWER_IS_BETTER' | translate }}</span>
+            </h3>
+          </div>
+          <div class="card-body pt-2">
+            <ng-container *ngIf="overview.charts.forTimeBest.data.length > 0; else noDataFT">
+              <apx-chart
+                [series]="forTimeChart.series!"
+                [chart]="forTimeChart.chart!"
+                [xaxis]="forTimeChart.xaxis!"
+                [yaxis]="forTimeChart.yaxis!"
+                [stroke]="forTimeChart.stroke!"
+                [markers]="forTimeChart.markers!"
+                [grid]="forTimeChart.grid!"
+                [colors]="forTimeChart.colors!"
+                [tooltip]="forTimeChart.tooltip!"
+                [dataLabels]="forTimeChart.dataLabels!">
+              </apx-chart>
+            </ng-container>
+            <ng-template #noDataFT>
+              <div class="d-flex flex-column align-items-center justify-content-center py-10 text-muted">
+                <i class="ki-duotone ki-timer fs-3x mb-3 text-gray-300">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
+                <span class="fs-7">{{ 'DASHBOARD.NO_WOD_DATA' | translate }}</span>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Row 5: Recent Activity ── -->
+    <div class="row g-5 mb-6">
+
+      <!-- Recent WODs -->
+      <div class="col-xl-6">
         <div class="card h-100">
           <div class="card-header">
-            <h3 class="card-title">Recent Workouts (last 7 days)</h3>
+            <h3 class="card-title">{{ 'DASHBOARD.RECENT_WODS' | translate }}</h3>
             <div class="card-toolbar">
-              <a routerLink="/workouts" class="btn btn-sm btn-light-primary">See all</a>
+              <a routerLink="/wod" class="btn btn-sm btn-light-danger">{{ 'DASHBOARD.SEE_ALL' | translate }}</a>
             </div>
           </div>
           <div class="card-body p-0">
-            <div *ngIf="recentWorkouts.length === 0" class="text-center py-10 text-muted">
-              <p class="mb-3">No workouts in the last 7 days.</p>
-              <a routerLink="/workouts" class="btn btn-sm btn-primary">Log your first workout</a>
+            <div *ngIf="overview.recentWods.length === 0"
+              class="d-flex flex-column align-items-center justify-content-center py-12 text-muted">
+              <i class="ki-duotone ki-timer fs-3x mb-3 text-gray-300">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+              <p class="mb-3 fs-7">{{ 'DASHBOARD.NO_WOD_DATA' | translate }}</p>
+              <a routerLink="/wod" class="btn btn-sm btn-danger">{{ 'DASHBOARD.LOG_WOD' | translate }}</a>
             </div>
-            <div *ngIf="recentWorkouts.length > 0" class="table-responsive">
-              <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
+            <div *ngIf="overview.recentWods.length > 0" class="table-responsive">
+              <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-3">
                 <thead>
-                  <tr class="fw-bolder text-muted bg-light">
-                    <th class="ps-4 rounded-start">Date</th>
-                    <th>Type</th>
-                    <th>Details</th>
-                    <th class="rounded-end pe-4">PR</th>
+                  <tr class="fw-bold text-muted bg-light fs-7">
+                    <th class="ps-4 rounded-start">{{ 'DASHBOARD.DATE' | translate }}</th>
+                    <th>{{ 'DASHBOARD.TYPE' | translate }}</th>
+                    <th>{{ 'DASHBOARD.RESULT' | translate }}</th>
+                    <th class="pe-4 rounded-end">Rx</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let w of recentWorkouts">
-                    <td class="ps-4 text-muted fs-7">{{ w.date | date:'MMM d' }}</td>
+                  <tr *ngFor="let wod of overview.recentWods">
+                    <td class="ps-4 text-muted fs-7">{{ wod.date | date:'dd MMM' }}</td>
                     <td>
-                      <span class="badge"
-                        [class.badge-light-warning]="w.type === 'Strength'"
-                        [class.badge-light-danger]="w.type === 'WOD'"
-                        [class.badge-light-info]="w.type === 'Cardio'">
-                        {{ w.type }}
-                      </span>
+                      <span class="badge fs-8" [ngClass]="wodBadgeClass(wod.type)">{{ wod.type }}</span>
                     </td>
                     <td class="text-muted fs-7">
-                      <span *ngIf="w.exercises?.length">{{ w.exercises.length }} exercise(s)</span>
-                      <span *ngIf="w.wods?.length">{{ w.wods.length }} WOD(s)</span>
-                      <span *ngIf="!w.exercises?.length && !w.wods?.length">—</span>
+                      <span *ngIf="wod.elapsedTime">{{ wod.elapsedTime }}</span>
+                      <span *ngIf="!wod.elapsedTime && wod.rounds != null">
+                        {{ wod.rounds }}+{{ wod.extraReps ?? 0 }} reps
+                      </span>
+                      <span *ngIf="!wod.elapsedTime && wod.rounds == null">—</span>
                     </td>
                     <td class="pe-4">
-                      <span *ngIf="w.isPr" class="badge badge-light-success">
-                        <i class="ki-duotone ki-award fs-7 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                      <span *ngIf="wod.rxScaled" class="badge badge-light-success fs-8">Rx</span>
+                      <span *ngIf="!wod.rxScaled" class="badge badge-light-warning fs-8">Scaled</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Lifts -->
+      <div class="col-xl-6">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3 class="card-title">{{ 'DASHBOARD.RECENT_LIFTS' | translate }}</h3>
+            <div class="card-toolbar">
+              <a routerLink="/strength" class="btn btn-sm btn-light-warning">{{ 'DASHBOARD.SEE_ALL' | translate }}</a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div *ngIf="overview.recentLifts.length === 0"
+              class="d-flex flex-column align-items-center justify-content-center py-12 text-muted">
+              <i class="ki-duotone ki-chart-line-up fs-3x mb-3 text-gray-300">
+                <span class="path1"></span><span class="path2"></span>
+              </i>
+              <p class="mb-3 fs-7">{{ 'DASHBOARD.NO_LIFT_DATA' | translate }}</p>
+              <a routerLink="/strength" class="btn btn-sm btn-warning">{{ 'DASHBOARD.LOG_LIFT' | translate }}</a>
+            </div>
+            <div *ngIf="overview.recentLifts.length > 0" class="table-responsive">
+              <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-3">
+                <thead>
+                  <tr class="fw-bold text-muted bg-light fs-7">
+                    <th class="ps-4 rounded-start">{{ 'DASHBOARD.EXERCISE' | translate }}</th>
+                    <th>{{ 'DASHBOARD.WEIGHT' | translate }}</th>
+                    <th>1RM est.</th>
+                    <th class="pe-4 rounded-end">PR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let lift of overview.recentLifts">
+                    <td class="ps-4">
+                      <span class="fw-semibold text-dark fs-7">{{ lift.exercise }}</span>
+                      <span class="text-muted fs-8 d-block">
+                        {{ lift.date | date:'dd MMM' }} · {{ lift.reps }} reps
+                      </span>
+                    </td>
+                    <td class="text-muted fs-7">{{ lift.weight | number:'1.0-1' }} kg</td>
+                    <td class="text-muted fs-7">
+                      {{ lift.est1Rm ? (lift.est1Rm | number:'1.0-1') + ' kg' : '—' }}
+                    </td>
+                    <td class="pe-4">
+                      <span *ngIf="lift.isPr" class="badge badge-light-success fs-8">
+                        <i class="ki-duotone ki-award fs-8 me-1">
+                          <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                        </i>
                         PR
                       </span>
                     </td>
@@ -135,38 +333,55 @@
         </div>
       </div>
 
-      <!-- My Leagues -->
-      <div class="col-xl-4">
-        <div class="card h-100">
-          <div class="card-header">
-            <h3 class="card-title">My Leagues</h3>
-            <div class="card-toolbar">
-              <a routerLink="/leagues" class="btn btn-sm btn-light-warning">View all</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div *ngIf="leagues.length === 0" class="text-center py-6 text-muted">
-              <p class="mb-3">You're not in any leagues yet.</p>
-              <a routerLink="/leagues" class="btn btn-sm btn-warning">Join or create</a>
-            </div>
-            <div *ngFor="let league of leagues" class="d-flex align-items-center mb-4">
-              <div class="w-40px h-40px rounded-circle bg-light-warning d-flex align-items-center justify-content-center me-3 flex-shrink-0">
-                <span class="text-warning fw-bold fs-7">{{ league.name.charAt(0).toUpperCase() }}</span>
+    </div>
+
+    <!-- ── Row 6: Leagues ── -->
+    <div class="card mb-6" *ngIf="overview.leagues.length > 0">
+      <div class="card-header">
+        <h3 class="card-title">{{ 'DASHBOARD.MY_LEAGUES_CARD' | translate }}</h3>
+        <div class="card-toolbar">
+          <a routerLink="/leagues" class="btn btn-sm btn-light-warning">{{ 'DASHBOARD.VIEW_ALL' | translate }}</a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row g-4">
+          <div *ngFor="let league of overview.leagues" class="col-md-4">
+            <div class="d-flex align-items-center bg-light rounded p-4 gap-3">
+              <div class="w-45px h-45px rounded-circle bg-warning d-flex align-items-center
+                          justify-content-center flex-shrink-0">
+                <span class="text-white fw-bold">{{ league.name.charAt(0).toUpperCase() }}</span>
               </div>
-              <div class="flex-grow-1">
-                <a [routerLink]="['/leagues', league.id]" class="fw-semibold text-dark text-hover-primary d-block">
+              <div class="flex-grow-1 min-w-0">
+                <a [routerLink]="['/leagues', league.leagueId]"
+                  class="fw-semibold text-dark text-hover-primary d-block text-truncate">
                   {{ league.name }}
                 </a>
-                <span class="text-muted fs-7">{{ league.memberCount }} member(s)</span>
+                <span class="text-muted fs-7">
+                  {{ 'DASHBOARD.RANK' | translate }} #{{ league.rank }} &middot; {{ league.points }} pts
+                </span>
               </div>
-              <a [routerLink]="['/leagues', league.id]" class="btn btn-icon btn-sm btn-light">
-                <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>
+              <a [routerLink]="['/leagues', league.leagueId]"
+                class="btn btn-icon btn-sm btn-light flex-shrink-0">
+                <i class="ki-duotone ki-arrow-right fs-4">
+                  <span class="path1"></span><span class="path2"></span>
+                </i>
               </a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
+
+    <!-- No leagues yet -->
+    <div class="card mb-6" *ngIf="overview.leagues.length === 0">
+      <div class="card-body d-flex flex-column align-items-center justify-content-center py-12">
+        <i class="ki-duotone ki-crown fs-3x text-warning mb-4">
+          <span class="path1"></span><span class="path2"></span>
+        </i>
+        <p class="text-muted mb-3 fs-6">{{ 'DASHBOARD.NO_LEAGUES' | translate }}</p>
+        <a routerLink="/leagues" class="btn btn-sm btn-warning">{{ 'DASHBOARD.JOIN_OR_CREATE' | translate }}</a>
+      </div>
+    </div>
+
   </ng-container>
 </div>

@@ -1,0 +1,36 @@
+ASUNTO: Tu invitación a {{ league_name }} vence pronto
+
+---
+
+RepLeague — Recordatorio de Invitación
+
+---
+
+INVITACIÓN POR VENCER
+
+---
+
+¡Hola, {{ first_name }}!
+
+Todavía tienes una invitación pendiente.
+
+{{ inviter_name }} te invitó a unirte a la liga {{ league_name }} en RepLeague. Aún no has aceptado y el tiempo se acaba.
+
+TU INVITACIÓN VENCE EL:
+  {{ expires_at }}
+
+UNIRME AHORA:
+{{ join_url }}
+
+---
+
+Si no quieres unirte, puedes ignorar este correo. No recibirás más recordatorios sobre esta invitación.
+
+---
+
+¿Tienes preguntas? Contáctanos en:
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+
+© 2026 RepLeague. Todos los derechos reservados.
+RepLeague · Santiago, Chile

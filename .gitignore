@@ -1,23 +1,31 @@
-# ── Backend ───────────────────────────────────────────────────────────────────
+# Backend
 backend/src/**/bin/
 backend/src/**/obj/
 backend/**/*.user
 backend/**/.vs/
 backend/**/appsettings.Development.json
+backend/publish/
+backend/**/.deployment
 
-# ── Frontend ──────────────────────────────────────────────────────────────────
+# Frontend
 frontend/**/node_modules/
 frontend/**/dist/
 frontend/**/.angular/
 
-# ── IDE ───────────────────────────────────────────────────────────────────────
+# IDE
 .vscode/
 .idea/
 *.suo
 *.ncrunch*
 .DS_Store
 
-# ── Secrets ───────────────────────────────────────────────────────────────────
+# Build artifacts
+*.dll
+*.exe
+*.pdb
+*.zip
+
+# Secrets
 **/appsettings.Production.json
 **/.env
 **/*.pfx

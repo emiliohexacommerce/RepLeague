@@ -1,0 +1,45 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "Restablece tu contraseña de RepLeague",
+      "Solicitud de cambio de contraseña — RepLeague",
+      "¿Olvidaste tu contraseña? Aquí está tu enlace"
+    ],
+    "preheader": "Haz clic para restablecer tu contraseña. Expira en {{ token_exp_minutes }} min.",
+    "type": "transactional",
+    "variables": {
+      "first_name": { "required": true, "type": "string", "description": "Nombre del usuario" },
+      "reset_url": { "required": true, "type": "string", "description": "URL única con token para restablecer contraseña" },
+      "token_exp_minutes": { "required": true, "type": "integer", "description": "Minutos hasta que expira el token de reset (ej: 30)" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "El token de reset debe ser de un solo uso — invalidar después del primer uso",
+      "Mostrar claramente el tiempo de expiración en minutos",
+      "El aviso de seguridad rojo debe ser visible en todos los clientes de email",
+      "No incluir enlace de desuscripción — es email de seguridad transaccional",
+      "Registrar en logs cuando se envíe este email para auditoría de seguridad"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "Restablece tu contraseña de RepLeague",
+  "personalizations": [
+    {
+      "to": [{ "email": "user@example.com", "name": "Emilio" }],
+      "dynamic_template_data": {
+        "first_name": "Emilio",
+        "reset_url": "https://app.repleague.com/reset?token=zzz",
+        "token_exp_minutes": 30,
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}

@@ -1,0 +1,20 @@
+ASUNTO: {{ activity_title }} — RepLeague
+
+RepLeague — Notificación
+=========================================
+
+Hola {{ first_name }},
+
+{{ activity_title }}
+---
+
+{{ activity_excerpt }}
+
+VER MÁS
+--------
+{{ action_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+© 2026 RepLeague · Santiago, Chile

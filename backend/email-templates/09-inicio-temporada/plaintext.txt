@@ -1,0 +1,30 @@
+ASUNTO: 🏁 ¡Arranca la temporada en {{ league_name }}!
+
+RepLeague
+=========================================
+
+🏁 ¡ARRANCA LA TEMPORADA!
+Liga: {{ league_name }}
+
+Hola {{ first_name }}, la competencia oficial de {{ league_name }} comienza ahora. ¡Prepárate para dar lo mejor de ti!
+
+FECHAS DE LA TEMPORADA
+-----------------------
+  🏁 Inicio  : {{ start_date }}
+  🏆 Cierre  : {{ end_date }}
+
+REGLAS
+------
+  💪 +10 puntos por cada entrenamiento registrado.
+  🏆 +30 puntos adicionales por cada PR superado.
+  📊 El ranking se actualiza en tiempo real. En empate, gana quien tenga más PRs.
+
+VER MI LIGA
+-----------
+{{ action_url }}
+
+-----------------------------------------
+Soporte: {{ support_url }}
+Preferencias: {{ preferences_url }}
+Desuscribirse: {{ unsubscribe_url }}
+© 2026 RepLeague · Santiago, Chile

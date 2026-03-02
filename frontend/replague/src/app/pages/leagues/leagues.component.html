@@ -1,10 +1,10 @@
 <div class="container-xxl" id="kt_content_container">
   <!-- Header -->
   <div class="d-flex flex-wrap flex-stack mb-6">
-    <h3 class="fw-bolder my-2">My Leagues</h3>
+    <h3 class="fw-bolder my-2">{{ 'LEAGUES.TITLE' | translate }}</h3>
     <div class="d-flex gap-3 my-2">
       <button class="btn btn-light btn-sm" (click)="toggleForm()">
-        <i class="ki-duotone ki-plus fs-3"></i> Create League
+        <i class="ki-duotone ki-plus fs-3"></i> {{ 'LEAGUES.CREATE' | translate }}
       </button>
     </div>
   </div>
@@ -17,10 +17,10 @@
   <div class="card mb-6">
     <div class="card-body py-4">
       <div class="d-flex gap-3 align-items-center">
-        <input type="text" class="form-control form-control-solid form-control-sm w-300px" placeholder="Paste invite token to join a league" [(ngModel)]="joinToken" />
+        <input type="text" class="form-control form-control-solid form-control-sm w-300px" [placeholder]="'LEAGUES.JOIN_PLACEHOLDER' | translate" [(ngModel)]="joinToken" />
         <button class="btn btn-sm btn-success" (click)="joinByToken()" [disabled]="!joinToken || joining">
-          <span *ngIf="!joining">Join</span>
-          <span *ngIf="joining">Joining...</span>
+          <span *ngIf="!joining">{{ 'LEAGUES.JOIN' | translate }}</span>
+          <span *ngIf="joining">{{ 'LEAGUES.JOINING' | translate }}</span>
         </button>
       </div>
     </div>
@@ -29,27 +29,27 @@
   <!-- Create Form -->
   <div *ngIf="showForm" class="card mb-6">
     <div class="card-header">
-      <h4 class="card-title">Create New League</h4>
+      <h4 class="card-title">{{ 'LEAGUES.CREATE_TITLE' | translate }}</h4>
       <div class="card-toolbar">
-        <button type="button" class="btn btn-sm btn-light" (click)="toggleForm()">Cancel</button>
+        <button type="button" class="btn btn-sm btn-light" (click)="toggleForm()">{{ 'COMMON.CANCEL' | translate }}</button>
       </div>
     </div>
     <div class="card-body">
       <form [formGroup]="createForm" (ngSubmit)="submitCreate()">
         <div class="row g-4">
           <div class="col-md-6">
-            <label class="form-label required">League Name</label>
-            <input type="text" class="form-control form-control-solid" formControlName="name" placeholder="e.g. CrossFit Warriors" />
+            <label class="form-label required">{{ 'LEAGUES.LEAGUE_NAME' | translate }}</label>
+            <input type="text" class="form-control form-control-solid" formControlName="name" [placeholder]="'LEAGUES.NAME_PLACEHOLDER' | translate" />
           </div>
           <div class="col-md-6">
-            <label class="form-label">Description</label>
-            <input type="text" class="form-control form-control-solid" formControlName="description" placeholder="Optional description" />
+            <label class="form-label">{{ 'LEAGUES.DESCRIPTION' | translate }}</label>
+            <input type="text" class="form-control form-control-solid" formControlName="description" [placeholder]="'LEAGUES.DESC_PLACEHOLDER' | translate" />
           </div>
         </div>
         <div class="mt-4">
           <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid || creating">
-            <span *ngIf="!creating">Create</span>
-            <span *ngIf="creating">Creating...</span>
+            <span *ngIf="!creating">{{ 'LEAGUES.CREATE_BTN' | translate }}</span>
+            <span *ngIf="creating">{{ 'LEAGUES.CREATING' | translate }}</span>
           </button>
         </div>
       </form>
@@ -65,8 +65,8 @@
   <div *ngIf="!loading && leagues.length === 0" class="card">
     <div class="card-body text-center py-10">
       <i class="ki-duotone ki-crown fs-3x text-muted mb-4 d-block"></i>
-      <h4 class="text-muted">You're not in any leagues yet</h4>
-      <p class="text-muted">Create a league or join one with an invite token.</p>
+      <h4 class="text-muted">{{ 'LEAGUES.EMPTY_TITLE' | translate }}</h4>
+      <p class="text-muted">{{ 'LEAGUES.EMPTY_SUBTITLE' | translate }}</p>
     </div>
   </div>
 
@@ -78,11 +78,11 @@
           <h4 class="fw-bold mb-2">{{ league.name }}</h4>
           <p *ngIf="league.description" class="text-muted fs-7 mb-4">{{ league.description }}</p>
           <div class="d-flex gap-4 mt-auto">
-            <span class="text-muted fs-7"><i class="ki-duotone ki-people fs-5 me-1"></i>{{ league.memberCount }} members</span>
+            <span class="text-muted fs-7"><i class="ki-duotone ki-people fs-5 me-1"></i>{{ league.memberCount }} {{ 'LEAGUES.MEMBERS' | translate }}</span>
           </div>
         </div>
         <div class="card-footer d-flex justify-content-end py-3">
-          <a [routerLink]="['/leagues', league.id]" class="btn btn-sm btn-light-primary">View League</a>
+          <a [routerLink]="['/leagues', league.id]" class="btn btn-sm btn-light-primary">{{ 'LEAGUES.VIEW' | translate }}</a>
         </div>
       </div>
     </div>

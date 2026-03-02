@@ -1,0 +1,46 @@
+{
+  "_comments": {
+    "subjects_AB": [
+      "{{ new_member_name }} se unió a {{ league_name }}",
+      "Tienes un nuevo competidor en {{ league_name }}",
+      "El equipo crece — {{ new_member_name }} aceptó tu invitación"
+    ],
+    "preheader": "Ya son uno más compitiendo en {{ league_name }}.",
+    "type": "transactional",
+    "variables": {
+      "inviter_name": { "required": true, "type": "string", "description": "Nombre del propietario de la liga que envió la invitación" },
+      "new_member_name": { "required": true, "type": "string", "description": "Nombre del nuevo miembro que aceptó la invitación" },
+      "league_name": { "required": true, "type": "string", "description": "Nombre de la liga" },
+      "action_url": { "required": true, "type": "string", "description": "URL de la página de la liga" },
+      "support_url": { "required": true, "type": "string", "description": "URL de la página de soporte" },
+      "preferences_url": { "required": true, "type": "string", "description": "URL de preferencias de email del usuario" }
+    },
+    "qa_notes": [
+      "Este email se envía al CREADOR de la liga, no al nuevo miembro",
+      "Verificar que action_url lleva directamente al detalle de la liga correcta",
+      "No incluir enlace de desuscripción — es email transaccional",
+      "Enviar inmediatamente cuando el usuario acepta la invitación (POST /api/leagues/join/{token})"
+    ]
+  },
+  "from": { "email": "no-reply@repleague.com", "name": "RepLeague" },
+  "reply_to": { "email": "soporte@repleague.com", "name": "RepLeague Soporte" },
+  "subject": "{{ new_member_name }} se unió a {{ league_name }}",
+  "personalizations": [
+    {
+      "to": [{ "email": "owner@example.com", "name": "Felipe" }],
+      "dynamic_template_data": {
+        "inviter_name": "Felipe",
+        "new_member_name": "Carlo",
+        "league_name": "Team Quilicura",
+        "action_url": "https://app.repleague.com/dashboard",
+        "support_url": "https://app.repleague.com/support",
+        "preferences_url": "https://app.repleague.com/preferences"
+      }
+    }
+  ],
+  "categories": ["repLeague", "transactional"],
+  "content": [
+    { "type": "text/html", "value": "<!-- see template.html -->" },
+    { "type": "text/plain", "value": "<!-- see plaintext.txt -->" }
+  ]
+}
