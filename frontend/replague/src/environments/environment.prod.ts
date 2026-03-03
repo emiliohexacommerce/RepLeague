@@ -3,7 +3,7 @@ export const environment = {
   appVersion: 'v1.0.0',
   USERDATA_KEY: 'replague_auth',
   isMockEnabled: false,
-  apiUrl: 'https://YOUR_AZURE_APP_SERVICE.azurewebsites.net/api',
+  apiUrl: 'http://localhost:5000/api',
   appThemeName: 'RepLeague',
   appPurchaseUrl: '',
   appPreviewUrl: '',
