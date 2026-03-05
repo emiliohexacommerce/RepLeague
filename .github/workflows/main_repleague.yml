@@ -22,7 +22,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-
+      - name: List frontend directory contents
+        run: |
+          echo "=== Contents of frontend directory ==="
+          ls -la frontend/
+          echo ""
+          echo "=== Contents of frontend/replague directory ==="
+          ls -la frontend/replague/ || echo "Directory does not exist"
+          echo ""
+          echo "=== Search for all package.json files ==="
+          find . -name "package.json" -type f
       - name: npm install, build, and test
         working-directory: ./frontend/repleague
         run: |
@@ -65,3 +74,4 @@ jobs:
           package: .
 
           
+
