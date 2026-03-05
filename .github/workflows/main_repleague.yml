@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '20.x'
       - name: List frontend directory contents
-        working-directory: ./frontend
+        working-directory: frontend
         run: |
           echo "=== Contents of frontend directory ==="
           ls -la /
@@ -34,7 +34,7 @@ jobs:
           echo "=== Search for all package.json files ==="
           find . -name "package.json" -type f
       - name: List RepLeague directory contents
-        working-directory: ./replague
+        working-directory: replague
         run: |
           echo "=== Contents of frontend directory ==="
           ls -la /
@@ -81,6 +81,7 @@ jobs:
           package: .
 
           
+
 
 
 
