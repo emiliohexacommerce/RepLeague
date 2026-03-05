@@ -32,7 +32,8 @@ jobs:
         working-directory: ./frontend/replague
 
       - name: Copy web.config to dist folder
-        run: cp ./frontend/replague/web.config ./frontend/replague/dist/web.config
+        run: cp web.config dist/web.config
+        working-directory: ./frontend/replague
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
