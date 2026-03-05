@@ -33,7 +33,7 @@ jobs:
           echo "=== Search for all package.json files ==="
           find . -name "package.json" -type f
       - name: npm install, build, and test
-        working-directory: \frontend\repleague
+        working-directory: frontend/repleague
         run: |
           npm install
           npm run build --if-present
@@ -74,5 +74,6 @@ jobs:
           package: .
 
           
+
 
 
