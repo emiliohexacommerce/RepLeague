@@ -51,7 +51,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID_FRONT }}
+          client-id: ${{ secrets.AZURE_CLIENTE_ID_FRONT }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID_FRONT }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID_FRONT }}
 
@@ -64,6 +64,7 @@ jobs:
           package: ./frontend/replague/dist/demo1
 
           
+
 
 
 
