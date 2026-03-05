@@ -1,5 +1,9 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
+#
+# Azure App Service (Linux + Node 20) configuration:
+#   - Startup Command: npm start
+#   (This runs `node server.js` which serves the Angular SPA via Express)
 
 name: Build and deploy Frontend
 
@@ -31,15 +35,19 @@ jobs:
         run: npm run build
         working-directory: ./frontend/replague
 
-      - name: Copy web.config to dist folder
-        run: cp web.config dist/web.config
-        working-directory: ./frontend/replague
+      - name: Assemble deployment package
+        run: |
+          mkdir -p deploy
+          cp -r frontend/replague/dist deploy/dist
+          cp frontend/replague/server.js deploy/server.js
+          cp frontend/replague/package.json deploy/package.json
+          cp frontend/replague/package-lock.json deploy/package-lock.json
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: ./frontend/replague/dist
+          path: ./deploy
 
   deploy:
     runs-on: ubuntu-latest
@@ -68,12 +76,6 @@ jobs:
           app-name: 'repleague'
           slot-name: 'Production'
           package: .
-
-          
-
-
-
-
 
 
 

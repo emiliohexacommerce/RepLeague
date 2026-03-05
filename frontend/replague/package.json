@@ -12,6 +12,8 @@
   },
   "private": true,
   "dependencies": {
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.3.0",
     "@angular/animations": "~18.2.14",
     "@angular/common": "~18.2.14",
     "@angular/compiler": "~18.2.14",
