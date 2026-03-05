@@ -23,17 +23,24 @@ jobs:
         with:
           node-version: '20.x'
       - name: List frontend directory contents
+        working-directory: ./frontend
         run: |
           echo "=== Contents of frontend directory ==="
-          ls -la frontend/
+          ls -la /
           echo ""
           echo "=== Contents of frontend/replague directory ==="
-          ls -la frontend/replague/ || echo "Directory does not exist"
+          ls -la replague/ || echo "Directory does not exist"
           echo ""
           echo "=== Search for all package.json files ==="
           find . -name "package.json" -type f
+      - name: List RepLeague directory contents
+        working-directory: ./replague
+        run: |
+          echo "=== Contents of frontend directory ==="
+          ls -la /
+          echo ""
       - name: npm install, build, and test
-        working-directory: frontend/repleague
+        working-directory: frontend/replague
         run: |
           npm install
           npm run build --if-present
@@ -74,6 +81,7 @@ jobs:
           package: .
 
           
+
 
 
 
