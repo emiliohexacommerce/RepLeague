@@ -93,22 +93,23 @@ var app = builder.Build();
 // ── Middleware pipeline ───────────────────────────────────────────────────────
 app.UseMiddleware<ExceptionMiddleware>();
 
+// CORS must be registered before static files, authentication and routing
+app.UseCors("AllowFrontend");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// ── Serve static files from wwwroot (Angular build output) ────────────────────
-app.UseDefaultFiles();
-app.UseStaticFiles();
-
-app.UseCors("AllowFrontend");
-
 if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
+
+// ── Serve static files from wwwroot (Angular build output) ────────────────────
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseAuthentication();
 app.UseAuthorization();
