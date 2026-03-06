@@ -48,7 +48,6 @@ public record LeagueSummaryDto(
 public record PrSummaryDto(
     string ExerciseName,
     decimal BestWeightKg,
-    decimal? Best1RmKg,
     DateOnly AchievedAt
 );
 
@@ -63,4 +62,4 @@ public record RecentWodDto(
 
 // ── Strength progress chart ────────────────────────────────────────────────
 
-public record StrengthChartPointDto(DateOnly Date, decimal OneRepMaxKg);
+public record StrengthChartPointDto(DateOnly Date, decimal WeightKg);

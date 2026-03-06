@@ -7,7 +7,14 @@ import {
   LiftPrDto,
   CreateLiftSessionRequest,
   CreateStrengthSetRequest,
+  ManualLiftPrGroupDto,
+  PercentageRow,
 } from './strength.models';
+import {
+  CROSSFIT_BARBELL_EXERCISES,
+  CrossfitExercise,
+  getExercisesByCategory,
+} from './crossfit-exercises';
 
 @Component({
   selector: 'app-strength',
@@ -16,6 +23,7 @@ import {
 export class StrengthComponent implements OnInit {
   sessions: LiftSessionDto[] = [];
   prs: LiftPrDto[] = [];
+  manualPrs: ManualLiftPrGroupDto[] = [];
   loading = false;
   creating = false;
   showForm = false;
@@ -23,6 +31,24 @@ export class StrengthComponent implements OnInit {
   error = '';
   successMessage = '';
   currentPage = 1;
+
+  // Manual PR form
+  showPrForm = false;
+  prFormExercise = '';
+  prFormWeight: number | null = null;
+  prFormDate = new Date().toISOString().split('T')[0];
+  prFormNotes = '';
+  addingPr = false;
+  prFormError = '';
+
+  // Percentage table
+  selectedPrForTable: ManualLiftPrGroupDto | null = null;
+  tableUnit: 'kg' | 'lb' = 'kg';
+
+  // Exercises
+  readonly exercises: CrossfitExercise[] = CROSSFIT_BARBELL_EXERCISES;
+  readonly exerciseGroups = getExercisesByCategory();
+  readonly exerciseGroupKeys = Object.keys(getExercisesByCategory());
 
   liftForm: FormGroup;
   units = 'kg';
@@ -40,10 +66,12 @@ export class StrengthComponent implements OnInit {
     this.initForm();
     this.loadHistory();
     this.loadPrs();
+    this.loadManualPrs();
     this.profileService.getProfile().subscribe({
       next: (p) => {
         this.units = p.units ?? 'kg';
         this.oneRmMethod = p.oneRmMethod ?? 'Epley';
+        this.tableUnit = (p.units as 'kg' | 'lb') ?? 'kg';
       },
     });
   }
@@ -185,6 +213,85 @@ export class StrengthComponent implements OnInit {
 
   hasPr(session: LiftSessionDto): boolean {
     return session.sets.some((s) => s.isPr);
+  }
+
+  // ── Manual PRs ────────────────────────────────────────────────────────────
+
+  loadManualPrs() {
+    this.strengthService.getManualPrs().subscribe({
+      next: (data) => (this.manualPrs = data),
+      error: () => {},
+    });
+  }
+
+  openPrForm(exerciseName?: string) {
+    this.prFormExercise = exerciseName ?? '';
+    this.prFormWeight = null;
+    this.prFormDate = new Date().toISOString().split('T')[0];
+    this.prFormNotes = '';
+    this.prFormError = '';
+    this.showPrForm = true;
+  }
+
+  closePrForm() {
+    this.showPrForm = false;
+    this.prFormError = '';
+  }
+
+  submitManualPr() {
+    if (!this.prFormExercise || !this.prFormWeight || this.prFormWeight <= 0) {
+      this.prFormError = 'Selecciona un ejercicio e ingresa un peso válido.';
+      return;
+    }
+    this.addingPr = true;
+    this.prFormError = '';
+
+    // Convert to kg if user works in lbs
+    const weightKg = this.units === 'lb'
+      ? Math.round((this.prFormWeight / 2.20462) * 100) / 100
+      : this.prFormWeight;
+
+    this.strengthService.addManualPr({
+      exerciseName: this.prFormExercise,
+      weightKg,
+      notes: this.prFormNotes || undefined,
+      achievedAt: this.prFormDate,
+    }).subscribe({
+      next: () => {
+        this.addingPr = false;
+        this.closePrForm();
+        this.loadManualPrs();
+      },
+      error: (err) => {
+        this.prFormError = err?.error?.message ?? 'Error al guardar el PR.';
+        this.addingPr = false;
+      },
+    });
+  }
+
+  openPrTable(pr: ManualLiftPrGroupDto) {
+    this.selectedPrForTable = pr;
+    this.tableUnit = this.units as 'kg' | 'lb';
+  }
+
+  closePrTable() {
+    this.selectedPrForTable = null;
+  }
+
+  get percentageRows(): PercentageRow[] {
+    if (!this.selectedPrForTable) return [];
+    const baseKg = this.selectedPrForTable.bestWeightKg;
+    const rows: PercentageRow[] = [];
+    for (let pct = 100; pct >= 40; pct -= 5) {
+      const kg = Math.round((baseKg * pct / 100) * 10) / 10;
+      const lbs = Math.round(kg * 2.20462 * 10) / 10;
+      rows.push({ percent: pct, kg, lbs });
+    }
+    return rows;
+  }
+
+  prHistoryDisplay(weightKg: number): string {
+    return this.toDisplay(weightKg) + ' ' + this.unitLabel;
   }
 
   /** Convert stored kg value to the user's display unit (rounded to 1 decimal) */

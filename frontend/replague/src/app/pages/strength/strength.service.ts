@@ -2,7 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { LiftSessionDto, LiftPrDto, CreateLiftSessionRequest } from './strength.models';
+import {
+  LiftSessionDto,
+  LiftPrDto,
+  CreateLiftSessionRequest,
+  ManualLiftPrGroupDto,
+  AddManualLiftPrRequest,
+  ManualLiftPrHistoryItem,
+} from './strength.models';
 
 @Injectable({ providedIn: 'root' })
 export class StrengthService {
@@ -25,5 +32,15 @@ export class StrengthService {
 
   delete(id: string): Observable<void> {
     return this.http.delete<void>(`${this.base}/${id}`);
+  }
+
+  // ── Manual PRs ────────────────────────────────────────────────────────────
+
+  getManualPrs(): Observable<ManualLiftPrGroupDto[]> {
+    return this.http.get<ManualLiftPrGroupDto[]>(`${this.base}/manual-prs`);
+  }
+
+  addManualPr(request: AddManualLiftPrRequest): Observable<ManualLiftPrHistoryItem> {
+    return this.http.post<ManualLiftPrHistoryItem>(`${this.base}/manual-prs`, request);
   }
 }

@@ -20,6 +20,7 @@ public interface IAppDbContext
     DbSet<WodResultEmom> WodResultEmoms { get; }
     DbSet<LiftSession> LiftSessions { get; }
     DbSet<StrengthSet> StrengthSets { get; }
+    DbSet<ManualLiftPr> ManualLiftPrs { get; }
     DbSet<PushSubscription> PushSubscriptions { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

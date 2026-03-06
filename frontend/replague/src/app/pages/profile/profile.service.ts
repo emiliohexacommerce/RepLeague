@@ -48,7 +48,6 @@ export interface LeagueSummaryDto {
 export interface PrSummaryDto {
   exerciseName: string;
   bestWeightKg: number;
-  best1RmKg?: number;
   achievedAt: string;
 }
 
@@ -72,7 +71,7 @@ export interface ProfileSummaryDto {
 
 export interface StrengthChartPointDto {
   date: string;
-  oneRepMaxKg: number;
+  weightKg: number;
 }
 
 @Injectable({ providedIn: 'root' })

@@ -1,7 +1,11 @@
-import { NgModule, APP_INITIALIZER, isDevMode } from '@angular/core';
+import { NgModule, APP_INITIALIZER, LOCALE_ID, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
@@ -51,6 +55,7 @@ function appInitializer(authService: AuthService) {
       useClass: JwtInterceptor,
       multi: true,
     },
+    { provide: LOCALE_ID, useValue: 'es-ES' },
   ],
   bootstrap: [AppComponent],
 })

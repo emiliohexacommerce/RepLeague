@@ -41,7 +41,7 @@ export class ProfilePageComponent implements OnInit {
   chartChart: ApexChart = { type: 'line', height: 220, toolbar: { show: false } };
   chartStroke: ApexStroke = { curve: 'smooth', width: 2 };
   chartXaxis: ApexXAxis = { type: 'datetime' };
-  chartYaxis: ApexYAxis = { title: { text: 'kg' }, labels: { formatter: (v: number) => v + ' kg' } };
+  chartYaxis: ApexYAxis = { title: { text: 'Peso (kg)' }, labels: { formatter: (v: number) => v + ' kg' } };
   chartColors: string[] = ['#FF7A1A'];
   chartMarkers: ApexMarkers = { size: 4, colors: ['#FF7A1A'] };
   chartTooltip: ApexTooltip = { x: { format: 'dd MMM yyyy' } };
@@ -216,7 +216,7 @@ export class ProfilePageComponent implements OnInit {
           name: exercise,
           data: points.map(p => ({
             x: new Date(p.date).getTime(),
-            y: p.oneRepMaxKg,
+            y: p.weightKg,
           })),
         }];
         this.loadingChart = false;

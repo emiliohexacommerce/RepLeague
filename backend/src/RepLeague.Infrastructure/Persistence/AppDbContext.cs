@@ -21,6 +21,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<WodResultEmom> WodResultEmoms => Set<WodResultEmom>();
     public DbSet<LiftSession> LiftSessions => Set<LiftSession>();
     public DbSet<StrengthSet> StrengthSets => Set<StrengthSet>();
+    public DbSet<ManualLiftPr> ManualLiftPrs => Set<ManualLiftPr>();
     public DbSet<PushSubscription> PushSubscriptions => Set<PushSubscription>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

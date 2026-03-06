@@ -44,3 +44,34 @@ export interface CreateLiftSessionRequest {
   notes?: string;
   sets: CreateStrengthSetRequest[];
 }
+
+// ── Manual PRs ───────────────────────────────────────────────────────────────
+
+export interface ManualLiftPrHistoryItem {
+  id: string;
+  weightKg: number;
+  notes?: string;
+  achievedAt: string; // DateOnly as ISO string YYYY-MM-DD
+}
+
+export interface ManualLiftPrGroupDto {
+  exerciseName: string;
+  bestWeightKg: number;
+  bestAchievedAt: string;
+  history: ManualLiftPrHistoryItem[];
+}
+
+export interface AddManualLiftPrRequest {
+  exerciseName: string;
+  weightKg: number;
+  notes?: string;
+  achievedAt: string; // YYYY-MM-DD
+}
+
+// ── Percentage table ─────────────────────────────────────────────────────────
+
+export interface PercentageRow {
+  percent: number;
+  kg: number;
+  lbs: number;
+}

@@ -156,6 +156,44 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.ToTable("LiftSessions");
                 });
 
+            modelBuilder.Entity("RepLeague.Domain.Entities.ManualLiftPr", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("AchievedAt")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExerciseName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("WeightKg")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId", "ExerciseName")
+                        .HasFilter("[IsDeleted] = 0");
+
+                    b.ToTable("ManualLiftPrs");
+                });
+
             modelBuilder.Entity("RepLeague.Domain.Entities.PushSubscription", b =>
                 {
                     b.Property<Guid>("Id")
@@ -817,6 +855,17 @@ namespace RepLeague.Infrastructure.Persistence.Migrations
                     b.Navigation("Members");
 
                     b.Navigation("Rankings");
+                });
+
+            modelBuilder.Entity("RepLeague.Domain.Entities.ManualLiftPr", b =>
+                {
+                    b.HasOne("RepLeague.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RepLeague.Domain.Entities.LiftSession", b =>

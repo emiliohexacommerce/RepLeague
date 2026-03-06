@@ -211,8 +211,8 @@
                       <thead>
                         <tr class="fw-bold text-muted text-uppercase fs-7">
                           <th>{{ 'PROFILE.EXERCISE' | translate }}</th>
-                          <th class="text-end">{{ 'PROFILE.BEST_WEIGHT' | translate }}</th>
-                          <th class="text-end">{{ 'PROFILE.BEST_1RM' | translate }}</th>
+                          <th class="text-end">{{ 'STRENGTH.BEST_WEIGHT' | translate }}</th>
+                          <th class="text-end">{{ 'PROFILE.DATE' | translate }}</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -220,10 +220,10 @@
                         <tr *ngFor="let pr of summary.topPrs"
                           [class.table-active]="pr.exerciseName === selectedExercise">
                           <td class="fw-bold text-gray-800">{{ pr.exerciseName }}</td>
-                          <td class="text-end text-muted">{{ pr.bestWeightKg | number:'1.1-1' }} kg</td>
-                          <td class="text-end fw-bold text-primary">
-                            {{ pr.best1RmKg | number:'1.1-1' }} kg
+                          <td class="text-end fw-bold text-primary fs-5">
+                            {{ pr.bestWeightKg | number:'1.1-1' }} kg
                           </td>
+                          <td class="text-end text-muted fs-7">{{ pr.achievedAt }}</td>
                           <td class="text-end">
                             <button class="btn btn-xs btn-light-primary py-1 px-3"
                               (click)="loadChart(pr.exerciseName)">

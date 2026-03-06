@@ -46,26 +46,24 @@ public class GetProfileSummaryQueryHandler(IAppDbContext db)
             );
         }).ToList();
 
-        // ── Top PRs (from StrengthSets) ───────────────────────────────────
-        var sets = await db.StrengthSets
-            .Include(x => x.LiftSession)
-            .Where(x => x.LiftSession.UserId == userId && !x.IsWarmup && x.OneRepMaxKg.HasValue)
+        // ── Top PRs (from ManualLiftPrs) ────────────────────────────────────
+        var manualPrs = await db.ManualLiftPrs
+            .Where(x => x.UserId == userId && !x.IsDeleted)
             .ToListAsync(ct);
 
-        var topPrs = sets
+        var topPrs = manualPrs
             .GroupBy(x => x.ExerciseName)
             .Select(g =>
             {
-                var best = g.MaxBy(x => x.OneRepMaxKg)!;
+                var best = g.MaxBy(x => x.WeightKg)!;
                 return new PrSummaryDto(
                     g.Key,
                     best.WeightKg,
-                    best.OneRepMaxKg,
-                    best.LiftSession.Date
+                    best.AchievedAt
                 );
             })
-            .OrderByDescending(p => p.Best1RmKg ?? p.BestWeightKg)
-            .Take(5)
+            .OrderByDescending(p => p.BestWeightKg)
+            .Take(8)
             .ToList();
 
         // ── Recent WODs ───────────────────────────────────────────────────
