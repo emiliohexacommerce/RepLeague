@@ -4,6 +4,10 @@
 # Azure App Service (Linux + Node 20) configuration:
 #   - Startup Command: npm start
 #   (This runs `node server.js` which serves the Angular SPA via Express)
+#
+# IMPORTANT: Set the following App Service application setting to prevent
+# Azure Oryx from running `npm install` (we ship node_modules in the artifact):
+#   SCM_DO_BUILD_DURING_DEPLOYMENT = false
 
 name: Build and deploy Frontend
 
@@ -28,7 +32,7 @@ jobs:
           node-version: '20.x'
 
       - name: Install NPM dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
         working-directory: ./frontend/replague
 
       - name: Build application
@@ -38,10 +42,16 @@ jobs:
       - name: Assemble deployment package
         run: |
           mkdir -p deploy
+          # Copy Angular build output
           cp -r frontend/replague/dist deploy/dist
+          # Copy Express server
           cp frontend/replague/server.js deploy/server.js
-          cp frontend/replague/package.json deploy/package.json
-          cp frontend/replague/package-lock.json deploy/package-lock.json
+          # Use the minimal runtime package.json (express only, no Angular peer-dep conflicts)
+          cp frontend/replague/deploy-runtime/package.json deploy/package.json
+          cp frontend/replague/deploy-runtime/package-lock.json deploy/package-lock.json
+          # Install only production runtime deps (express, express-rate-limit) so Azure
+          # does not need to run npm install (SCM_DO_BUILD_DURING_DEPLOYMENT=false)
+          npm ci --omit=dev --prefix deploy
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -76,9 +86,3 @@ jobs:
           app-name: 'repleague'
           slot-name: 'Production'
           package: .
-
-
-
-
-
-
