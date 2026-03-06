@@ -114,7 +114,9 @@ app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
+// ── Health check endpoint (keeps Always On warm, used by Azure health probe) ───────
+app.MapGet("/health", () => Results.Ok(new { status = "healthy", utc = DateTime.UtcNow }))
+   .AllowAnonymous();
 // ── Fallback to index.html for Angular routing ────────────────────────────────
 app.MapFallbackToFile("index.html");
 

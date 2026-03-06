@@ -43,6 +43,8 @@ module backendApp 'br/public:avm/res/web/sites:0.11.0' = {
       netFrameworkVersion: 'v9.0'
       use32BitWorkerProcess: false
       managedPipelineMode: 'Integrated'
+      alwaysOn: true
+      healthCheckPath: '/health'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
