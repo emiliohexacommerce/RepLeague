@@ -541,7 +541,9 @@
     <a href="#prs">PRs</a>
     <a href="#puntos">Puntos</a>
     <a href="#uso">Cómo usar</a>
-    <a href="#registrar-prs">Registrar</a>
+    <a href="#levantamiento">Levantamiento</a>
+    <a href="#pr-manual">PR Manual</a>
+    <a href="#perfil">Perfil</a>
     <a href="#wods">WODs</a>
     <a href="#graficos">Gráficos</a>
     <a href="#faq">FAQ</a>
@@ -553,7 +555,9 @@
   <a href="#prs">¿Qué es un PR?</a>
   <a href="#puntos">Puntos y ranking</a>
   <a href="#uso">Cómo usar la app</a>
-  <a href="#registrar-prs">Registrar PRs</a>
+  <a href="#levantamiento">Levantamiento</a>
+  <a href="#pr-manual">PR Manual</a>
+  <a href="#perfil">Perfil</a>
   <a href="#wods">WODs y sesiones</a>
   <a href="#graficos">Gráficos</a>
   <a href="#faq">FAQ</a>
@@ -849,7 +853,7 @@
           <div class="rl-step-number">4</div>
           <div class="rl-step-content">
             <h5><i class="bi bi-journal-plus me-2" style="color:var(--rl-primary);"></i> Registrar entrenamientos</h5>
-            <p>Usa <strong>Fuerza</strong> para sesiones de pesas o <strong>WOD</strong> para circuitos funcionales. El sistema detecta PRs automáticamente y actualiza tu ranking en todas las ligas.</p>
+            <p>Usa <strong>Levantamiento</strong> para sesiones de pesas o <strong>Registro WOD</strong> para circuitos funcionales. El sistema detecta PRs automáticamente y actualiza tu ranking en todas las ligas. También puedes ingresar un <strong>PR manual</strong> desde tu perfil.</p>
           </div>
         </div>
         <div class="rl-step">
@@ -898,11 +902,11 @@
     <!-- ══════════════════════════════════════
          4 — REGISTRAR PRs (FUERZA)
     ══════════════════════════════════════ -->
-    <section class="rl-section" id="registrar-prs">
+    <section class="rl-section" id="levantamiento">
       <div class="rl-section-header">
         <div class="rl-section-icon yellow"><i class="bi bi-pencil-square" style="font-size:22px;color:#CA8A04;"></i></div>
         <div>
-          <h2>Cómo registrar una sesión de fuerza</h2>
+          <h2>Cómo registrar una sesión de Levantamiento</h2>
           <p class="rl-section-sub">Registra tus pesas con sets detallados para que el sistema calcule tu PR correctamente.</p>
         </div>
       </div>
@@ -1071,7 +1075,201 @@
     <div class="rl-divider"></div>
 
     <!-- ══════════════════════════════════════
-         5 — REGISTRAR WODs
+         5 — PR MANUAL
+    ══════════════════════════════════════ -->
+    <section class="rl-section" id="pr-manual">
+      <div class="rl-section-header">
+        <div class="rl-section-icon orange"><i class="bi bi-plus-circle-fill" style="font-size:22px;color:var(--rl-primary);"></i></div>
+        <div>
+          <h2>Ingresar un PR manualmente</h2>
+          <p class="rl-section-sub">Registra una marca personal sin necesidad de crear una sesión completa — útil para PRs históricos o de competencia.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-6">
+          <div class="rl-card h-100">
+            <div class="rl-card-title mb-3">
+              <span class="rl-icon-circle blue"><i class="bi bi-map"></i></span>
+              ¿Cómo acceder?
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">1</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Ve a <strong>Mi Perfil</strong> en el menú lateral.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">2</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Baja hasta la sección <strong>"Mis PRs"</strong> o busca el botón <strong>"+ Agregar PR manual"</strong>.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">3</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Completa el formulario: ejercicio, valor de 1RM, fecha y notas opcionales.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">4</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Haz clic en <strong>Guardar</strong>. Si supera tu máximo anterior, se registra como nuevo PR.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="rl-card h-100">
+            <div class="rl-card-title mb-3">
+              <span class="rl-icon-circle orange"><i class="bi bi-list-check"></i></span>
+              Campos del formulario
+            </div>
+            <table class="rl-table">
+              <thead>
+                <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ejercicio</strong></td>
+                  <td><span class="rl-pill green">Obligatorio</span></td>
+                  <td>Nombre del movimiento (ej: Squat)</td>
+                </tr>
+                <tr>
+                  <td><strong>1RM (kg/lb)</strong></td>
+                  <td><span class="rl-pill green">Obligatorio</span></td>
+                  <td>Tu mejor marca estimada o real</td>
+                </tr>
+                <tr>
+                  <td><strong>Fecha</strong></td>
+                  <td><span class="rl-pill green">Obligatorio</span></td>
+                  <td>Cuándo lograste ese PR</td>
+                </tr>
+                <tr>
+                  <td><strong>Notas</strong></td>
+                  <td><span class="rl-pill wod">Opcional</span></td>
+                  <td>Contexto: competencia, test, etc.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="rl-callout info">
+            <i class="bi bi-info-circle-fill"></i>
+            <p><strong>¿Cuándo usar un PR manual?</strong><br/>
+            Cuando tienes una marca personal de antes de usar RepLeague, cuando hiciste un test de 1RM sin registrar sets, o cuando participaste en una competencia y quieres dejar registro de ese PR histórico.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="rl-callout warning">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <p><strong>Diferencia con el PR automático:</strong><br/>
+            Los PRs automáticos se detectan al guardar una sesión de Levantamiento. El PR manual es un registro directo de 1RM sin sets asociados. Ambos aparecen en tu historial de PRs y compiten en el mismo ranking de ejercicios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rl-divider"></div>
+
+    <!-- ══════════════════════════════════════
+         6 — PERFIL Y AVATAR
+    ══════════════════════════════════════ -->
+    <section class="rl-section" id="perfil">
+      <div class="rl-section-header">
+        <div class="rl-section-icon blue"><i class="bi bi-person-circle" style="font-size:24px;color:#1B84FF;"></i></div>
+        <div>
+          <h2>Configurar tu perfil</h2>
+          <p class="rl-section-sub">Personaliza tu cuenta: foto de perfil, nombre, unidades de medida y método de cálculo.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="rl-card text-center py-4">
+            <div style="width:80px;height:80px;border-radius:50%;background:var(--rl-primary-light);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+              <i class="bi bi-camera-fill" style="font-size:28px;color:var(--rl-primary);"></i>
+            </div>
+            <div style="font-weight:700;font-size:15px;margin-bottom:8px;">Foto de perfil</div>
+            <div style="font-size:13px;color:var(--rl-gray-600);">Ve a <strong>Mi Perfil → Editar</strong> y haz clic en el avatar para subir una imagen. Formatos aceptados: JPG, PNG, WebP. Tamaño máximo: 5 MB.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="rl-card text-center py-4">
+            <div style="width:80px;height:80px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+              <i class="bi bi-rulers" style="font-size:28px;color:var(--rl-info);"></i>
+            </div>
+            <div style="font-weight:700;font-size:15px;margin-bottom:8px;">Unidades kg / lb</div>
+            <div style="font-size:13px;color:var(--rl-gray-600);">Elige si prefieres trabajar en kilogramos o libras. El sistema almacena internamente en kg, la conversión es automática en todos los formularios y gráficos.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="rl-card text-center py-4">
+            <div style="width:80px;height:80px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+              <i class="bi bi-calculator-fill" style="font-size:28px;color:var(--rl-success);"></i>
+            </div>
+            <div style="font-weight:700;font-size:15px;margin-bottom:8px;">Método de 1RM</div>
+            <div style="font-size:13px;color:var(--rl-gray-600);">Elige entre <strong>Epley</strong> (más popular) o <strong>Brzycki</strong> (más conservador). Afecta el cálculo de tu 1RM estimado en sesiones de Levantamiento.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rl-card">
+        <div class="rl-card-title mb-3">
+          <span class="rl-icon-circle orange"><i class="bi bi-pencil"></i></span>
+          Cómo editar tu perfil
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="rl-step">
+              <div class="rl-step-number">1</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Haz clic en <strong>Mi Perfil</strong> en el menú lateral izquierdo.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">2</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Haz clic en el botón <strong>"Editar perfil"</strong> en la cabecera de la página.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">3</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Para cambiar la foto, haz clic directamente sobre el <strong>avatar circular</strong> — se abrirá el selector de archivos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="rl-step">
+              <div class="rl-step-number">4</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Modifica tu <strong>nombre para mostrar</strong>, unidades (kg/lb) y método de cálculo de 1RM.</p>
+              </div>
+            </div>
+            <div class="rl-step">
+              <div class="rl-step-number">5</div>
+              <div class="rl-step-content">
+                <p style="margin:0;font-size:14px;">Haz clic en <strong>Guardar cambios</strong>. Los cambios se reflejan inmediatamente en el navbar y en el dropdown.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rl-callout primary mt-3">
+          <i class="bi bi-lightbulb-fill"></i>
+          <p>El avatar se muestra en el <strong>navbar superior</strong>, en el <strong>menú desplegable</strong> de usuario y en la <strong>cabecera de tu perfil</strong>. Si aún no has subido una foto, se muestra la primera inicial de tu nombre.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="rl-divider"></div>
+
+    <!-- ══════════════════════════════════════
+         7 — REGISTRAR WODs
     ══════════════════════════════════════ -->
     <section class="rl-section" id="wods">
       <div class="rl-section-header">
@@ -1388,6 +1586,36 @@
             </button>
             <div class="rl-accordion-body">
               Actualmente los puntos son <strong>acumulativos y permanentes</strong> dentro de cada liga. No existe un reset automático de temporada. Si deseas competir en un nuevo ciclo, puedes crear una liga nueva e invitar a los mismos atletas.
+            </div>
+          </div>
+
+          <div class="rl-accordion-item">
+            <button class="rl-accordion-btn" onclick="toggleFaq(this)">
+              ¿Puedo ingresar un PR sin registrar una sesión completa?
+              <i class="bi bi-chevron-down rl-acc-icon"></i>
+            </button>
+            <div class="rl-accordion-body">
+              Sí. Desde <strong>Mi Perfil</strong> puedes usar el botón <strong>"+ Agregar PR manual"</strong> para registrar directamente un 1RM estimado o real sin necesidad de llenar sets. Esto es útil para PRs históricos, de competencia o tests de fuerza sin sesión asociada.
+            </div>
+          </div>
+
+          <div class="rl-accordion-item">
+            <button class="rl-accordion-btn" onclick="toggleFaq(this)">
+              ¿El PR manual suma puntos en la liga?
+              <i class="bi bi-chevron-down rl-acc-icon"></i>
+            </button>
+            <div class="rl-accordion-body">
+              Sí. Si el valor del PR manual supera tu máximo previo, se registra como nuevo PR personal y <strong>suma puntos en la liga</strong> igual que un PR automático detectado en sesión. Lo verás reflejado en el ranking una vez guardado.
+            </div>
+          </div>
+
+          <div class="rl-accordion-item">
+            <button class="rl-accordion-btn" onclick="toggleFaq(this)">
+              ¿Cómo cambio mi foto de perfil?
+              <i class="bi bi-chevron-down rl-acc-icon"></i>
+            </button>
+            <div class="rl-accordion-body">
+              Ve a <strong>Mi Perfil → Editar perfil</strong> y haz clic sobre el <strong>avatar circular</strong>. Se abrirá el selector de archivos; elige una imagen JPG, PNG o WebP de máximo 5 MB. La foto se actualizará automáticamente en el navbar y en el menú de usuario.
             </div>
           </div>
 

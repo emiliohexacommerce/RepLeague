@@ -9,6 +9,7 @@ import {
   CreateStrengthSetRequest,
   ManualLiftPrGroupDto,
   PercentageRow,
+  BarOption,
 } from './strength.models';
 import {
   CROSSFIT_BARBELL_EXERCISES,
@@ -44,6 +45,14 @@ export class StrengthComponent implements OnInit {
   // Percentage table
   selectedPrForTable: ManualLiftPrGroupDto | null = null;
   tableUnit: 'kg' | 'lb' = 'kg';
+  selectedBarKg = 0;
+  readonly barOptions: BarOption[] = [
+    { label: 'Sin barra', kg: 0 },
+    { label: 'Olímpica', kg: 20 },
+    { label: 'Mujer', kg: 15 },
+    { label: 'EZ', kg: 10 },
+    { label: '5 kg', kg: 5 },
+  ];
 
   // Exercises
   readonly exercises: CrossfitExercise[] = CROSSFIT_BARBELL_EXERCISES;
@@ -272,6 +281,7 @@ export class StrengthComponent implements OnInit {
   openPrTable(pr: ManualLiftPrGroupDto) {
     this.selectedPrForTable = pr;
     this.tableUnit = this.units as 'kg' | 'lb';
+    this.selectedBarKg = 0;
   }
 
   closePrTable() {
@@ -281,11 +291,18 @@ export class StrengthComponent implements OnInit {
   get percentageRows(): PercentageRow[] {
     if (!this.selectedPrForTable) return [];
     const baseKg = this.selectedPrForTable.bestWeightKg;
+    const barLbs = Math.round(this.selectedBarKg * 2.20462 * 10) / 10;
     const rows: PercentageRow[] = [];
     for (let pct = 100; pct >= 40; pct -= 5) {
       const kg = Math.round((baseKg * pct / 100) * 10) / 10;
       const lbs = Math.round(kg * 2.20462 * 10) / 10;
-      rows.push({ percent: pct, kg, lbs });
+      const perSideKg = this.selectedBarKg > 0
+        ? Math.max(0, Math.round((kg - this.selectedBarKg) / 2 * 10) / 10)
+        : null;
+      const perSideLbs = this.selectedBarKg > 0
+        ? Math.max(0, Math.round((lbs - barLbs) / 2 * 10) / 10)
+        : null;
+      rows.push({ percent: pct, kg, lbs, perSideKg, perSideLbs });
     }
     return rows;
   }

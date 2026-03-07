@@ -388,13 +388,33 @@
         </span>
       </div>
 
+      <!-- Barbell selector -->
+      <div class="mb-4 pb-3 border-bottom border-gray-100">
+        <div class="text-gray-500 fs-8 fw-semibold text-uppercase mb-2">Barra utilizada</div>
+        <div class="d-flex gap-2 flex-wrap">
+          <button *ngFor="let bar of barOptions" type="button"
+            class="btn btn-sm"
+            [class.btn-primary]="selectedBarKg === bar.kg"
+            [class.btn-light]="selectedBarKg !== bar.kg"
+            (click)="selectedBarKg = bar.kg">
+            {{ bar.label }}
+            <span *ngIf="bar.kg > 0" class="ms-1 fs-9 opacity-75">{{ bar.kg }}kg</span>
+          </button>
+        </div>
+        <div *ngIf="selectedBarKg > 0" class="mt-2 fs-8 text-info d-flex align-items-center gap-1">
+          <i class="bi bi-info-circle"></i>
+          Descuenta {{ selectedBarKg }}&nbsp;kg de barra &mdash; columna <strong>×lado</strong> muestra cuánto cargar por lado.
+        </div>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-row-bordered table-row-gray-100 gy-2 gs-4 mb-0">
           <thead>
             <tr class="fw-bold text-gray-600 fs-8 text-uppercase">
               <th class="text-center">%</th>
-              <th class="text-end">kg</th>
-              <th class="text-end">lbs</th>
+              <th class="text-end">KG</th>
+              <th class="text-end">LBS</th>
+              <th *ngIf="selectedBarKg > 0" class="text-end text-info">×lado</th>
             </tr>
           </thead>
           <tbody>
@@ -403,20 +423,29 @@
               [class.bg-light-primary]="row.percent === 100">
               <td class="text-center">
                 <span class="badge"
-                  [class.badge-light-primary]="row.percent === 100"
+                  [class.badge-primary]="row.percent === 100"
                   [class.badge-light-success]="row.percent >= 90 && row.percent < 100"
-                  [class.badge-light-warning]="row.percent >= 75 && row.percent < 90"
-                  [class.badge-light-secondary]="row.percent < 75">
+                  [class.badge-light-info]="row.percent >= 80 && row.percent < 90"
+                  [class.badge-light-warning]="row.percent >= 70 && row.percent < 80"
+                  [class.badge-light-danger]="row.percent >= 55 && row.percent < 70"
+                  [class.badge-secondary]="row.percent < 55">
                   {{ row.percent }}%
                 </span>
               </td>
               <td class="text-end fs-7"
-                [class.text-primary]="tableUnit === 'kg'">
+                [class.fw-semibold]="tableUnit === 'kg'"
+                [class.text-gray-900]="tableUnit === 'kg'">
                 {{ row.kg | number:'1.1-1' }}
               </td>
               <td class="text-end fs-7"
-                [class.text-primary]="tableUnit === 'lb'">
+                [class.fw-semibold]="tableUnit === 'lb'"
+                [class.text-gray-900]="tableUnit === 'lb'">
                 {{ row.lbs | number:'1.1-1' }}
+              </td>
+              <td *ngIf="selectedBarKg > 0" class="text-end fs-7 fw-semibold text-info">
+                {{ tableUnit === 'kg'
+                    ? (row.perSideKg !== null ? (row.perSideKg | number:'1.1-1') : '&mdash;')
+                    : (row.perSideLbs !== null ? (row.perSideLbs | number:'1.1-1') : '&mdash;') }}
               </td>
             </tr>
           </tbody>

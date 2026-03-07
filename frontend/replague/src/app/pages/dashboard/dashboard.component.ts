@@ -10,7 +10,8 @@ import {
   ApexTooltip,
   ApexGrid,
 } from 'ng-apexcharts';
-import { DashboardService, DashboardOverviewDto } from './dashboard.service';
+import { DashboardService, DashboardOverviewDto, QuoteDto } from './dashboard.service';
+import { TranslationService } from 'src/app/modules/i18n/translation.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -32,12 +33,17 @@ export type ChartOptions = {
 export class DashboardComponent implements OnInit {
   loading = true;
   overview: DashboardOverviewDto | null = null;
+  quote: QuoteDto | null = null;
+  quoteLoading = false;
 
   strengthChart: Partial<ChartOptions> = {};
   volumeChart: Partial<ChartOptions> = {};
   forTimeChart: Partial<ChartOptions> = {};
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private translationService: TranslationService,
+  ) {}
 
   ngOnInit(): void {
     this.dashboardService.getOverview().subscribe({
@@ -49,6 +55,14 @@ export class DashboardComponent implements OnInit {
       error: () => {
         this.loading = false;
       },
+    });
+
+    // Cargar frase motivacional del día en el idioma del usuario
+    const lang = this.translationService.getSelectedLanguage()?.split('-')[0] || 'es';
+    this.quoteLoading = true;
+    this.dashboardService.getDailyQuote(lang).subscribe({
+      next: (q) => { this.quote = q; this.quoteLoading = false; },
+      error: () => { this.quoteLoading = false; },
     });
   }
 

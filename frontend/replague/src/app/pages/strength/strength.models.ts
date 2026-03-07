@@ -74,4 +74,11 @@ export interface PercentageRow {
   percent: number;
   kg: number;
   lbs: number;
+  perSideKg: number | null;
+  perSideLbs: number | null;
+}
+
+export interface BarOption {
+  label: string;
+  kg: number;
 }

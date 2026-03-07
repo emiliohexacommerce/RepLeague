@@ -74,6 +74,12 @@ export interface RecommendationDto {
   cta: { label: string; url: string };
 }
 
+export interface QuoteDto {
+  text: string;
+  author: string;
+  lang: string;
+}
+
 export interface DashboardOverviewDto {
   welcome: WelcomeDto;
   streak: StreakDto;
@@ -94,5 +100,9 @@ export class DashboardService {
 
   getOverview(): Observable<DashboardOverviewDto> {
     return this.http.get<DashboardOverviewDto>(`${this.base}/dashboard/overview`);
+  }
+
+  getDailyQuote(lang = 'es'): Observable<QuoteDto> {
+    return this.http.get<QuoteDto>(`${this.base}/quotes/daily?lang=${lang}`);
   }
 }

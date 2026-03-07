@@ -22,6 +22,7 @@ public static class DependencyInjection
         services.AddScoped<IEmailService, EmailService>();
         services.AddScoped<IBlobStorageService, BlobStorageService>();
         services.AddScoped<IWebPushService, WebPushService>();
+        services.AddScoped<IQuoteService, QuoteService>();
 
         return services;
     }

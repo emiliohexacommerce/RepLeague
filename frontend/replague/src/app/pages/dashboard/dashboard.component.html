@@ -13,23 +13,30 @@
 
         <!-- Avatar + greeting -->
         <div class="d-flex align-items-center gap-4">
-          <div class="symbol symbol-60px symbol-circle"
-            style="width:60px;height:60px;min-width:60px;overflow:hidden;border-radius:50%;flex-shrink:0;">
-            <img *ngIf="overview.welcome.avatarUrl"
-              [src]="overview.welcome.avatarUrl" alt="avatar"
-              style="width:60px;height:60px;object-fit:cover;border-radius:50%;display:block;"
-              (error)="$any($event.target).src='./assets/media/avatars/blank.png'" />
-            <div *ngIf="!overview.welcome.avatarUrl"
-              class="symbol-label bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center"
-              style="width:60px;height:60px;">
-              <span class="text-white fw-bold fs-2">{{ overview.welcome.firstName.charAt(0).toUpperCase() }}</span>
-            </div>
+          <!-- Avatar como background-image para evitar overflow sin importar CSS externo -->
+          <div *ngIf="overview.welcome.avatarUrl"
+            [style.background-image]="'url(' + overview.welcome.avatarUrl + ')'"
+            style="width:60px;height:60px;min-width:60px;max-width:60px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;">
+          </div>
+          <div *ngIf="!overview.welcome.avatarUrl"
+            style="width:60px;height:60px;min-width:60px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+            <span class="text-white fw-bold fs-2">{{ overview.welcome.firstName.charAt(0).toUpperCase() }}</span>
           </div>
           <div>
             <h2 class="text-white fw-boldest mb-1">
               {{ 'DASHBOARD.WELCOME' | translate:{ name: overview.welcome.firstName } }}
             </h2>
             <p class="text-white opacity-75 mb-0">{{ 'DASHBOARD.SUBTITLE' | translate }}</p>
+            <!-- Frase motivacional del día -->
+            <div *ngIf="quote" class="mt-3 pt-3" style="border-top:1px solid rgba(255,255,255,.25);max-width:480px;">
+              <p class="text-white mb-1 fs-7 fst-italic" style="opacity:.9;line-height:1.4;">
+                &ldquo;{{ quote.text }}&rdquo;
+              </p>
+              <span class="text-white fs-8" style="opacity:.6;">— {{ quote.author }}</span>
+            </div>
+            <div *ngIf="quoteLoading && !quote" class="mt-3 pt-3" style="border-top:1px solid rgba(255,255,255,.25);">
+              <span class="text-white opacity-50 fs-8">Cargando frase del día...</span>
+            </div>
           </div>
         </div>
 

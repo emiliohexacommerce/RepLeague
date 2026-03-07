@@ -16,14 +16,17 @@ import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/services/auth.service';
 import { JwtInterceptor } from './modules/auth/services/jwt.interceptor';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { timeout, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 function appInitializer(authService: AuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      //@ts-ignore
-      authService.getUserByToken().subscribe().add(resolve);
+  return () =>
+    new Promise<void>((resolve) => {
+      authService.getUserByToken().pipe(
+        timeout(5000),          // 5 s máximo — evita splash-screen eterno
+        catchError(() => of(undefined))
+      ).subscribe({ complete: resolve, error: resolve });
     });
-  };
 }
 
 @NgModule({

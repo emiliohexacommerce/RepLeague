@@ -44,8 +44,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // ── Infrastructure (EF Core, TokenService, PasswordHasher) ───────────────────
-builder.Services.AddInfrastructure(builder.Configuration);
-
+builder.Services.AddInfrastructure(builder.Configuration);builder.Services.AddMemoryCache();
+builder.Services.AddHttpClient();
 // ── Application (MediatR + FluentValidation) ─────────────────────────────────
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(AssemblyMarker).Assembly));
@@ -74,7 +74,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 // ── CORS ──────────────────────────────────────────────────────────────────────
-var allowedOrigins = (builder.Configuration["AllowedOrigins"] ?? "http://localhost:4200")
+var allowedOrigins = (builder.Configuration["AllowedOrigins"] ?? "http://localhost:4200,http://localhost:65475")
     .Split(',', System.StringSplitOptions.RemoveEmptyEntries)
     .Select(o => o.Trim())
     .ToArray();
@@ -82,10 +82,24 @@ var allowedOrigins = (builder.Configuration["AllowedOrigins"] ?? "http://localho
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins(allowedOrigins)
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials());
+    {
+        if (builder.Environment.IsDevelopment())
+        {
+            // En desarrollo: permitir cualquier puerto de localhost
+            policy.SetIsOriginAllowed(origin =>
+                    new Uri(origin).Host == "localhost")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        }
+        else
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        }
+    });
 });
 
 var app = builder.Build();
