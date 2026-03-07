@@ -1,0 +1,15 @@
+2026-03-06T17:41:57  Startup Request, url: /api/publish?async=true&deployer=GITHUB_ONE_DEPLOY&type=zip&message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22cfb6e2765f5502dd87b14bf7ab9a2bd771b64731%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22alwayys%20on%22%7D, method: POST, type: request, pid: 847,1,16, ScmType: GitHubAction
+2026-03-06T17:43:14        Error occurred, type: error, text: Exception in copying zip file to temp path. Exception: Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Unexpected end of request content.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ChunkedEncodingMessageBody.PumpAsync()
+   at System.IO.Pipelines.Pipe.GetReadResult(ReadResult& result)
+   at System.IO.Pipelines.Pipe.ReadAsync(CancellationToken token)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ChunkedEncodingMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at System.IO.Pipelines.PipeReader.CopyToAsyncCore[TStream](TStream destination, Func`4 writeAsync, CancellationToken cancellationToken)
+   at Kudu.Services.Deployment.PushDeploymentController.CopyZipFromRequestBody(String artifactTempPath, ITracer tracer) in /tmp/KuduLite/Kudu.Services/Deployment/PushDeploymentController.cs:line 1496: Unexpected end of request content., stackTrace:    at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ChunkedEncodingMessageBody.PumpAsync()
+   at System.IO.Pipelines.Pipe.GetReadResult(ReadResult& result)
+   at System.IO.Pipelines.Pipe.ReadAsync(CancellationToken token)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ChunkedEncodingMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at System.IO.Pipelines.PipeReader.CopyToAsyncCore[TStream](TStream destination, Func`4 writeAsync, CancellationToken cancellationToken)
+   at Kudu.Services.Deployment.PushDeploymentController.CopyZipFromRequestBody(String artifactTempPath, ITracer tracer) in /tmp/KuduLite/Kudu.Services/Deployment/PushDeploymentController.cs:line 1496
+2026-03-06T17:43:15      Error occurred, type: error, text: Request was Aborted. Deployment was cancelled
+2026-03-06T17:43:19    Outgoing response, type: response, statusCode: 499, statusText: 499

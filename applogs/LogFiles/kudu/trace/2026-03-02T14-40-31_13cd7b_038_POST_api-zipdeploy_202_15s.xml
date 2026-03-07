@@ -1,0 +1,15 @@
+<step title="Incoming Request" date="2026-03-02T14:40:31.186" instance="13cd7b" url="/api/zipdeploy?author=ms-azuretools-vscode&amp;deployer=ms-azuretools-vscode&amp;isAsync=true&amp;trackDeploymentId=true" method="POST" type="request" pid="839,1,31" Host="api-repleague.scm.azurewebsites.net" User-Agent="vscode-azureappservice/0.26.4 core-rest-pipeline/1.20.0 Node/22.21.1 OS/(x64-Windows_NT-10.0.26200)" Accept-Encoding="gzip,deflate" Accept-Language="es" Authorization="Bea..." Transfer-Encoding="chunked" x-ms-correlation-request-id="48b1029c-6e8f-49b7-be7d-3f8c681470e2" x-ms-client-request-id="26402158-f011-4911-bb4f-a6c43140f177" X-ARR-LOG-ID="26402158-f011-4911-bb4f-a6c43140f177" CLIENT-IP="190.153.149.25:51369" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?author=ms-azuretools-vscode&amp;deployer=ms-azuretools-vscode&amp;isAsync=true&amp;trackDeploymentId=true" X-Client-IP="190.153.149.25" X-Client-Port="51369" >
+  <step title="Cleanup Xml Logs" date="2026-03-02T14:40:31.529" /><!-- duration: 47ms -->
+  <step title="ZipPushDeploy" date="2026-03-02T14:40:32.001" >
+    <step title="ZipDeploy. Extract zip." date="2026-03-02T14:40:32.070" /><!-- duration: 10ms -->
+    <step title="Starting PushDeployAsync" date="2026-03-02T14:40:32.091" /><!-- duration: 7ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/614a395e-996f-4ed5-82e5-a5ec53393281.zip" date="2026-03-02T14:40:32.242" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/614a395e-996f-4ed5-82e5-a5ec53393281.zip" date="2026-03-02T14:40:32.261" /><!-- duration: 18ms -->
+    </step><!-- duration: 12492ms -->
+    <step title="Start deployment in the background" date="2026-03-02T14:40:44.877" >
+      <step title="Acquiring Deployment Lock" date="2026-03-02T14:40:45.072" /><!-- duration: 36ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-02T14:40:45.241" /><!-- duration: 18ms -->
+    </step><!-- duration: 659ms -->
+  </step><!-- duration: 13606ms -->
+  <step title="Outgoing response" date="2026-03-02T14:40:45.704" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 12ms -->
+</step><!-- duration: 14539ms -->

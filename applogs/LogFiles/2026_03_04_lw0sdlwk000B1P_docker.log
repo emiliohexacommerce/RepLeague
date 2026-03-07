@@ -1,0 +1,111 @@
+2026-03-02T18:40:50.2650048Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: api-repleague terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-02T18:41:03.3888749Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: api-repleague terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-02T18:41:10.8617608Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/02/2026 18:41:10 (UTC), DetailsLevel: ERR
+2026-03-02T18:41:11.5043372Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/02/2026 18:41:10 (UTC), DetailsLevel: ERR
+2026-03-04T01:51:26.3245989Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/02/2026 18:41:10 (UTC), DetailsLevel: ERR
+2026-03-04T01:51:33.8254474Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/02/2026 18:41:10 (UTC), DetailsLevel: ERR
+2026-03-04T01:51:33.8290833Z Container start method called.
+2026-03-04T01:51:33.8562656Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image mcr.microsoft.com/appsvc/dotnetcore:8.0_20260115.4.tuxprod for api-repleague., DetailsLevel: INFO
+2026-03-04T01:51:33.8574262Z Establishing network.
+2026-03-04T01:51:33.8669622Z Pulling image: appsvc/dotnetcore:8.0_20260115.4.tuxprod.
+2026-03-04T01:51:39.1727597Z Container is starting.
+2026-03-04T01:51:39.1736707Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for api-repleague., DetailsLevel: INFO
+2026-03-04T01:51:39.1745926Z Establishing user namespace if not established already.
+2026-03-04T01:51:39.1748005Z Establishing network if not established already.
+2026-03-04T01:51:39.1750087Z Mounting volumes.
+2026-03-04T01:51:39.2128299Z Nested mountpoint 
+2026-03-04T01:51:39.3803915Z Nested mountpoint volatile/logs
+2026-03-04T01:51:39.5518445Z Nested mountpoint 
+2026-03-04T01:51:39.7546894Z Nested mountpoint 
+2026-03-04T01:51:39.8229815Z Nested mountpoint 
+2026-03-04T01:51:39.8442436Z Nested mountpoint 
+2026-03-04T01:51:40.8453292Z Nested mountpoint 
+2026-03-04T01:51:43.7289565Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for api-repleague. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-04T01:51:43.7325383Z Creating container.
+2026-03-04T01:51:43.7780940Z Creating pipes for streaming container io.
+2026-03-04T01:51:43.8100746Z Creating stdout named pipe at /podr/container/pipe/d647e0a7bd00_api-repleague/stdout_7048f39919474fa2a119a5bf6d9e5ce8.
+2026-03-04T01:51:43.8274515Z Successfully created stdout named pipe at: /podr/container/pipe/d647e0a7bd00_api-repleague/stdout_7048f39919474fa2a119a5bf6d9e5ce8.
+2026-03-04T01:51:43.8385248Z Opening named pipe /podr/container/pipe/d647e0a7bd00_api-repleague/stdout_7048f39919474fa2a119a5bf6d9e5ce8 for reading in non-blocking mode.
+2026-03-04T01:51:43.8388048Z Successfully opened named pipe: /podr/container/pipe/d647e0a7bd00_api-repleague/stdout_7048f39919474fa2a119a5bf6d9e5ce8.
+2026-03-04T01:51:43.8389673Z Successfully removed non-blocking flag from /podr/container/pipe/d647e0a7bd00_api-repleague/stdout_7048f39919474fa2a119a5bf6d9e5ce8.
+2026-03-04T01:51:43.8599587Z Creating stderr named pipe at /podr/container/pipe/d647e0a7bd00_api-repleague/stderr_592e6ec2cb1046da816c669ebcf915b7.
+2026-03-04T01:51:43.8895712Z Successfully created stderr named pipe at: /podr/container/pipe/d647e0a7bd00_api-repleague/stderr_592e6ec2cb1046da816c669ebcf915b7.
+2026-03-04T01:51:43.8978036Z Opening named pipe /podr/container/pipe/d647e0a7bd00_api-repleague/stderr_592e6ec2cb1046da816c669ebcf915b7 for reading in non-blocking mode.
+2026-03-04T01:51:43.8986394Z Successfully opened named pipe: /podr/container/pipe/d647e0a7bd00_api-repleague/stderr_592e6ec2cb1046da816c669ebcf915b7.
+2026-03-04T01:51:43.8991299Z Successfully removed non-blocking flag from /podr/container/pipe/d647e0a7bd00_api-repleague/stderr_592e6ec2cb1046da816c669ebcf915b7.
+2026-03-04T01:51:43.9190708Z Creating container with image: appsvc/dotnetcore:8.0_20260115.4.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/dotnetcore:8.0_20260115.4.tuxprod
+2026-03-04T01:51:46.6605732Z Starting container: d647e0a7bd00_api-repleague.
+2026-03-04T01:51:46.9899555Z Starting watchers and probes.
+2026-03-04T01:51:47.0269487Z Starting metrics collection.
+2026-03-04T01:51:47.0558729Z Container is running.
+2026-03-04T01:51:47.0567888Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container api-repleague successfully created and is running., DetailsLevel: INFO
+2026-03-04T01:51:47.7736162Z Container start method finished after 13934 ms.
+2026-03-04T01:51:47.9699961Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container api-repleague successfully created and is running., DetailsLevel: INFO
+2026-03-04T01:51:48.0187508Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/02/2026 18:40:40, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-04T01:55:39.8558185Z Site startup probe failed after 231.4869568 seconds.
+2026-03-04T01:55:52.1215190Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-04T01:55:52.7021532Z Failed to start site. Revert by stopping site.
+2026-03-04T01:55:52.9222238Z State: Stopping, Action: StoppingSite, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-04T01:55:52.9581362Z State: Stopping, Action: StoppingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
+2026-03-04T01:55:52.9679116Z Container is terminating. Grace period: 5 seconds.
+2026-03-04T01:55:54.1461679Z Stop and delete container. Retry count = 0
+2026-03-04T01:55:54.1465530Z Stopping container: d647e0a7bd00_api-repleague.
+2026-03-04T01:56:02.0932617Z Deleting container: d647e0a7bd00_api-repleague. Retry count = 0
+2026-03-04T01:56:09.4983380Z Container spec TerminationMessagePolicy  path 
+2026-03-04T01:56:10.8094148Z Container is terminated. Total time elapsed: 16674 ms.
+2026-03-04T01:56:10.8205369Z Site container: api-repleague terminated during site startup.
+2026-03-04T01:56:10.8405475Z State: Stopping, Action: CancellingStartup, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: api-repleague terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-04T01:56:11.4102206Z Site: api-repleague stopped.
+2026-03-04T01:56:11.8847807Z State: Stopping, Action: UnmountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: api-repleague terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-04T01:56:26.2403766Z State: Stopping, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site container: api-repleague terminated during site startup. Cancelling site startup., DetailsLevel: ERR
+2026-03-04T01:56:34.9536068Z Site: api-repleague will be blocked for 1 minutes till 03/04/2026 01:57:34
+2026-03-04T01:56:35.0123812Z State: Blocked, Action: StoppingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site: api-repleague will be blocked for 1 minutes till 03/04/2026 01:57:34, DetailsLevel: WARN
+2026-03-04T01:56:35.5316819Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/04/2026 01:56:35 (UTC), DetailsLevel: WARN
+2026-03-04T01:56:39.8118635Z State: Stopped, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/04/2026 01:56:35 (UTC), DetailsLevel: WARN
+2026-03-04T01:57:35.3129466Z Site: api-repleague is unblocked.
+2026-03-04T09:06:28.0297541Z State: Starting, Action: EstablishingSiteNetworks, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/04/2026 01:56:35 (UTC), DetailsLevel: WARN
+2026-03-04T09:06:33.7540375Z State: Starting, Action: StartingSiteContainers, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site stopped at 03/04/2026 01:56:35 (UTC), DetailsLevel: WARN
+2026-03-04T09:06:33.7573196Z Container start method called.
+2026-03-04T09:06:33.7588180Z State: Starting, Action: PullingImage, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pulling image mcr.microsoft.com/appsvc/dotnetcore:8.0_20260115.4.tuxprod for api-repleague., DetailsLevel: INFO
+2026-03-04T09:06:33.7637629Z Establishing network.
+2026-03-04T09:06:33.7660701Z Pulling image: appsvc/dotnetcore:8.0_20260115.4.tuxprod.
+2026-03-04T09:06:39.3781239Z Container is starting.
+2026-03-04T09:06:39.3784211Z State: Starting, Action: MountingVolumes, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Mounting volumes for api-repleague., DetailsLevel: INFO
+2026-03-04T09:06:39.3787104Z Establishing user namespace if not established already.
+2026-03-04T09:06:39.4413015Z Establishing network if not established already.
+2026-03-04T09:06:39.4679374Z Mounting volumes.
+2026-03-04T09:06:39.4968284Z Nested mountpoint 
+2026-03-04T09:06:39.7552505Z Nested mountpoint volatile/logs
+2026-03-04T09:06:39.9566590Z Nested mountpoint 
+2026-03-04T09:06:40.3160786Z Nested mountpoint 
+2026-03-04T09:06:40.3380378Z Nested mountpoint 
+2026-03-04T09:06:40.5124782Z Nested mountpoint 
+2026-03-04T09:06:40.7413821Z Nested mountpoint 
+2026-03-04T09:06:44.3373908Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Finished pulling container image and mounting volumes for api-repleague. Allocatinng the rest of the container resources to finish container creation., DetailsLevel: INFO
+2026-03-04T09:06:44.3388277Z Creating container.
+2026-03-04T09:06:44.3482559Z Creating pipes for streaming container io.
+2026-03-04T09:06:44.4493136Z Creating stdout named pipe at /podr/container/pipe/aaed97be3188_api-repleague/stdout_1f5f0452728b4c6ba3d1ad7c6f62e6f1.
+2026-03-04T09:06:44.5079704Z Successfully created stdout named pipe at: /podr/container/pipe/aaed97be3188_api-repleague/stdout_1f5f0452728b4c6ba3d1ad7c6f62e6f1.
+2026-03-04T09:06:44.5878380Z Opening named pipe /podr/container/pipe/aaed97be3188_api-repleague/stdout_1f5f0452728b4c6ba3d1ad7c6f62e6f1 for reading in non-blocking mode.
+2026-03-04T09:06:44.5983140Z Successfully opened named pipe: /podr/container/pipe/aaed97be3188_api-repleague/stdout_1f5f0452728b4c6ba3d1ad7c6f62e6f1.
+2026-03-04T09:06:44.5986746Z Successfully removed non-blocking flag from /podr/container/pipe/aaed97be3188_api-repleague/stdout_1f5f0452728b4c6ba3d1ad7c6f62e6f1.
+2026-03-04T09:06:44.5989366Z Creating stderr named pipe at /podr/container/pipe/aaed97be3188_api-repleague/stderr_6d5a1a0ea1054bffb395bfe8270ef4ec.
+2026-03-04T09:06:44.6244153Z Successfully created stderr named pipe at: /podr/container/pipe/aaed97be3188_api-repleague/stderr_6d5a1a0ea1054bffb395bfe8270ef4ec.
+2026-03-04T09:06:44.6262285Z Opening named pipe /podr/container/pipe/aaed97be3188_api-repleague/stderr_6d5a1a0ea1054bffb395bfe8270ef4ec for reading in non-blocking mode.
+2026-03-04T09:06:44.6276351Z Successfully opened named pipe: /podr/container/pipe/aaed97be3188_api-repleague/stderr_6d5a1a0ea1054bffb395bfe8270ef4ec.
+2026-03-04T09:06:44.6461952Z Successfully removed non-blocking flag from /podr/container/pipe/aaed97be3188_api-repleague/stderr_6d5a1a0ea1054bffb395bfe8270ef4ec.
+2026-03-04T09:06:44.6950742Z Creating container with image: appsvc/dotnetcore:8.0_20260115.4.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/dotnetcore:8.0_20260115.4.tuxprod
+2026-03-04T09:06:46.6304940Z Starting container: aaed97be3188_api-repleague.
+2026-03-04T09:06:47.0875640Z Starting watchers and probes.
+2026-03-04T09:06:47.1636412Z Starting metrics collection.
+2026-03-04T09:06:47.1921897Z Container is running.
+2026-03-04T09:06:47.1945679Z State: Starting, Action: CreatingContainer, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container api-repleague successfully created and is running., DetailsLevel: INFO
+2026-03-04T09:06:48.6997287Z Container start method finished after 14940 ms.
+2026-03-04T09:06:48.7093934Z State: Starting, Action: InitiatingSiteWarmUpProbe, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Container api-repleague successfully created and is running., DetailsLevel: INFO
+2026-03-04T09:06:48.9449045Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: INFO
+2026-03-04T09:09:45.7130842Z Site startup probe succeeded after 176.4116667 seconds.
+2026-03-04T09:09:46.7747103Z State: Starting, Action: WarmUpProbeSucceeded, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site startup probe succeeded after 176.4116667 seconds., DetailsLevel: INFO
+2026-03-04T09:09:48.6577415Z Site is running with deployment version: ae64b7a4-cc02-4da4-baca-a5f0057f4b81
+2026-03-04T09:09:49.1147547Z Site started.
+2026-03-04T09:09:49.1534460Z State: Started, Action: None, LastError: ContainerTimeout, LastErrorTimestamp: 03/04/2026 01:55:52, LastErrorDetails: Container did not start within expected time limit of 230s. Please inspect your container logs for more details., Details: Site started at 03/04/2026 09:09:48 (UTC), DetailsLevel: INFO
+2026-03-04T09:09:49.6876591Z Site is running with patch version DOTNETCORE 8.0.23

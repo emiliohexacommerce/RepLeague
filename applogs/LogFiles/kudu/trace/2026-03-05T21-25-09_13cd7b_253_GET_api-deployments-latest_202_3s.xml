@@ -1,0 +1,8 @@
+<step title="Incoming Request" date="2026-03-05T21:25:09.625" instance="13cd7b" url="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-03-05_21-25-09Z" method="GET" type="request" pid="839,1,37" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Content-Length="0" X-ARR-LOG-ID="0e4258a6-94b8-418a-a236-b502fa854fef" CLIENT-IP="52.165.58.34:48144" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-03-05_21-25-09Z" X-Client-IP="52.165.58.34" X-Client-Port="48144" >
+  <step title="DeploymentService.GetResult" date="2026-03-05T21:25:09.657" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-03-05T21:25:09.677" >
+      <step title="DeploymentManager.GetResults" date="2026-03-05T21:25:09.724" /><!-- duration: 2321ms -->
+    </step><!-- duration: 2398ms -->
+  </step><!-- duration: 2438ms -->
+  <step title="Outgoing response" date="2026-03-05T21:25:12.115" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 19ms -->
+</step><!-- duration: 2521ms -->

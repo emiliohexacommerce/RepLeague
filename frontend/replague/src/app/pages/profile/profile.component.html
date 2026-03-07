@@ -15,8 +15,10 @@
         <div class="d-flex flex-wrap flex-sm-nowrap gap-7 mb-6">
 
           <!-- Avatar -->
-          <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-            <img *ngIf="profile.avatarUrl" [src]="profile.avatarUrl" alt="avatar" class="rounded" />
+          <div class="symbol symbol-circle symbol-100px symbol-lg-160px symbol-fixed position-relative">
+            <img *ngIf="profile.avatarUrl" [src]="profile.avatarUrl" alt="avatar"
+              style="width:100%;height:100%;object-fit:cover;"
+              (error)="$any($event.target).src='./assets/media/avatars/blank.png'" />
             <span *ngIf="!profile.avatarUrl"
               class="symbol-label fs-2 fw-bold bg-light-primary text-primary">
               {{ profile.displayName.charAt(0).toUpperCase() }}

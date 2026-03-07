@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2026-03-02T14:29:52.557" instance="13cd7b" url="/api/deployments/0ab8399d-d32b-44c9-b879-4ffe648efbb1/log" method="GET" type="request" pid="839,1,26" Host="api-repleague.scm.azurewebsites.net" User-Agent="vscode-azureappservice/0.26.4 core-rest-pipeline/1.20.0 Node/22.21.1 OS/(x64-Windows_NT-10.0.26200)" Accept-Encoding="gzip,deflate" Accept-Language="es" Authorization="Bea..." x-ms-correlation-request-id="3c037f46-49cf-4897-97b4-54f551a05ec7" x-ms-client-request-id="de6c8c76-aa8a-4d7e-9cd6-00409a43bd68" X-ARR-LOG-ID="de6c8c76-aa8a-4d7e-9cd6-00409a43bd68" CLIENT-IP="190.153.149.25:59469" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/0ab8399d-d32b-44c9-b879-4ffe648efbb1/log" X-Client-IP="190.153.149.25" X-Client-Port="59469" >
+  <step title="DeploymentService.GetLogEntry" date="2026-03-02T14:29:52.839" >
+    <step title="DeploymentManager.GetLogEntries(id:0ab8399d-d32b-44c9-b879-4ffe648efbb1)" date="2026-03-02T14:29:52.862" /><!-- duration: 211ms -->
+  </step><!-- duration: 314ms -->
+  <step title="Outgoing response" date="2026-03-02T14:29:53.395" type="response" statusCode="200" statusText="OK" /><!-- duration: 40ms -->
+</step><!-- duration: 915ms -->

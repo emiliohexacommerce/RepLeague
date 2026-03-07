@@ -1,0 +1,7 @@
+<step title="Incoming Request" date="2026-03-02T14:28:58.831" instance="13cd7b" url="/api/deployments/temp-82711bac/log/17b088d3-4b12-434b-a61a-7754b8649695" method="GET" type="request" pid="839,1,33" Host="api-repleague.scm.azurewebsites.net" User-Agent="vscode-azureappservice/0.26.4 core-rest-pipeline/1.20.0 Node/22.21.1 OS/(x64-Windows_NT-10.0.26200)" Accept-Encoding="gzip,deflate" Accept-Language="es" Authorization="Bea..." x-ms-correlation-request-id="3c037f46-49cf-4897-97b4-54f551a05ec7" x-ms-client-request-id="655f92c6-639d-4847-b79e-93d50558a604" X-ARR-LOG-ID="655f92c6-639d-4847-b79e-93d50558a604" CLIENT-IP="190.153.149.25:63908" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/temp-82711bac/log/17b088d3-4b12-434b-a61a-7754b8649695" X-Client-IP="190.153.149.25" X-Client-Port="63908" >
+  <step title="Cleanup Xml Logs" date="2026-03-02T14:28:58.852" /><!-- duration: 187ms -->
+  <step title="DeploymentService.GetLogEntryDetails" date="2026-03-02T14:29:00.577" >
+    <step title="DeploymentManager.GetLogEntryDetails(id:temp-82711bac, entryId:17b088d3-4b12-434b-a61a-7754b8649695" date="2026-03-02T14:29:00.704" /><!-- duration: 247ms -->
+  </step><!-- duration: 460ms -->
+  <step title="Outgoing response" date="2026-03-02T14:29:01.054" type="response" statusCode="200" statusText="OK" /><!-- duration: 22ms -->
+</step><!-- duration: 2265ms -->

@@ -23,8 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- email-templates: solo en desarrollo local, NOT incluidos en publish para evitar error rsync en Linux Azure -->
     <Content Include="..\..\email-templates\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       <Link>email-templates\%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
   </ItemGroup>

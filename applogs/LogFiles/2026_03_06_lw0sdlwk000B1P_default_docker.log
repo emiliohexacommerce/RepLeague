@@ -1,0 +1,595 @@
+2026-03-06T09:04:28.0931494Z    _____                               
+2026-03-06T09:04:28.0931963Z   /  _  \ __________ _________   ____  
+2026-03-06T09:04:28.0932023Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T09:04:28.0932154Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T09:04:28.0932203Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T09:04:28.0932249Z         \/      \/                  \/ 
+2026-03-06T09:04:28.0932295Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T09:04:28.0932339Z 
+2026-03-06T09:04:28.0932390Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T09:04:28.0932439Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T09:04:28.0932625Z ASP .NETCore Version: 8.0.23
+2026-03-06T09:04:28.0932675Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T09:04:28.0932753Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T09:04:28.0932799Z 
+2026-03-06T09:04:28.0932876Z Note: Any data outside '/home' is not persisted
+2026-03-06T09:04:35.6942125Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T09:04:35.8014999Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T09:04:35.9895770Z Updating certificates in /etc/ssl/certs...
+2026-03-06T09:06:01.1246878Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T09:06:01.1247327Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T09:06:03.4889125Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T09:06:03.7798444Z 4 added, 0 removed; done.
+2026-03-06T09:06:03.8152861Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T09:06:03.8269441Z done.
+2026-03-06T09:06:03.9986101Z CA certificates copied and updated successfully.
+2026-03-06T09:06:07.2415020Z Starting periodic command scheduler: cron.
+2026-03-06T09:06:07.2415387Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T09:06:08.8517790Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T09:06:08.8598406Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T09:06:08.8892937Z Build Operation ID: 1cb5215e-fc7e-412c-ae12-e5e39cec9e6e
+2026-03-06T09:06:13.2942555Z 
+2026-03-06T09:06:13.2942934Z Agent extension disabled
+2026-03-06T09:06:13.2942995Z Before if loop >> DotNet Runtime 
+2026-03-06T09:06:13.3521435Z DotNet Runtime 8.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T09:06:13.3548792Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T09:06:13.4653740Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T09:06:13.4654224Z          For example: 'dotnet myapp.dll'
+2026-03-06T09:06:13.6315145Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T09:06:14.0200308Z Trying to find the startup DLL name...
+2026-03-06T09:06:14.0285444Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T09:06:35.9221371Z Hosting environment: Production
+2026-03-06T09:06:36.0443573Z Content root path: /defaulthome/hostingstart/
+2026-03-06T09:06:36.0467401Z Now listening on: http://[::]:8080
+2026-03-06T09:06:36.0676106Z Application started. Press Ctrl+C to shut down.
+2026-03-06T14:28:57.0572520Z    _____                               
+2026-03-06T14:28:57.1215475Z   /  _  \ __________ _________   ____  
+2026-03-06T14:28:57.1215764Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T14:28:57.1215875Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T14:28:57.1215913Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T14:28:57.1215966Z         \/      \/                  \/ 
+2026-03-06T14:28:57.1216005Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T14:28:57.1216039Z 
+2026-03-06T14:28:57.1216080Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T14:28:57.1216118Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T14:28:57.1216180Z ASP .NETCore Version: 8.0.23
+2026-03-06T14:28:57.1216216Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T14:28:57.1216263Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T14:28:57.1216297Z 
+2026-03-06T14:28:57.1216331Z Note: Any data outside '/home' is not persisted
+2026-03-06T14:30:31.1920733Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T14:30:32.0958201Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T14:30:33.2383300Z Updating certificates in /etc/ssl/certs...
+2026-03-06T15:12:23.5853860Z    _____                               
+2026-03-06T15:12:23.5854323Z   /  _  \ __________ _________   ____  
+2026-03-06T15:12:23.5854386Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T15:12:23.5854438Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T15:12:23.5854488Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T15:12:23.5854535Z         \/      \/                  \/ 
+2026-03-06T15:12:23.5854673Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T15:12:23.7952248Z 
+2026-03-06T15:12:23.7952418Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T15:12:23.7952473Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T15:12:23.7952524Z ASP .NETCore Version: 8.0.23
+2026-03-06T15:12:23.7952573Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T15:12:23.7952658Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T15:12:23.7952706Z 
+2026-03-06T15:12:23.7952760Z Note: Any data outside '/home' is not persisted
+2026-03-06T15:13:26.6046049Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T15:13:27.9372802Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T15:13:29.2427349Z Updating certificates in /etc/ssl/certs...
+2026-03-06T15:38:11.1159201Z    _____                               
+2026-03-06T15:38:11.1168333Z   /  _  \ __________ _________   ____  
+2026-03-06T15:38:11.1168427Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T15:38:11.1168483Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T15:38:11.1168531Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T15:38:11.1168578Z         \/      \/                  \/ 
+2026-03-06T15:38:11.1168625Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T15:38:11.1169577Z 
+2026-03-06T15:38:11.1169758Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T15:38:11.1169809Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T15:38:11.1169857Z ASP .NETCore Version: 8.0.23
+2026-03-06T15:38:11.1169904Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T15:38:11.1169974Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T15:38:11.1170021Z 
+2026-03-06T15:38:11.1170070Z Note: Any data outside '/home' is not persisted
+2026-03-06T15:38:39.9048947Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T15:38:40.1066726Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T15:38:40.3639740Z Updating certificates in /etc/ssl/certs...
+2026-03-06T15:41:03.8624435Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T15:41:03.8791276Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T15:41:04.9587839Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T15:41:05.1123298Z 4 added, 0 removed; done.
+2026-03-06T15:41:05.1487592Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T15:41:05.1888731Z done.
+2026-03-06T15:41:05.2917372Z CA certificates copied and updated successfully.
+2026-03-06T15:41:07.1739994Z Starting periodic command scheduler: cron.
+2026-03-06T15:41:07.1940164Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T15:41:08.2812149Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T15:41:08.2812518Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T15:41:08.2812899Z Build Operation ID: b3d49577-69c3-438a-9a1a-3ba2ce1c5860
+2026-03-06T15:41:11.1855629Z 
+2026-03-06T15:41:11.1856295Z Agent extension disabled
+2026-03-06T15:41:11.1856363Z Before if loop >> DotNet Runtime 
+2026-03-06T15:41:11.2059756Z DotNet Runtime 8.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T15:41:11.2148476Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T15:41:11.2148774Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T15:41:11.2148834Z          For example: 'dotnet myapp.dll'
+2026-03-06T15:41:11.2527256Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T15:41:11.7020239Z Trying to find the startup DLL name...
+2026-03-06T15:41:11.7110228Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T15:41:33.8133091Z Hosting environment: Production
+2026-03-06T15:41:33.8238634Z Content root path: /defaulthome/hostingstart/
+2026-03-06T15:41:33.8341844Z Now listening on: http://[::]:8080
+2026-03-06T15:41:33.8342085Z Application started. Press Ctrl+C to shut down.
+2026-03-06T16:20:52.8534784Z    _____                               
+2026-03-06T16:20:53.0134106Z   /  _  \ __________ _________   ____  
+2026-03-06T16:20:53.0236732Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T16:20:53.0237223Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T16:20:53.0237390Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T16:20:53.0237453Z         \/      \/                  \/ 
+2026-03-06T16:20:53.0237560Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T16:20:53.0237620Z 
+2026-03-06T16:20:53.0237694Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T16:20:53.0237757Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T16:20:53.0237853Z ASP .NETCore Version: 8.0.23
+2026-03-06T16:20:53.0237918Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T16:20:53.0237996Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T16:20:53.0238054Z 
+2026-03-06T16:20:53.0238114Z Note: Any data outside '/home' is not persisted
+2026-03-06T16:21:40.7390669Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T16:21:40.8493013Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T16:21:41.3013430Z Updating certificates in /etc/ssl/certs...
+2026-03-06T16:27:57.9959339Z    _____                               
+2026-03-06T16:27:57.9959665Z   /  _  \ __________ _________   ____  
+2026-03-06T16:27:57.9959723Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T16:27:57.9959778Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T16:27:57.9959828Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T16:27:57.9959876Z         \/      \/                  \/ 
+2026-03-06T16:27:57.9959923Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T16:27:57.9960061Z 
+2026-03-06T16:27:57.9960118Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T16:27:57.9960167Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T16:27:57.9960217Z ASP .NETCore Version: 8.0.23
+2026-03-06T16:27:57.9960266Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T16:27:57.9960321Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T16:27:57.9960366Z 
+2026-03-06T16:27:57.9960415Z Note: Any data outside '/home' is not persisted
+2026-03-06T16:30:02.7696078Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T16:30:03.5952681Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T16:30:04.7201062Z Updating certificates in /etc/ssl/certs...
+2026-03-06T16:53:51.5219411Z    _____                               
+2026-03-06T16:53:51.9392026Z   /  _  \ __________ _________   ____  
+2026-03-06T16:53:51.9405365Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T16:53:51.9405627Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T16:53:51.9405757Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T16:53:51.9405827Z         \/      \/                  \/ 
+2026-03-06T16:53:51.9502525Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T16:53:51.9502826Z 
+2026-03-06T16:53:51.9502909Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T16:53:51.9502978Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T16:53:51.9503053Z ASP .NETCore Version: 9.0.12
+2026-03-06T16:53:51.9503119Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T16:53:51.9503496Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T16:53:51.9503566Z 
+2026-03-06T16:53:51.9503628Z Note: Any data outside '/home' is not persisted
+2026-03-06T16:54:24.3499490Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T16:54:24.5276175Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T16:54:24.7758926Z Updating certificates in /etc/ssl/certs...
+2026-03-06T16:56:21.4328534Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T16:56:21.4636379Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T16:56:23.7924388Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T16:56:24.4321478Z 4 added, 0 removed; done.
+2026-03-06T16:56:24.4322818Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T16:56:24.5510801Z done.
+2026-03-06T16:56:24.7717528Z CA certificates copied and updated successfully.
+2026-03-06T16:56:28.2117676Z Starting periodic command scheduler: cron.
+2026-03-06T16:56:28.2119157Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T16:56:30.0720466Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T16:56:30.0721049Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T16:56:30.0721103Z Build Operation ID: 8edb3058-a276-4d28-b460-cc3b00c5abd3
+2026-03-06T16:56:35.5308403Z 
+2026-03-06T16:56:35.5309399Z Agent extension disabled
+2026-03-06T16:56:35.5309485Z Before if loop >> DotNet Runtime 
+2026-03-06T16:56:35.6100685Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T16:56:35.6101290Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T16:56:35.6101382Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T16:56:35.6101449Z          For example: 'dotnet myapp.dll'
+2026-03-06T16:56:35.6892801Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T16:56:36.0950320Z Trying to find the startup DLL name...
+2026-03-06T16:56:36.1118459Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T16:57:15.6078640Z Hosting environment: Production
+2026-03-06T16:57:15.6466571Z Content root path: /defaulthome/hostingstart/
+2026-03-06T16:57:15.6466761Z Now listening on: http://[::]:8080
+2026-03-06T16:57:15.6466834Z Application started. Press Ctrl+C to shut down.
+2026-03-06T17:00:16.0721228Z    _____                               
+2026-03-06T17:00:16.0723501Z   /  _  \ __________ _________   ____  
+2026-03-06T17:00:16.0723575Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:00:16.0723612Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:00:16.0723647Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:00:16.0723692Z         \/      \/                  \/ 
+2026-03-06T17:00:16.0723770Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:00:16.0723803Z 
+2026-03-06T17:00:16.0723844Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:00:16.0723885Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:00:16.0723920Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:00:16.0723955Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:00:16.0724029Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:00:16.0724063Z 
+2026-03-06T17:00:16.0724097Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:01:03.0378636Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:01:03.3276610Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:01:05.2512132Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:08:26.0392789Z    _____                               
+2026-03-06T17:08:26.0393153Z   /  _  \ __________ _________   ____  
+2026-03-06T17:08:26.0393210Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:08:26.0393263Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:08:26.0393312Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:08:26.0393360Z         \/      \/                  \/ 
+2026-03-06T17:08:26.0393407Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:08:26.0393453Z 
+2026-03-06T17:08:26.0393503Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:08:26.0393552Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:08:26.0393601Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:08:26.0393681Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:08:26.0393739Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:08:26.0393784Z 
+2026-03-06T17:08:26.0395215Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:08:43.7789087Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:08:43.8204153Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:08:43.9283579Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:09:46.2163427Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T17:09:46.2177499Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T17:09:46.8669419Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T17:09:46.9684989Z 4 added, 0 removed; done.
+2026-03-06T17:09:46.9968994Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T17:09:47.0245033Z done.
+2026-03-06T17:09:47.2049567Z CA certificates copied and updated successfully.
+2026-03-06T17:09:48.9462046Z Starting periodic command scheduler: cron.
+2026-03-06T17:09:49.0151393Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T17:09:50.1523806Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T17:09:50.1524218Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T17:09:50.1524259Z Build Operation ID: 13be5f7b-8c94-474c-b723-6c18b541b443
+2026-03-06T17:09:52.0562968Z 
+2026-03-06T17:09:52.0563608Z Agent extension disabled
+2026-03-06T17:09:52.0563668Z Before if loop >> DotNet Runtime 
+2026-03-06T17:09:52.4972209Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T17:09:52.6372017Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T17:09:52.6372601Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T17:09:52.6373209Z          For example: 'dotnet myapp.dll'
+2026-03-06T17:09:52.6668894Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T17:09:53.3719258Z Trying to find the startup DLL name...
+2026-03-06T17:09:53.3719913Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T17:10:20.7113244Z Hosting environment: Production
+2026-03-06T17:10:20.7275503Z Content root path: /defaulthome/hostingstart/
+2026-03-06T17:10:20.7275651Z Now listening on: http://[::]:8080
+2026-03-06T17:10:20.7275709Z Application started. Press Ctrl+C to shut down.
+2026-03-06T17:19:20.6211289Z    _____                               
+2026-03-06T17:19:20.7371400Z   /  _  \ __________ _________   ____  
+2026-03-06T17:19:20.7371705Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:19:20.7371770Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:19:20.7371897Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:19:20.7371992Z         \/      \/                  \/ 
+2026-03-06T17:19:20.7372054Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:19:20.7372111Z 
+2026-03-06T17:19:20.7372187Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:19:20.7372257Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:19:20.7372319Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:19:20.7372401Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:19:20.7372480Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:19:20.7372539Z 
+2026-03-06T17:19:20.7372599Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:21:41.4979145Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:21:42.0620388Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:21:43.5374704Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:24:42.0851049Z    _____                               
+2026-03-06T17:24:42.0851485Z   /  _  \ __________ _________   ____  
+2026-03-06T17:24:42.0851543Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:24:42.0851592Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:24:42.0851641Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:24:42.0851689Z         \/      \/                  \/ 
+2026-03-06T17:24:42.0851735Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:24:42.0851780Z 
+2026-03-06T17:24:42.0851832Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:24:42.0851882Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:24:42.0851931Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:24:42.0852033Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:24:42.0852097Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:24:42.0852141Z 
+2026-03-06T17:24:42.0852192Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:24:47.3516659Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:24:47.3837691Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:24:47.5661999Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:26:00.2307372Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T17:26:00.2405144Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T17:26:03.2235619Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T17:26:03.7375029Z 4 added, 0 removed; done.
+2026-03-06T17:26:03.7650891Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T17:26:03.7651217Z done.
+2026-03-06T17:26:04.0218390Z CA certificates copied and updated successfully.
+2026-03-06T17:26:07.4100824Z Starting periodic command scheduler: cron.
+2026-03-06T17:26:07.4872264Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T17:26:09.7059026Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T17:26:09.7059400Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T17:26:09.7059463Z Build Operation ID: ca0d3908-5a26-4daa-b979-a8fac3867d2c
+2026-03-06T17:26:15.7492214Z 
+2026-03-06T17:26:15.7589029Z Agent extension disabled
+2026-03-06T17:26:15.7589292Z Before if loop >> DotNet Runtime 
+2026-03-06T17:26:15.8980126Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T17:26:15.8980471Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T17:26:15.8980536Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T17:26:15.8980587Z          For example: 'dotnet myapp.dll'
+2026-03-06T17:26:16.7817226Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T17:26:17.1394828Z Trying to find the startup DLL name...
+2026-03-06T17:26:17.2374877Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T17:26:41.6476126Z Hosting environment: Production
+2026-03-06T17:26:41.6476525Z Content root path: /defaulthome/hostingstart/
+2026-03-06T17:26:41.6476585Z Now listening on: http://[::]:8080
+2026-03-06T17:26:41.6476636Z Application started. Press Ctrl+C to shut down.
+2026-03-06T17:47:07.1183541Z    _____                               
+2026-03-06T17:47:07.3370999Z   /  _  \ __________ _________   ____  
+2026-03-06T17:47:07.3452105Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:47:07.3452611Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:47:07.3452692Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:47:07.3452758Z         \/      \/                  \/ 
+2026-03-06T17:47:07.3452851Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:47:07.3453025Z 
+2026-03-06T17:47:07.3453102Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:47:07.3453166Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:47:07.3453232Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:47:07.3453299Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:47:07.3453379Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:47:07.3453466Z 
+2026-03-06T17:47:07.3453529Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:47:37.8225377Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:47:37.8643788Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:47:38.8250203Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:50:29.3748586Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T17:50:29.4411053Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T17:50:32.2479037Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T17:50:32.6919879Z 4 added, 0 removed; done.
+2026-03-06T17:50:32.7385248Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T17:50:32.7796805Z done.
+2026-03-06T17:50:32.9585290Z CA certificates copied and updated successfully.
+2026-03-06T17:50:36.0677882Z Starting periodic command scheduler: cron.
+2026-03-06T17:50:36.1873096Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T17:50:37.9659916Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T17:50:37.9692047Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T17:50:38.0077792Z Build Operation ID: c0602892-e81d-47f4-adfe-1276590c87e2
+2026-03-06T17:50:42.8989680Z 
+2026-03-06T17:50:42.8990336Z Agent extension disabled
+2026-03-06T17:50:42.8990396Z Before if loop >> DotNet Runtime 
+2026-03-06T17:50:42.9250604Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T17:50:42.9250889Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T17:50:42.9250942Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T17:50:42.9250980Z          For example: 'dotnet myapp.dll'
+2026-03-06T17:50:42.9746025Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T17:50:43.7455307Z Trying to find the startup DLL name...
+2026-03-06T17:50:43.7550799Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T17:51:08.7679035Z Hosting environment: Production
+2026-03-06T17:51:08.7679382Z Content root path: /defaulthome/hostingstart/
+2026-03-06T17:51:08.7679443Z Now listening on: http://[::]:8080
+2026-03-06T17:51:08.7679495Z Application started. Press Ctrl+C to shut down.
+2026-03-06T17:53:21.8937570Z    _____                               
+2026-03-06T17:53:21.8937915Z   /  _  \ __________ _________   ____  
+2026-03-06T17:53:21.8937971Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T17:53:21.8938020Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T17:53:21.8938068Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T17:53:21.8938116Z         \/      \/                  \/ 
+2026-03-06T17:53:21.8938335Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T17:53:21.8938387Z 
+2026-03-06T17:53:21.8938437Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T17:53:21.8938486Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T17:53:21.8938594Z ASP .NETCore Version: 9.0.12
+2026-03-06T17:53:21.8938644Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T17:53:21.8938700Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T17:53:21.8938744Z 
+2026-03-06T17:53:21.8938793Z Note: Any data outside '/home' is not persisted
+2026-03-06T17:53:35.7707243Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T17:53:35.8487718Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T17:53:35.9475322Z Updating certificates in /etc/ssl/certs...
+2026-03-06T17:54:56.9627547Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T17:54:56.9726831Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T17:54:58.3682668Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T17:54:58.6054420Z 4 added, 0 removed; done.
+2026-03-06T17:54:58.6054801Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T17:54:58.6417857Z done.
+2026-03-06T17:54:58.8620409Z CA certificates copied and updated successfully.
+2026-03-06T17:55:02.0156670Z Starting periodic command scheduler: cron.
+2026-03-06T17:55:02.1415479Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T17:55:06.6750460Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T17:55:06.6751764Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T17:55:06.6751947Z Build Operation ID: e155b719-06ef-4264-b513-8accc7168bd1
+2026-03-06T17:55:12.6779963Z 
+2026-03-06T17:55:12.6780346Z Agent extension disabled
+2026-03-06T17:55:12.6780404Z Before if loop >> DotNet Runtime 
+2026-03-06T17:55:12.8192647Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T17:55:12.8193019Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T17:55:12.8193084Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T17:55:12.8193140Z          For example: 'dotnet myapp.dll'
+2026-03-06T17:55:15.7069927Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T17:55:16.7580202Z Trying to find the startup DLL name...
+2026-03-06T17:55:16.7580576Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T17:56:20.4058412Z Hosting environment: Production
+2026-03-06T17:56:20.4058954Z Content root path: /defaulthome/hostingstart/
+2026-03-06T17:56:20.4058988Z Now listening on: http://[::]:8080
+2026-03-06T17:56:20.4059018Z Application started. Press Ctrl+C to shut down.
+2026-03-06T18:21:32.9634777Z    _____                               
+2026-03-06T18:21:33.0414113Z   /  _  \ __________ _________   ____  
+2026-03-06T18:21:33.1436473Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T18:21:33.1436800Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T18:21:33.1436841Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T18:21:33.1436876Z         \/      \/                  \/ 
+2026-03-06T18:21:33.1437080Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T18:21:33.1437122Z 
+2026-03-06T18:21:33.1437173Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T18:21:33.1437208Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T18:21:33.1437247Z ASP .NETCore Version: 9.0.12
+2026-03-06T18:21:33.1437285Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T18:21:33.1437339Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T18:21:33.1437410Z 
+2026-03-06T18:21:33.1437444Z Note: Any data outside '/home' is not persisted
+2026-03-06T18:32:34.3148781Z    _____                               
+2026-03-06T18:32:34.3154989Z   /  _  \ __________ _________   ____  
+2026-03-06T18:32:34.3155081Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T18:32:34.3155132Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T18:32:34.3155181Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T18:32:34.3155230Z         \/      \/                  \/ 
+2026-03-06T18:32:34.3155281Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T18:32:34.3155329Z 
+2026-03-06T18:32:34.3155381Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T18:32:34.3155463Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T18:32:34.3155515Z ASP .NETCore Version: 9.0.12
+2026-03-06T18:32:34.3155563Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T18:32:34.3155622Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T18:32:34.3155666Z 
+2026-03-06T18:32:34.3155716Z Note: Any data outside '/home' is not persisted
+2026-03-06T18:33:36.6258336Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T18:33:36.9214939Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T18:33:38.2380603Z Updating certificates in /etc/ssl/certs...
+2026-03-06T18:40:24.5852431Z    _____                               
+2026-03-06T18:40:24.6104154Z   /  _  \ __________ _________   ____  
+2026-03-06T18:40:24.6285768Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T18:40:24.6285911Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T18:40:24.6285962Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T18:40:24.6286014Z         \/      \/                  \/ 
+2026-03-06T18:40:24.6286065Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T18:40:24.6286111Z 
+2026-03-06T18:40:24.6286162Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T18:40:24.6286313Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T18:40:24.6286367Z ASP .NETCore Version: 9.0.12
+2026-03-06T18:40:24.6286416Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T18:40:24.6286497Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T18:40:24.6286542Z 
+2026-03-06T18:40:24.6286592Z Note: Any data outside '/home' is not persisted
+2026-03-06T18:40:46.3064410Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T18:40:46.3703627Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T18:40:46.6730308Z Updating certificates in /etc/ssl/certs...
+2026-03-06T18:43:30.5898131Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T18:43:30.5898876Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T18:43:32.5238330Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T18:43:32.9556067Z 4 added, 0 removed; done.
+2026-03-06T18:43:32.9756042Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T18:43:33.1344949Z done.
+2026-03-06T18:43:33.4608239Z CA certificates copied and updated successfully.
+2026-03-06T18:43:36.7314829Z Starting periodic command scheduler: cron.
+2026-03-06T18:43:36.7631574Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T18:43:41.1857602Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T18:43:41.1858074Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T18:43:41.1858108Z Build Operation ID: 940c2725-edec-4db4-b859-b6f803362ed1
+2026-03-06T18:43:47.3586918Z 
+2026-03-06T18:43:47.3664131Z Agent extension disabled
+2026-03-06T18:43:47.3664871Z Before if loop >> DotNet Runtime 
+2026-03-06T18:43:48.2063080Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T18:43:48.2063678Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T18:43:48.2063745Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T18:43:48.2063797Z          For example: 'dotnet myapp.dll'
+2026-03-06T18:43:54.2154916Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T18:43:56.5012526Z Trying to find the startup DLL name...
+2026-03-06T18:43:56.5012891Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T18:50:24.2176906Z    _____                               
+2026-03-06T18:50:24.2177717Z   /  _  \ __________ _________   ____  
+2026-03-06T18:50:24.2177777Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T18:50:24.2177827Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T18:50:24.2177876Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T18:50:24.2177924Z         \/      \/                  \/ 
+2026-03-06T18:50:24.2177973Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T18:50:24.2178019Z 
+2026-03-06T18:50:24.2178071Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T18:50:24.2178122Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T18:50:24.2178172Z ASP .NETCore Version: 9.0.12
+2026-03-06T18:50:24.2178221Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T18:50:24.2178310Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T18:50:24.2178358Z 
+2026-03-06T18:50:24.2178408Z Note: Any data outside '/home' is not persisted
+2026-03-06T18:50:29.3253673Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T18:50:29.4588055Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T18:50:29.7466336Z Updating certificates in /etc/ssl/certs...
+2026-03-06T18:51:43.4475401Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T18:51:43.4545920Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T18:51:44.1188479Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T18:51:44.3480415Z 4 added, 0 removed; done.
+2026-03-06T18:51:44.3780497Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T18:51:44.4375579Z done.
+2026-03-06T18:51:44.5033528Z CA certificates copied and updated successfully.
+2026-03-06T18:51:45.6569035Z Starting periodic command scheduler: cron.
+2026-03-06T18:51:45.6734661Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T18:51:46.5422094Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T18:51:46.5588026Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T18:51:46.5588700Z Build Operation ID: 3b45b65d-2589-4f78-88cb-1a3180667606
+2026-03-06T18:51:50.5447802Z 
+2026-03-06T18:51:50.5660711Z Agent extension disabled
+2026-03-06T18:51:50.5661061Z Before if loop >> DotNet Runtime 
+2026-03-06T18:51:50.6241455Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T18:51:50.6245329Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T18:51:50.6246324Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T18:51:50.6247442Z          For example: 'dotnet myapp.dll'
+2026-03-06T18:51:50.7410312Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T18:51:51.3350083Z Trying to find the startup DLL name...
+2026-03-06T18:51:51.3350484Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T18:52:46.5165099Z Hosting environment: Production
+2026-03-06T18:52:46.5422137Z Content root path: /defaulthome/hostingstart/
+2026-03-06T18:52:46.5422440Z Now listening on: http://[::]:8080
+2026-03-06T18:52:46.5422505Z Application started. Press Ctrl+C to shut down.
+2026-03-06T18:56:52.9844542Z    _____                               
+2026-03-06T18:56:53.3610795Z   /  _  \ __________ _________   ____  
+2026-03-06T18:56:53.3611102Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T18:56:53.3611214Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T18:56:53.3611283Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T18:56:53.3611369Z         \/      \/                  \/ 
+2026-03-06T18:56:53.3611431Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T18:56:53.3611489Z 
+2026-03-06T18:56:53.3611562Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T18:56:53.3611660Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T18:56:53.3611723Z ASP .NETCore Version: 9.0.12
+2026-03-06T18:56:53.3611785Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T18:56:53.3611861Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T18:56:53.3611921Z 
+2026-03-06T18:56:53.3611982Z Note: Any data outside '/home' is not persisted
+2026-03-06T18:57:45.3218593Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T18:57:45.5106630Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T18:57:46.0845571Z Updating certificates in /etc/ssl/certs...
+2026-03-06T19:04:48.7727713Z    _____                               
+2026-03-06T19:04:48.7728015Z   /  _  \ __________ _________   ____  
+2026-03-06T19:04:48.7728073Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2026-03-06T19:04:48.7728125Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2026-03-06T19:04:48.7728174Z \____|__  /_____ \____/ |__|    \___  >
+2026-03-06T19:04:48.7728223Z         \/      \/                  \/ 
+2026-03-06T19:04:48.7728271Z A P P   S E R V I C E   O N   L I N U X
+2026-03-06T19:04:48.7728317Z 
+2026-03-06T19:04:48.7728369Z Documentation       : http://aka.ms/webapp-linux
+2026-03-06T19:04:48.7728420Z Dotnet quickstart   : https://aka.ms/dotnet-qs
+2026-03-06T19:04:48.7728497Z ASP .NETCore Version: 9.0.12
+2026-03-06T19:04:48.7728548Z Instance Name       : lw0sdlwk000B1P
+2026-03-06T19:04:48.7728605Z Instance Id         : 13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028
+2026-03-06T19:04:48.7728650Z 
+2026-03-06T19:04:48.7728702Z Note: Any data outside '/home' is not persisted
+2026-03-06T19:05:12.0695679Z Starting OpenBSD Secure Shell server: sshd.
+2026-03-06T19:05:12.2550703Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2026-03-06T19:05:12.5611098Z Updating certificates in /etc/ssl/certs...
+2026-03-06T19:07:16.0047551Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_ECC_Root_CA_2022.pem
+2026-03-06T19:07:16.0048114Z rehash: warning: skipping duplicate certificate in azl_SSL.com_TLS_RSA_Root_CA_2022.pem
+2026-03-06T19:07:17.7227474Z rehash: warning: skipping ca-certificates.crt,it does not contain exactly one certificate or CRL
+2026-03-06T19:07:18.7225163Z 4 added, 0 removed; done.
+2026-03-06T19:07:18.7369047Z Running hooks in /etc/ca-certificates/update.d...
+2026-03-06T19:07:18.8022470Z done.
+2026-03-06T19:07:19.0392471Z CA certificates copied and updated successfully.
+2026-03-06T19:07:22.8622707Z Starting periodic command scheduler: cron.
+2026-03-06T19:07:22.8622925Z Running oryx create-script -appPath /home/site/wwwroot -output /opt/startup/startup.sh -defaultAppFilePath /defaulthome/hostingstart/hostingstart.dll     -bindPort 8080 -bindPort2 '' -userStartupCommand '' 
+2026-03-06T19:07:25.5070690Z Could not find build manifest file at '/home/site/wwwroot/oryx-manifest.toml'
+2026-03-06T19:07:25.5071117Z Could not find operation ID in manifest. Generating an operation id...
+2026-03-06T19:07:25.5071188Z Build Operation ID: 4e104e2a-b810-4ef2-96be-534529ceb65c
+2026-03-06T19:07:31.6177563Z 
+2026-03-06T19:07:31.6177986Z Agent extension disabled
+2026-03-06T19:07:31.6178051Z Before if loop >> DotNet Runtime 
+2026-03-06T19:07:31.8382347Z DotNet Runtime 9.0WARNING: Expected to find only one file with extension '.runtimeconfig.json' but found 2
+2026-03-06T19:07:31.8382851Z WARNING: Found files: 'RepLeague.API.runtimeconfig.json, RepLeague.Infrastructure.runtimeconfig.json'
+2026-03-06T19:07:31.8382920Z WARNING: To fix this issue you can set the startup command to point to a particular startup file
+2026-03-06T19:07:31.8382977Z          For example: 'dotnet myapp.dll'
+2026-03-06T19:07:32.5892831Z Writing output script to '/opt/startup/startup.sh'
+2026-03-06T19:07:33.1359666Z Trying to find the startup DLL name...
+2026-03-06T19:07:33.1360045Z Running the default app using command: dotnet "/defaulthome/hostingstart/hostingstart.dll"
+2026-03-06T19:08:27.4106218Z Hosting environment: Production
+2026-03-06T19:08:27.4403062Z Content root path: /defaulthome/hostingstart/
+2026-03-06T19:08:27.4403383Z Now listening on: http://[::]:8080
+2026-03-06T19:08:27.4403443Z Application started. Press Ctrl+C to shut down.

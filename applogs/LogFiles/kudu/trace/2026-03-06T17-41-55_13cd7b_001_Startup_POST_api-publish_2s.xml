@@ -1,0 +1,5 @@
+<step title="Startup Request" date="2026-03-06T17:41:55.604" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22cfb6e2765f5502dd87b14bf7ab9a2bd771b64731%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22alwayys%20on%22%7D" method="POST" type="request" pid="847,1,16" ScmType="GitHubAction" >
+  <step title="Cleanup Xml Logs" date="2026-03-06T17:41:56.130" >
+    <step title="Cleanup Infos" date="2026-03-06T17:41:56.713" totalFiles="404" totalCleanup="244" /><!-- duration: 415ms -->
+  </step><!-- duration: 1174ms -->
+</step><!-- duration: 1749ms -->

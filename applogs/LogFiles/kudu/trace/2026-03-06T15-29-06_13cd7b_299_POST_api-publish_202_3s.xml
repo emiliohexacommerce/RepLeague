@@ -1,0 +1,16 @@
+<step title="Incoming Request" date="2026-03-06T15:29:06.485" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22afbebea2adc630d4835e93d9b9cfe29e68315a84%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22cambios%20ng%20server%22%7D" method="POST" type="request" pid="839,1,39" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="5117e469-fed6-452c-b1be-da0e98312572" CLIENT-IP="172.172.153.35:38784" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22afbebea2adc630d4835e93d9b9cfe29e68315a84%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22cambios%20ng%20server%22%7D" X-Client-IP="172.172.153.35" X-Client-Port="38784" >
+  <step title="Cleanup Xml Logs" date="2026-03-06T15:29:06.495" >
+    <step title="Cleanup Infos" date="2026-03-06T15:29:06.833" totalFiles="387" totalCleanup="227" /><!-- duration: 18ms -->
+  </step><!-- duration: 373ms -->
+  <step title="OneDeploy" date="2026-03-06T15:29:06.946" >
+    <step title="Starting PushDeployAsync" date="2026-03-06T15:29:06.990" /><!-- duration: 10ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/27682494-69aa-4902-937b-9dda4c6cfb7d.zip" date="2026-03-06T15:29:07.049" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/27682494-69aa-4902-937b-9dda4c6cfb7d.zip" date="2026-03-06T15:29:07.057" /><!-- duration: 28ms -->
+    </step><!-- duration: 1157ms -->
+    <step title="Start deployment in the background" date="2026-03-06T15:29:08.265" >
+      <step title="Acquiring Deployment Lock" date="2026-03-06T15:29:08.440" /><!-- duration: 19ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-06T15:29:08.565" /><!-- duration: 11ms -->
+    </step><!-- duration: 1143ms -->
+  </step><!-- duration: 2557ms -->
+  <step title="Outgoing response" date="2026-03-06T15:29:09.544" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 28ms -->
+</step><!-- duration: 3099ms -->

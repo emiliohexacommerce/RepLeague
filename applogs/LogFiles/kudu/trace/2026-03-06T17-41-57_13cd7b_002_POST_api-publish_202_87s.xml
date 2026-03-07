@@ -1,0 +1,16 @@
+<step title="Incoming Request" date="2026-03-06T17:41:57.305" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22cfb6e2765f5502dd87b14bf7ab9a2bd771b64731%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22alwayys%20on%22%7D" method="POST" type="request" pid="847,1,5" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="24be8b90-c544-48c4-9b92-cad346d40388" CLIENT-IP="52.159.243.171:10330" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22cfb6e2765f5502dd87b14bf7ab9a2bd771b64731%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22alwayys%20on%22%7D" X-Client-IP="52.159.243.171" X-Client-Port="10330" >
+  <step title="OneDeploy" date="2026-03-06T17:42:34.828" >
+    <step title="None repository commit" date="2026-03-06T17:42:35.577" >
+      <step title="Commit id: 421e3d83-c495-405e-ae33-2a809c77c6cf" date="2026-03-06T17:42:35.720" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 475ms -->
+    </step><!-- duration: 674ms -->
+    <step title="Starting PushDeployAsync" date="2026-03-06T17:42:36.339" /><!-- duration: 175ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/b07db83c-9de3-425d-9aae-ef6eed9ab3c9.zip" date="2026-03-06T17:42:37.395" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/b07db83c-9de3-425d-9aae-ef6eed9ab3c9.zip" date="2026-03-06T17:42:37.755" /><!-- duration: 202ms -->
+    </step><!-- duration: 31624ms -->
+    <step title="Start deployment in the background" date="2026-03-06T17:43:10.987" >
+      <step title="Acquiring Deployment Lock" date="2026-03-06T17:43:15.706" /><!-- duration: 96ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-06T17:43:18.485" /><!-- duration: 78ms -->
+    </step><!-- duration: 12838ms -->
+  </step><!-- duration: 49355ms -->
+  <step title="Outgoing response" date="2026-03-06T17:43:24.482" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 147ms -->
+</step><!-- duration: 87364ms -->

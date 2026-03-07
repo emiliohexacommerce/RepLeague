@@ -1,0 +1,13 @@
+<step title="Incoming Request" date="2026-03-05T18:13:49.989" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%220b2c8a827a270acb3e45fdf13bd82646c66332b8%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Refactor%20Azure%20deployment%20workflow%20for%20Node.js%20app%22%7D" method="POST" type="request" pid="839,1,40" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="41deb7b2-b195-44d4-acea-84406cd577b5" CLIENT-IP="20.163.4.38:60464" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%220b2c8a827a270acb3e45fdf13bd82646c66332b8%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Refactor%20Azure%20deployment%20workflow%20for%20Node.js%20app%22%7D" X-Client-IP="20.163.4.38" X-Client-Port="60464" >
+  <step title="OneDeploy" date="2026-03-05T18:13:50.166" >
+    <step title="Starting PushDeployAsync" date="2026-03-05T18:13:50.239" /><!-- duration: 37ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/22f47d9b-9370-4083-bcbf-0a450ca65152.zip" date="2026-03-05T18:13:50.420" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/22f47d9b-9370-4083-bcbf-0a450ca65152.zip" date="2026-03-05T18:13:50.442" /><!-- duration: 35ms -->
+    </step><!-- duration: 861ms -->
+    <step title="Start deployment in the background" date="2026-03-05T18:13:51.297" >
+      <step title="Acquiring Deployment Lock" date="2026-03-05T18:13:51.501" /><!-- duration: 5ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-05T18:13:51.554" /><!-- duration: 4ms -->
+    </step><!-- duration: 401ms -->
+  </step><!-- duration: 1536ms -->
+  <step title="Outgoing response" date="2026-03-05T18:13:51.717" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 4ms -->
+</step><!-- duration: 1736ms -->

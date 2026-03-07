@@ -13,10 +13,12 @@
 
         <!-- Avatar + greeting -->
         <div class="d-flex align-items-center gap-4">
-          <div class="symbol symbol-60px symbol-circle">
+          <div class="symbol symbol-60px symbol-circle"
+            style="width:60px;height:60px;min-width:60px;overflow:hidden;border-radius:50%;flex-shrink:0;">
             <img *ngIf="overview.welcome.avatarUrl"
               [src]="overview.welcome.avatarUrl" alt="avatar"
-              class="object-fit-cover w-100 h-100 rounded-circle" />
+              style="width:60px;height:60px;object-fit:cover;border-radius:50%;display:block;"
+              (error)="$any($event.target).src='./assets/media/avatars/blank.png'" />
             <div *ngIf="!overview.welcome.avatarUrl"
               class="symbol-label bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center"
               style="width:60px;height:60px;">

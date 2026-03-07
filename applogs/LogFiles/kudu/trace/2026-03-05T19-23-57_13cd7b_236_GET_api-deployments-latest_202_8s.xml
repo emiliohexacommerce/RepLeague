@@ -1,0 +1,11 @@
+<step title="Incoming Request" date="2026-03-05T19:23:57.056" instance="13cd7b" url="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-03-05_19-23-41Z" method="GET" type="request" pid="839,1,44" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Content-Length="0" X-ARR-LOG-ID="63e700db-a172-42e0-88b0-c79ef1c39be7" CLIENT-IP="20.81.159.119:41984" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=OneDeploy&amp;time=2026-03-05_19-23-41Z" X-Client-IP="20.81.159.119" X-Client-Port="41984" >
+  <step title="Cleanup Xml Logs" date="2026-03-05T19:23:57.171" >
+    <step title="Cleanup Infos" date="2026-03-05T19:23:57.391" totalFiles="337" totalCleanup="177" /><!-- duration: 89ms -->
+  </step><!-- duration: 396ms -->
+  <step title="DeploymentService.GetResult" date="2026-03-05T19:23:58.317" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-03-05T19:23:58.396" >
+      <step title="DeploymentManager.GetResults" date="2026-03-05T19:23:58.443" /><!-- duration: 5395ms -->
+    </step><!-- duration: 5617ms -->
+  </step><!-- duration: 5755ms -->
+  <step title="Outgoing response" date="2026-03-05T19:24:04.142" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 87ms -->
+</step><!-- duration: 7645ms -->

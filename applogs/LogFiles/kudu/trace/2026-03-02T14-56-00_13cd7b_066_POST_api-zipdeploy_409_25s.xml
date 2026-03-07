@@ -1,0 +1,16 @@
+<step title="Incoming Request" date="2026-03-02T14:56:00.478" instance="13cd7b" url="/api/zipdeploy?isAsync=true" method="POST" type="request" pid="839,1,38" Accept="*/*" Host="api-repleague.scm.azurewebsites.net" User-Agent="AZURECLI/2.83.0 (MSI)" Accept-Encoding="gzip, deflate" Authorization="Bea..." Cache-Control="no-cache" Content-Type="application/octet-stream" Content-Length="8459696" x-ms-client-request-id="e5a6a973-1647-11f1-afa2-001fb525f928" x-ms-artifact-checksum="fe0d37a1b54305a4e44e6e12df3c8561138f1cbc296b74b3a90d41d28568ebcf" X-ARR-LOG-ID="e5a6a973-1647-11f1-afa2-001fb525f928" CLIENT-IP="190.153.149.25:53706" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true" X-Client-IP="190.153.149.25" X-Client-Port="53706" >
+  <step title="Cleanup Xml Logs" date="2026-03-02T14:56:00.757" /><!-- duration: 1401ms -->
+  <step title="ZipPushDeploy" date="2026-03-02T14:56:07.524" >
+    <step title="ZipDeploy. Extract zip." date="2026-03-02T14:56:08.080" /><!-- duration: 53ms -->
+    <step title="Starting PushDeployAsync" date="2026-03-02T14:56:08.199" /><!-- duration: 156ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/e6381aac-cf01-49fc-a1b8-e36f06e90733.zip" date="2026-03-02T14:56:08.868" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/e6381aac-cf01-49fc-a1b8-e36f06e90733.zip" date="2026-03-02T14:56:09.566" /><!-- duration: 38ms -->
+    </step><!-- duration: 13308ms -->
+    <step title="Start deployment in the background" date="2026-03-02T14:56:22.455" >
+      <step title="Acquiring Deployment Lock" date="2026-03-02T14:56:23.075" /><!-- duration: 32ms -->
+      <step title="Cannot Acquire Deployment Lock already held" date="2026-03-02T14:56:23.420" /><!-- duration: 60ms -->
+    </step><!-- duration: 2063ms -->
+    <step title="There is a deployment currently in progress. Please try again when it completes." date="2026-03-02T14:56:24.695" /><!-- duration: 12ms -->
+  </step><!-- duration: 17342ms -->
+  <step title="Outgoing response" date="2026-03-02T14:56:25.474" type="response" statusCode="409" statusText="Conflict" /><!-- duration: 55ms -->
+</step><!-- duration: 25267ms -->

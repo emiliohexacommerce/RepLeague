@@ -1,0 +1,16 @@
+<step title="Incoming Request" date="2026-03-05T17:56:37.181" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%228c08be18bd74dd09cd34fc2cf56beb2cb66b743c%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Enhance%20CI%20workflow%20with%20directory%20listing%20and%20search%5Cn%5CnAdded%20a%20step%20to%20list%20contents%20of%20frontend%20directories%20and%20search%20for%20package.json%20files.%22%7D" method="POST" type="request" pid="839,1,40" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="8d3c286a-5ef2-4109-854e-04472d27171b" CLIENT-IP="13.66.174.93:12352" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%228c08be18bd74dd09cd34fc2cf56beb2cb66b743c%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Enhance%20CI%20workflow%20with%20directory%20listing%20and%20search%5Cn%5CnAdded%20a%20step%20to%20list%20contents%20of%20frontend%20directories%20and%20search%20for%20package.json%20files.%22%7D" X-Client-IP="13.66.174.93" X-Client-Port="12352" >
+  <step title="Cleanup Xml Logs" date="2026-03-05T17:56:37.229" >
+    <step title="Cleanup Infos" date="2026-03-05T17:56:37.496" totalFiles="224" totalCleanup="64" /><!-- duration: 142ms -->
+  </step><!-- duration: 436ms -->
+  <step title="OneDeploy" date="2026-03-05T17:56:38.205" >
+    <step title="Starting PushDeployAsync" date="2026-03-05T17:56:38.681" /><!-- duration: 30ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/38fde61b-0859-4d1f-b44e-6232fdc6a801.zip" date="2026-03-05T17:56:38.830" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/38fde61b-0859-4d1f-b44e-6232fdc6a801.zip" date="2026-03-05T17:56:38.918" /><!-- duration: 21ms -->
+    </step><!-- duration: 2207ms -->
+    <step title="Start deployment in the background" date="2026-03-05T17:56:41.116" >
+      <step title="Acquiring Deployment Lock" date="2026-03-05T17:56:41.293" /><!-- duration: 10ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-05T17:56:41.511" /><!-- duration: 10ms -->
+    </step><!-- duration: 689ms -->
+  </step><!-- duration: 3684ms -->
+  <step title="Outgoing response" date="2026-03-05T17:56:41.912" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 26ms -->
+</step><!-- duration: 4766ms -->

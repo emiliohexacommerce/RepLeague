@@ -1,0 +1,1073 @@
+2026-03-06T18:44:45  Fetching changes.
+2026-03-06T18:44:46    Starting  LocalZipHandler
+2026-03-06T18:44:46    Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/99f14b3c-2c58-4460-8396-a8b5cc7157f6.zip (16.10 MB) to /tmp/zipdeploy/extracted
+2026-03-06T18:45:00  Updating submodules.
+2026-03-06T18:45:00  Preparing deployment for commit id 'edf3a4e7-a'.
+2026-03-06T18:45:03  PreDeployment: context.CleanOutputPath False
+2026-03-06T18:45:03  PreDeployment: context.OutputPath /home/site/wwwroot
+2026-03-06T18:45:04  Running build. Project type: OneDeploy
+2026-03-06T18:45:05  Copying the manifest
+2026-03-06T18:45:05  Running deployment command...
+2026-03-06T18:45:05    Command: /opt/Kudu/Scripts/parallel_rsync.sh /tmp/zipdeploy/extracted /home/site/wwwroot 8 /tmp/ False False  
+2026-03-06T18:45:06    Run rsync from: /tmp/zipdeploy/extracted/ to: /home/site/wwwroot/ in 8 parallel threads
+2026-03-06T18:45:07    Delete options: clean=False, use manifest=False, directory to ignore=
+2026-03-06T18:45:07    Prev manifest = /home/site/deployments/421e3d83-c495-405e-ae33-2a809c77c6cf/manifest and next /home/site/deployments/edf3a4e7-aca9-414d-ab1b-a36a6a04cdbf/manifest
+2026-03-06T18:45:07    Cleaning up /tmp//filelist.txt and /tmp//splits
+2026-03-06T18:45:07    Creating a list of all files at /tmp//filelist.txt
+2026-03-06T18:45:07    No directory to exclude.
+2026-03-06T18:45:07    Created /tmp//filelist.txt. Total number of files to be synced = 124.
+2026-03-06T18:45:08    Created batches from the list of files. Processing 16 files in each thread
+2026-03-06T18:45:08    Running rsync for filelist /tmp//splits/split.aa from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:09    Running rsync for filelist /tmp//splits/split.ab from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:10    Running rsync for filelist /tmp//splits/split.ad from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:10    Running rsync for filelist /tmp//splits/split.ac from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:11    Running rsync for filelist /tmp//splits/split.ae from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:11    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+2026-03-06T18:45:11    Running rsync for filelist /tmp//splits/split.ag from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:11    Running rsync for filelist /tmp//splits/split.ah from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:12    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:12    Running rsync for filelist /tmp//splits/split.af from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+2026-03-06T18:45:12    
+2026-03-06T18:45:12    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:12    Number of files: 16 (reg: 16)
+2026-03-06T18:45:13    Number of created files: 0
+2026-03-06T18:45:13    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+2026-03-06T18:45:14    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:14    Number of deleted files: 0
+2026-03-06T18:45:14    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:14    Number of regular files transferred: 0
+2026-03-06T18:45:15    Total file size: 1.23M bytes
+2026-03-06T18:45:15    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:16    Total transferred file size: 0 bytes
+2026-03-06T18:45:16    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:16    Literal data: 0 bytes
+2026-03-06T18:45:17    Matched data: 0 bytes
+2026-03-06T18:45:17    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:18    File list size: 0
+2026-03-06T18:45:18    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+2026-03-06T18:45:18    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:18    File list generation time: 0.258 seconds
+2026-03-06T18:45:19    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+2026-03-06T18:45:19    File list transfer time: 0.000 seconds
+2026-03-06T18:45:19    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+2026-03-06T18:45:19    Total bytes sent: 837
+2026-03-06T18:45:19    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+2026-03-06T18:45:19    Total bytes received: 40
+2026-03-06T18:45:19    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+2026-03-06T18:45:19    
+2026-03-06T18:45:19    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:19    sent 837 bytes  received 40 bytes  584.67 bytes/sec
+2026-03-06T18:45:19    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:19    total size is 1.23M  speedup is 1,407.09
+2026-03-06T18:45:19    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:20    Attempt 1: Rsync for filelist /tmp//splits/split.ad completed with exit code 23
+2026-03-06T18:45:20    
+2026-03-06T18:45:20    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+2026-03-06T18:45:20    Number of files: 16 (reg: 16)
+2026-03-06T18:45:20    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:20    Number of created files: 0
+2026-03-06T18:45:20    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+2026-03-06T18:45:20    Number of deleted files: 0
+2026-03-06T18:45:20    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:20    Number of regular files transferred: 0
+2026-03-06T18:45:21    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:21    Total file size: 1.98M bytes
+2026-03-06T18:45:21    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+2026-03-06T18:45:21    Total transferred file size: 0 bytes
+2026-03-06T18:45:21    Literal data: 0 bytes
+v_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+2026-03-06T18:45:21    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:21    Matched data: 0 bytes
+2026-03-06T18:45:21    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+2026-03-06T18:45:21    File list size: 0
+2026-03-06T18:45:22    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:22    File list generation time: 0.226 seconds
+2026-03-06T18:45:22    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:22    File list transfer time: 0.000 seconds
+2026-03-06T18:45:22    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:22    Total bytes sent: 851
+2026-03-06T18:45:22    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+2026-03-06T18:45:22    Total bytes received: 43
+2026-03-06T18:45:22    
+sync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+2026-03-06T18:45:22    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:23    sent 851 bytes  received 43 bytes  596.00 bytes/sec
+2026-03-06T18:45:23    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:23    total size is 1.98M  speedup is 2,216.21
+2026-03-06T18:45:23    Attempt 1: Rsync for filelist /tmp//splits/split.aa completed with exit code 23
+lates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:23    
+sync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:23    Number of files: 16 (reg: 16)
+2026-03-06T18:45:23    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:23    Number of created files: 0
+2026-03-06T18:45:23    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:23    Number of deleted files: 0
+2026-03-06T18:45:23    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:23    Number of regular files transferred: 0
+2026-03-06T18:45:23    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:24    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:24    Total transferred file size: 0 bytes
+2026-03-06T18:45:24    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:24    Literal data: 0 bytes
+2026-03-06T18:45:24    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+2026-03-06T18:45:24    Matched data: 0 bytes
+2026-03-06T18:45:24    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:24    File list size: 0
+2026-03-06T18:45:24    File list generation time: 0.456 seconds
+ to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:24    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+2026-03-06T18:45:24    File list transfer time: 0.000 seconds
+2026-03-06T18:45:24    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:24    Total bytes sent: 851
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:25    Total bytes received: 52
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:25    
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+2026-03-06T18:45:25    sent 851 bytes  received 52 bytes  361.20 bytes/sec
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+2026-03-06T18:45:25    total size is 1.61M  speedup is 1,780.70
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:25    Attempt 1: Rsync for filelist /tmp//splits/split.ab completed with exit code 23
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+2026-03-06T18:45:25    
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+2026-03-06T18:45:25    Number of files: 16 (reg: 16)
+2026-03-06T18:45:25    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:25    Number of created files: 0
+2026-03-06T18:45:25    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:25    Number of deleted files: 0
+2026-03-06T18:45:25    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+2026-03-06T18:45:26    Number of regular files transferred: 0
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:26    Total file size: 6.69M bytes
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:26    Total transferred file size: 0 bytes
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+2026-03-06T18:45:26    Literal data: 0 bytes
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:26    Matched data: 0 bytes
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:26    File list size: 0
+2026-03-06T18:45:26    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:26    File list transfer time: 0.000 seconds
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:27    Total bytes sent: 811
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:27    Total bytes received: 49
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+2026-03-06T18:45:27    
+2026-03-06T18:45:27    sent 811 bytes  received 49 bytes  344.00 bytes/sec
+home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:27    total size is 6.69M  speedup is 7,780.49
+ to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+2026-03-06T18:45:27    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:27    Attempt 1: Rsync for filelist /tmp//splits/split.ag completed with exit code 23
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:27    
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+2026-03-06T18:45:27    Number of created files: 0
+2026-03-06T18:45:27    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:28    Number of deleted files: 0
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+2026-03-06T18:45:28    Number of regular files transferred: 0
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+2026-03-06T18:45:28    Total file size: 1.22M bytes
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+2026-03-06T18:45:28    Total transferred file size: 0 bytes
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+2026-03-06T18:45:28    Literal data: 0 bytes
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:28    Matched data: 0 bytes
+2026-03-06T18:45:28    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:28    File list size: 0
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:29    File list generation time: 0.622 seconds
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+2026-03-06T18:45:29    File list transfer time: 0.000 seconds
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+2026-03-06T18:45:29    Total bytes sent: 860
+2026-03-06T18:45:29    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:29    Total bytes received: 46
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:29    
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:29    sent 860 bytes  received 46 bytes  362.40 bytes/sec
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+2026-03-06T18:45:29    total size is 1.22M  speedup is 1,349.22
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:29    
+2026-03-06T18:45:29    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:30    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+2026-03-06T18:45:30    Number of created files: 0
+2026-03-06T18:45:30    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:30    Number of deleted files: 0
+2026-03-06T18:45:30    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:30    Number of regular files transferred: 0
+2026-03-06T18:45:30    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:30    Total file size: 10.20M bytes
+2026-03-06T18:45:30    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:30    Total transferred file size: 0 bytes
+2026-03-06T18:45:30    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:30    Literal data: 0 bytes
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:31    Matched data: 0 bytes
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:31    File list size: 0
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+2026-03-06T18:45:31    File list generation time: 1.562 seconds
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:31    File list transfer time: 0.000 seconds
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+2026-03-06T18:45:31    Total bytes sent: 855
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+2026-03-06T18:45:31    Total bytes received: 49
+2026-03-06T18:45:31    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:31    
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+2026-03-06T18:45:32    sent 855 bytes  received 49 bytes  361.60 bytes/sec
+2026-03-06T18:45:32    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:32    total size is 10.20M  speedup is 11,280.23
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:32    Attempt 1: Rsync for filelist /tmp//splits/split.ac completed with exit code 23
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+2026-03-06T18:45:32    Attempt 1: Rsync for filelist /tmp//splits/split.ae completed with exit code 23
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+2026-03-06T18:45:32    
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+2026-03-06T18:45:32    Number of files: 16 (reg: 16)
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+2026-03-06T18:45:32    Number of created files: 0
+2026-03-06T18:45:32    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+2026-03-06T18:45:32    Number of deleted files: 0
+2026-03-06T18:45:33    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+2026-03-06T18:45:33    Total file size: 5.75M bytes
+ were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:33    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:33    Total transferred file size: 0 bytes
+2026-03-06T18:45:33    rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+2026-03-06T18:45:33    Literal data: 0 bytes
+2026-03-06T18:45:33    Matched data: 0 bytes
+2026-03-06T18:45:33    File list size: 0
+2026-03-06T18:45:33    File list generation time: 0.613 seconds
+2026-03-06T18:45:33    File list transfer time: 0.000 seconds
+2026-03-06T18:45:33    Total bytes sent: 775
+2026-03-06T18:45:33    Total bytes received: 46
+2026-03-06T18:45:33    
+2026-03-06T18:45:33    sent 775 bytes  received 46 bytes  234.57 bytes/sec
+2026-03-06T18:45:34    total size is 5.75M  speedup is 7,007.95
+2026-03-06T18:45:34    
+2026-03-06T18:45:34    Number of files: 12 (reg: 12)
+2026-03-06T18:45:34    Number of created files: 0
+2026-03-06T18:45:34    Number of deleted files: 0
+2026-03-06T18:45:34    Number of regular files transferred: 0
+2026-03-06T18:45:34    Total file size: 3.39M bytes
+2026-03-06T18:45:34    Total transferred file size: 0 bytes
+2026-03-06T18:45:34    Literal data: 0 bytes
+2026-03-06T18:45:34    Matched data: 0 bytes
+2026-03-06T18:45:34    File list size: 0
+2026-03-06T18:45:34    File list generation time: 1.065 seconds
+2026-03-06T18:45:34    File list transfer time: 0.000 seconds
+2026-03-06T18:45:34    Total bytes sent: 721
+2026-03-06T18:45:34    Attempt 1: Rsync for filelist /tmp//splits/split.af completed with exit code 23
+2026-03-06T18:45:34    Total bytes received: 31
+2026-03-06T18:45:34    
+2026-03-06T18:45:34    sent 721 bytes  received 31 bytes  167.11 bytes/sec
+2026-03-06T18:45:34    total size is 3.39M  speedup is 4,502.78
+2026-03-06T18:45:34    Attempt 1: Rsync for filelist /tmp//splits/split.ah completed with exit code 23
+2026-03-06T18:45:34    
+2026-03-06T18:45:34    Number of files: 16 (reg: 16)
+2026-03-06T18:45:34    Number of created files: 0
+2026-03-06T18:45:34    Number of deleted files: 0
+2026-03-06T18:45:35    Number of regular files transferred: 0
+2026-03-06T18:45:35    Total file size: 1.23M bytes
+2026-03-06T18:45:35    Total transferred file size: 0 bytes
+2026-03-06T18:45:35    Literal data: 0 bytes
+2026-03-06T18:45:35    Matched data: 0 bytes
+2026-03-06T18:45:35    File list size: 0
+2026-03-06T18:45:35    File list generation time: 0.978 seconds
+2026-03-06T18:45:35    File list transfer time: 0.000 seconds
+2026-03-06T18:45:35    Total bytes sent: 837
+2026-03-06T18:45:35    Total bytes received: 40
+2026-03-06T18:45:35    
+2026-03-06T18:45:35    sent 837 bytes  received 40 bytes  250.57 bytes/sec
+2026-03-06T18:45:35    total size is 1.23M  speedup is 1,407.09
+2026-03-06T18:45:35    Attempt 2: Rsync for filelist /tmp//splits/split.ad completed with exit code 23
+2026-03-06T18:45:35    
+2026-03-06T18:45:35    Number of files: 16 (reg: 16)
+2026-03-06T18:45:35    Number of created files: 0
+2026-03-06T18:45:35    Number of deleted files: 0
+2026-03-06T18:45:35    Number of regular files transferred: 0
+2026-03-06T18:45:36    Total file size: 1.61M bytes
+2026-03-06T18:45:36    Total transferred file size: 0 bytes
+2026-03-06T18:45:36    Literal data: 0 bytes
+2026-03-06T18:45:36    Matched data: 0 bytes
+2026-03-06T18:45:36    File list size: 0
+2026-03-06T18:45:36    File list generation time: 0.675 seconds
+2026-03-06T18:45:36    File list transfer time: 0.000 seconds
+2026-03-06T18:45:36    Total bytes sent: 851
+2026-03-06T18:45:36    Total bytes received: 52
+2026-03-06T18:45:36    
+2026-03-06T18:45:36    sent 851 bytes  received 52 bytes  361.20 bytes/sec
+2026-03-06T18:45:36    total size is 1.61M  speedup is 1,780.70
+2026-03-06T18:45:36    Attempt 2: Rsync for filelist /tmp//splits/split.ab completed with exit code 23
+2026-03-06T18:45:36    
+2026-03-06T18:45:36    Number of files: 16 (reg: 16)
+2026-03-06T18:45:36    Number of created files: 0
+2026-03-06T18:45:36    Number of deleted files: 0
+2026-03-06T18:45:36    Number of regular files transferred: 0
+2026-03-06T18:45:36    Total file size: 1.98M bytes
+2026-03-06T18:45:36    Total transferred file size: 0 bytes
+2026-03-06T18:45:36    Literal data: 0 bytes
+2026-03-06T18:45:36    Matched data: 0 bytes
+2026-03-06T18:45:36    File list size: 0
+2026-03-06T18:45:37    File list generation time: 0.697 seconds
+2026-03-06T18:45:37    File list transfer time: 0.000 seconds
+2026-03-06T18:45:37    Total bytes sent: 855
+2026-03-06T18:45:37    Total bytes received: 43
+2026-03-06T18:45:37    
+2026-03-06T18:45:37    sent 855 bytes  received 43 bytes  256.57 bytes/sec
+2026-03-06T18:45:37    total size is 1.98M  speedup is 2,206.34
+2026-03-06T18:45:37    Attempt 2: Rsync for filelist /tmp//splits/split.aa completed with exit code 23
+2026-03-06T18:45:37    
+2026-03-06T18:45:37    Number of files: 16 (reg: 16)
+2026-03-06T18:45:37    Number of created files: 0
+2026-03-06T18:45:37    Number of deleted files: 0
+2026-03-06T18:45:37    Number of regular files transferred: 0
+2026-03-06T18:45:37    Total file size: 6.69M bytes
+2026-03-06T18:45:37    Total transferred file size: 0 bytes
+2026-03-06T18:45:37    Literal data: 0 bytes
+2026-03-06T18:45:37    Matched data: 0 bytes
+2026-03-06T18:45:37    File list size: 0
+2026-03-06T18:45:37    File list generation time: 0.723 seconds
+2026-03-06T18:45:37    File list transfer time: 0.000 seconds
+2026-03-06T18:45:37    Total bytes sent: 811
+2026-03-06T18:45:38    Total bytes received: 49
+2026-03-06T18:45:38    
+2026-03-06T18:45:38    sent 811 bytes  received 49 bytes  245.71 bytes/sec
+2026-03-06T18:45:38    total size is 6.69M  speedup is 7,780.49
+2026-03-06T18:45:38    
+2026-03-06T18:45:38    Number of files: 16 (reg: 16)
+2026-03-06T18:45:38    Number of created files: 0
+2026-03-06T18:45:38    Number of deleted files: 0
+2026-03-06T18:45:38    Number of regular files transferred: 0
+2026-03-06T18:45:38    Total file size: 5.75M bytes
+2026-03-06T18:45:38    Total transferred file size: 0 bytes
+2026-03-06T18:45:38    Literal data: 0 bytes
+2026-03-06T18:45:38    Matched data: 0 bytes
+2026-03-06T18:45:38    File list size: 0
+2026-03-06T18:45:38    File list generation time: 0.720 seconds
+2026-03-06T18:45:38    File list transfer time: 0.000 seconds
+2026-03-06T18:45:38    Total bytes sent: 775
+2026-03-06T18:45:38    Total bytes received: 46
+2026-03-06T18:45:38    
+2026-03-06T18:45:38    sent 775 bytes  received 46 bytes  328.40 bytes/sec
+2026-03-06T18:45:38    total size is 5.75M  speedup is 7,007.95
+2026-03-06T18:45:38    Attempt 2: Rsync for filelist /tmp//splits/split.af completed with exit code 23
+2026-03-06T18:45:38    Attempt 2: Rsync for filelist /tmp//splits/split.ag completed with exit code 23
+2026-03-06T18:45:38    
+2026-03-06T18:45:38    Number of files: 16 (reg: 16)
+2026-03-06T18:45:38    Number of created files: 0
+2026-03-06T18:45:38    Number of deleted files: 0
+2026-03-06T18:45:39    Number of regular files transferred: 0
+2026-03-06T18:45:39    Total file size: 1.22M bytes
+2026-03-06T18:45:39    Total transferred file size: 0 bytes
+2026-03-06T18:45:39    Literal data: 0 bytes
+2026-03-06T18:45:39    Matched data: 0 bytes
+2026-03-06T18:45:39    File list size: 0
+2026-03-06T18:45:39    File list generation time: 1.117 seconds
+2026-03-06T18:45:39    File list transfer time: 0.000 seconds
+2026-03-06T18:45:39    Total bytes sent: 860
+2026-03-06T18:45:39    Total bytes received: 46
+2026-03-06T18:45:39    
+2026-03-06T18:45:39    sent 860 bytes  received 46 bytes  258.86 bytes/sec
+2026-03-06T18:45:39    total size is 1.22M  speedup is 1,349.22
+2026-03-06T18:45:39    
+2026-03-06T18:45:39    Number of files: 16 (reg: 16)
+2026-03-06T18:45:39    Number of created files: 0
+2026-03-06T18:45:39    Number of deleted files: 0
+2026-03-06T18:45:39    Number of regular files transferred: 0
+2026-03-06T18:45:39    Total file size: 10.20M bytes
+2026-03-06T18:45:40    Total transferred file size: 0 bytes
+2026-03-06T18:45:40    Literal data: 0 bytes
+2026-03-06T18:45:40    Matched data: 0 bytes
+2026-03-06T18:45:40    File list size: 0
+2026-03-06T18:45:40    File list generation time: 0.176 seconds
+2026-03-06T18:45:40    File list transfer time: 0.000 seconds
+2026-03-06T18:45:40    Total bytes sent: 855
+2026-03-06T18:45:40    Total bytes received: 49
+2026-03-06T18:45:40    
+2026-03-06T18:45:40    sent 855 bytes  received 49 bytes  361.60 bytes/sec
+2026-03-06T18:45:40    total size is 10.20M  speedup is 11,280.23
+2026-03-06T18:45:40    Attempt 2: Rsync for filelist /tmp//splits/split.ac completed with exit code 23
+2026-03-06T18:45:40    Attempt 2: Rsync for filelist /tmp//splits/split.ae completed with exit code 23
+2026-03-06T18:45:40    
+2026-03-06T18:45:40    Number of files: 12 (reg: 12)
+2026-03-06T18:45:40    Number of created files: 0
+2026-03-06T18:45:40    Number of deleted files: 0
+2026-03-06T18:45:40    Number of regular files transferred: 0
+2026-03-06T18:45:40    Total file size: 3.39M bytes
+2026-03-06T18:45:40    Total transferred file size: 0 bytes
+2026-03-06T18:45:41    Literal data: 0 bytes
+2026-03-06T18:45:41    Matched data: 0 bytes
+2026-03-06T18:45:41    File list size: 0
+2026-03-06T18:45:41    File list generation time: 0.468 seconds
+2026-03-06T18:45:41    File list transfer time: 0.000 seconds
+2026-03-06T18:45:41    Total bytes sent: 721
+2026-03-06T18:45:41    Total bytes received: 31
+2026-03-06T18:45:41    
+2026-03-06T18:45:41    sent 721 bytes  received 31 bytes  300.80 bytes/sec
+2026-03-06T18:45:41    total size is 3.39M  speedup is 4,502.78
+2026-03-06T18:45:41    Attempt 2: Rsync for filelist /tmp//splits/split.ah completed with exit code 23
+2026-03-06T18:45:41    An error has occurred during web site deployment.
+2026-03-06T18:45:41    Rsync failed in 12 seconds
+2026-03-06T18:45:41    rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+/opt/Kudu/Scripts/starter.sh /opt/Kudu/Scripts/parallel_rsync.sh /tmp/zipdeploy/extracted /home/site/wwwroot 8 /tmp/ False False  
+2026-03-06T18:45:41  
+2026-03-06T18:45:41  WARNING!! Exception in parallel rsync: ExitCode: 123  Output: Run rsync from: /tmp/zipdeploy/extracted/ to: /home/site/wwwroot/ in 8 parallel threads
+Delete options: clean=False  use manifest=False  directory to ignore=
+Prev manifest = /home/site/deployments/421e3d83-c495-405e-ae33-2a809c77c6cf/manifest and next /home/site/deployments/edf3a4e7-aca9-414d-ab1b-a36a6a04cdbf/manifest
+Cleaning up /tmp//filelist.txt and /tmp//splits
+Creating a list of all files at /tmp//filelist.txt
+No directory to exclude.
+Created /tmp//filelist.txt. Total number of files to be synced = 124.
+Created batches from the list of files. Processing 16 files in each thread
+Running rsync for filelist /tmp//splits/split.aa from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ab from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ad from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ac from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ae from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ag from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.ah from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+Running rsync for filelist /tmp//splits/split.af from /tmp/zipdeploy/extracted/ to /home/site/wwwroot/
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.23M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.258 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 837
+Total bytes received: 40
+
+sent 837 bytes  received 40 bytes  584.67 bytes/sec
+total size is 1.23M  speedup is 1 407.09
+Attempt 1: Rsync for filelist /tmp//splits/split.ad completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.98M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.226 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 851
+Total bytes received: 43
+
+sent 851 bytes  received 43 bytes  596.00 bytes/sec
+total size is 1.98M  speedup is 2 216.21
+Attempt 1: Rsync for filelist /tmp//splits/split.aa completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.61M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.456 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 851
+Total bytes received: 52
+
+sent 851 bytes  received 52 bytes  361.20 bytes/sec
+total size is 1.61M  speedup is 1 780.70
+Attempt 1: Rsync for filelist /tmp//splits/split.ab completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 6.69M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.972 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 811
+Total bytes received: 49
+
+sent 811 bytes  received 49 bytes  344.00 bytes/sec
+total size is 6.69M  speedup is 7 780.49
+Attempt 1: Rsync for filelist /tmp//splits/split.ag completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.22M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.622 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 860
+Total bytes received: 46
+
+sent 860 bytes  received 46 bytes  362.40 bytes/sec
+total size is 1.22M  speedup is 1 349.22
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 10.20M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 1.562 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 855
+Total bytes received: 49
+
+sent 855 bytes  received 49 bytes  361.60 bytes/sec
+total size is 10.20M  speedup is 11 280.23
+Attempt 1: Rsync for filelist /tmp//splits/split.ac completed with exit code 23
+Attempt 1: Rsync for filelist /tmp//splits/split.ae completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 5.75M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.613 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 775
+Total bytes received: 46
+
+sent 775 bytes  received 46 bytes  234.57 bytes/sec
+total size is 5.75M  speedup is 7 007.95
+
+Number of files: 12 (reg: 12)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 3.39M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 1.065 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 721
+Attempt 1: Rsync for filelist /tmp//splits/split.af completed with exit code 23
+Total bytes received: 31
+
+sent 721 bytes  received 31 bytes  167.11 bytes/sec
+total size is 3.39M  speedup is 4 502.78
+Attempt 1: Rsync for filelist /tmp//splits/split.ah completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.23M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.978 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 837
+Total bytes received: 40
+
+sent 837 bytes  received 40 bytes  250.57 bytes/sec
+total size is 1.23M  speedup is 1 407.09
+Attempt 2: Rsync for filelist /tmp//splits/split.ad completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.61M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.675 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 851
+Total bytes received: 52
+
+sent 851 bytes  received 52 bytes  361.20 bytes/sec
+total size is 1.61M  speedup is 1 780.70
+Attempt 2: Rsync for filelist /tmp//splits/split.ab completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.98M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.697 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 855
+Total bytes received: 43
+
+sent 855 bytes  received 43 bytes  256.57 bytes/sec
+total size is 1.98M  speedup is 2 206.34
+Attempt 2: Rsync for filelist /tmp//splits/split.aa completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 6.69M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.723 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 811
+Total bytes received: 49
+
+sent 811 bytes  received 49 bytes  245.71 bytes/sec
+total size is 6.69M  speedup is 7 780.49
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 5.75M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.720 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 775
+Total bytes received: 46
+
+sent 775 bytes  received 46 bytes  328.40 bytes/sec
+total size is 5.75M  speedup is 7 007.95
+Attempt 2: Rsync for filelist /tmp//splits/split.af completed with exit code 23
+Attempt 2: Rsync for filelist /tmp//splits/split.ag completed with exit code 23
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 1.22M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 1.117 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 860
+Total bytes received: 46
+
+sent 860 bytes  received 46 bytes  258.86 bytes/sec
+total size is 1.22M  speedup is 1 349.22
+
+Number of files: 16 (reg: 16)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 10.20M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.176 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 855
+Total bytes received: 49
+
+sent 855 bytes  received 49 bytes  361.60 bytes/sec
+total size is 10.20M  speedup is 11 280.23
+Attempt 2: Rsync for filelist /tmp//splits/split.ac completed with exit code 23
+Attempt 2: Rsync for filelist /tmp//splits/split.ae completed with exit code 23
+
+Number of files: 12 (reg: 12)
+Number of created files: 0
+Number of deleted files: 0
+Number of regular files transferred: 0
+Total file size: 3.39M bytes
+Total transferred file size: 0 bytes
+Literal data: 0 bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.468 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 721
+Total bytes received: 31
+
+sent 721 bytes  received 31 bytes  300.80 bytes/sec
+total size is 3.39M  speedup is 4 502.78
+Attempt 2: Rsync for filelist /tmp//splits/split.ah completed with exit code 23
+An error has occurred during web site deployment.
+Rsync failed in 12 seconds  Error: rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]  Kudu.Core.Infrastructure.CommandLineException: rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\template.html": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\11-actividad\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Windows.Extensions.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Runtime.Caching.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\04-invitacion-liga\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\05-aceptacion-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\10-cierre-temporada\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\01-verificacion\sendgrid.json": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\02-bienvenida\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\03-restablecer-contrasena\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\12-desuscripcion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\unix\lib\net6.0\System.Drawing.Common.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\06-recordatorio-invitacion\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\07-nuevo-pr\plaintext.txt": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\08-resumen-semanal\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/email-templates\09-inicio-temporada\template.html": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll": Invalid argument (22)
+rsync: [generator] recv_generator: failed to stat "/home/site/wwwroot/runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll": Invalid argument (22)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1338) [sender=3.2.7]
+/opt/Kudu/Scripts/starter.sh /opt/Kudu/Scripts/parallel_rsync.sh /tmp/zipdeploy/extracted /home/site/wwwroot 8 /tmp/ False False  
+   at Kudu.Core.Infrastructure.Executable.ExecuteInternal(ITracer tracer  Func`2 onWriteOutput  Func`2 onWriteError  CancellationToken token  Encoding encoding  String arguments  Object[] args) in /tmp/KuduLite/Kudu.Core/Infrastructure/Executable.cs:line 239
+   at Kudu.Core.Infrastructure.Executable.ExecuteWithProgressWriter(ILogger logger  ITracer tracer  CancellationToken token  String arguments  Object[] args) in /tmp/KuduLite/Kudu.Core/Infrastructure/Executable.cs:line 118
+   at Kudu.Core.Deployment.Generator.ExternalCommandBuilder.RunCommand(DeploymentContext context  String command  Boolean ignoreManifest  CancellationToken token  String message) in /tmp/KuduLite/Kudu.Core/Deployment/Generator/ExternalCommandBuilder.cs:line 135
+   at Kudu.Core.Deployment.Generator.OneDeployBuilder.Build(DeploymentContext context  CancellationToken token) in /tmp/KuduLite/Kudu.Core/Deployment/Generator/OneDeployBuilder.cs:line 97
+2026-03-06T18:45:42  Incrementally deploying to /home/site/wwwroot
+2026-03-06T18:45:43  Deployment Failed. deployer = OneDeploy deploymentPath = OneDeploy

@@ -1,0 +1,8 @@
+<step title="Incoming Request" date="2026-03-02T14:29:26.330" instance="13cd7b" url="/api/deployments/latest?deployer=ms-azuretools-vscode&amp;time=2026-03-02_14-28-48Z" method="GET" type="request" pid="839,1,33" Host="api-repleague.scm.azurewebsites.net" User-Agent="vscode-azureappservice/0.26.4 core-rest-pipeline/1.20.0 Node/22.21.1 OS/(x64-Windows_NT-10.0.26200)" Accept-Encoding="gzip,deflate" Accept-Language="es" Authorization="Bea..." x-ms-correlation-request-id="3c037f46-49cf-4897-97b4-54f551a05ec7" x-ms-client-request-id="b9e50b17-f87b-4972-9da2-f0679efef6c4" X-ARR-LOG-ID="b9e50b17-f87b-4972-9da2-f0679efef6c4" CLIENT-IP="190.153.149.25:49653" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=ms-azuretools-vscode&amp;time=2026-03-02_14-28-48Z" X-Client-IP="190.153.149.25" X-Client-Port="49653" >
+  <step title="DeploymentService.GetResult" date="2026-03-02T14:29:26.449" >
+    <step title="DeploymentService.GetLatestDeployment" date="2026-03-02T14:29:26.477" >
+      <step title="DeploymentManager.GetResults" date="2026-03-02T14:29:26.499" /><!-- duration: 665ms -->
+    </step><!-- duration: 714ms -->
+  </step><!-- duration: 779ms -->
+  <step title="Outgoing response" date="2026-03-02T14:29:27.268" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 46ms -->
+</step><!-- duration: 996ms -->

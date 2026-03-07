@@ -1,8 +1,10 @@
 <ng-container *ngIf="user$ | async as _user">
   <div class="menu-item px-3">
     <div class="menu-content d-flex align-items-center px-3">
-      <div class="symbol symbol-50px me-5">
-        <img alt="Avatar" [src]="_user.pic" class="object-fit-cover" />
+      <div class="symbol symbol-circle symbol-50px me-5">
+        <img alt="Avatar" [src]="_user.pic || './assets/media/avatars/blank.png'"
+          style="width:100%;height:100%;object-fit:cover;border-radius:50%;"
+          (error)="$any($event.target).src='./assets/media/avatars/blank.png'" />
       </div>
 
       <div class="d-flex flex-column">

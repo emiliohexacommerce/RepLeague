@@ -1,0 +1,14 @@
+<step title="Incoming Request" date="2026-03-02T22:58:29.080" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22bda3d13c91d2486d5e6cd75ad1f06a630075c5c9%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22fix%20cambio%20package%22%7D" method="POST" type="request" pid="839,1,74" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="9ca3ced8-1bde-43f7-a884-25ef86f69581" CLIENT-IP="20.55.214.113:18440" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22bda3d13c91d2486d5e6cd75ad1f06a630075c5c9%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22fix%20cambio%20package%22%7D" X-Client-IP="20.55.214.113" X-Client-Port="18440" >
+  <step title="Cleanup Xml Logs" date="2026-03-02T22:58:29.099" /><!-- duration: 85ms -->
+  <step title="OneDeploy" date="2026-03-02T22:58:30.253" >
+    <step title="Starting PushDeployAsync" date="2026-03-02T22:58:30.545" /><!-- duration: 38ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/8d2da9eb-7fe0-4a16-ba0d-84d730221a3e.zip" date="2026-03-02T22:58:31.213" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/8d2da9eb-7fe0-4a16-ba0d-84d730221a3e.zip" date="2026-03-02T22:58:31.334" /><!-- duration: 108ms -->
+    </step><!-- duration: 4202ms -->
+    <step title="Start deployment in the background" date="2026-03-02T22:58:35.512" >
+      <step title="Acquiring Deployment Lock" date="2026-03-02T22:58:35.739" /><!-- duration: 29ms -->
+      <step title="Acquired Deployment Lock" date="2026-03-02T22:58:36.016" /><!-- duration: 59ms -->
+    </step><!-- duration: 918ms -->
+  </step><!-- duration: 6249ms -->
+  <step title="Outgoing response" date="2026-03-02T22:58:36.533" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 26ms -->
+</step><!-- duration: 7501ms -->

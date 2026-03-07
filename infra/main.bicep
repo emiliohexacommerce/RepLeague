@@ -45,6 +45,7 @@ module backendApp 'br/public:avm/res/web/sites:0.11.0' = {
       managedPipelineMode: 'Integrated'
       alwaysOn: true
       healthCheckPath: '/health'
+      appCommandLine: 'dotnet /home/site/wwwroot/RepLeague.API.dll'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'

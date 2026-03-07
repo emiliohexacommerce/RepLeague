@@ -1,0 +1,17 @@
+<step title="Incoming Request" date="2026-03-05T18:07:58.210" instance="13cd7b" url="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%229c8d1e6c2a1c19efffd9476edabe70ea512e69d6%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Fix%20formatting%20issues%20in%20main_repleague.yml%22%7D" method="POST" type="request" pid="839,1,22" Host="api-repleague.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2686ef99147bf800ecf540771f8de641dbff487d524ce92665eb644228d15acc_v3.0.7" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028; ARRAffinitySameSite=13cd7b914b7727738423c2efe5af6e651e826a4ab73a656a010ff27495af5028" Transfer-Encoding="chunked" X-ARR-LOG-ID="878ea20f-4873-4d67-8c01-572ad966faf1" CLIENT-IP="40.76.238.178:2056" X-SITE-DEPLOYMENT-ID="api-repleague" WAS-DEFAULT-HOSTNAME="api-repleague.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/publish?async=true&amp;deployer=GITHUB_ONE_DEPLOY&amp;type=zip&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%229c8d1e6c2a1c19efffd9476edabe70ea512e69d6%22%2C%22repoName%22%3A%22emiliohexacommerce%2FRepLeague%22%2C%22actor%22%3A%22emiliohexacommerce%22%2C%22slotName%22%3A%22Production%22%2C%22commitMessage%22%3A%22Fix%20formatting%20issues%20in%20main_repleague.yml%22%7D" X-Client-IP="40.76.238.178" X-Client-Port="2056" >
+  <step title="Cleanup Xml Logs" date="2026-03-05T18:07:58.321" >
+    <step title="Cleanup Infos" date="2026-03-05T18:07:58.599" totalFiles="271" totalCleanup="111" /><!-- duration: 76ms -->
+  </step><!-- duration: 613ms -->
+  <step title="OneDeploy" date="2026-03-05T18:07:59.299" >
+    <step title="Starting PushDeployAsync" date="2026-03-05T18:07:59.625" /><!-- duration: 240ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/33f4baad-8336-4266-86f1-c1b8b937b5f3.zip" date="2026-03-05T18:08:00.081" >
+      <step title="Writing multipart request body to /tmp/zipdeploy/33f4baad-8336-4266-86f1-c1b8b937b5f3.zip" date="2026-03-05T18:08:00.169" /><!-- duration: 334ms -->
+    </step><!-- duration: 7217ms -->
+    <step title="Start deployment in the background" date="2026-03-05T18:08:07.334" >
+      <step title="Acquiring Deployment Lock" date="2026-03-05T18:08:07.568" /><!-- duration: 12ms -->
+      <step title="Cannot Acquire Deployment Lock already held" date="2026-03-05T18:08:07.650" /><!-- duration: 35ms -->
+    </step><!-- duration: 694ms -->
+    <step title="There is a deployment currently in progress. Please try again when it completes." date="2026-03-05T18:08:08.122" /><!-- duration: 98ms -->
+  </step><!-- duration: 8938ms -->
+  <step title="Outgoing response" date="2026-03-05T18:08:08.316" type="response" statusCode="409" statusText="Conflict" /><!-- duration: 10ms -->
+</step><!-- duration: 10138ms -->
