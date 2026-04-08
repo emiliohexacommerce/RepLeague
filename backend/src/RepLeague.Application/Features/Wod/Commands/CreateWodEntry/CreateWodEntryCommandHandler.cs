@@ -2,12 +2,13 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using RepLeague.Application.Common.Interfaces;
 using RepLeague.Application.Common.Utils;
+using RepLeague.Application.Features.Points.Commands.CalculateDailyPoints;
 using RepLeague.Application.Features.Wod.DTOs;
 using RepLeague.Domain.Entities;
 
 namespace RepLeague.Application.Features.Wod.Commands.CreateWodEntry;
 
-public class CreateWodEntryCommandHandler(IAppDbContext db)
+public class CreateWodEntryCommandHandler(IAppDbContext db, IMediator mediator)
     : IRequestHandler<CreateWodEntryCommand, WodEntryDto>
 {
     public async Task<WodEntryDto> Handle(CreateWodEntryCommand request, CancellationToken ct)
@@ -65,7 +66,23 @@ public class CreateWodEntryCommandHandler(IAppDbContext db)
         await UpdateRankingAsync(request.UserId, ct);
         await db.SaveChangesAsync(ct);
 
+        // Trigger daily points calculation for all leagues with points activated
+        await TriggerDailyPointsAsync(request.UserId, request.Date, ct);
+
         return ToDto(entry);
+    }
+
+    private async Task TriggerDailyPointsAsync(Guid userId, DateOnly date, CancellationToken ct)
+    {
+        var activatedLeagueIds = await db.LeagueMembers
+            .Where(m => m.UserId == userId && m.League.PointsActivatedAt.HasValue)
+            .Select(m => m.LeagueId)
+            .ToListAsync(ct);
+
+        foreach (var leagueId in activatedLeagueIds)
+        {
+            await mediator.Send(new CalculateDailyPointsCommand(userId, leagueId, date), ct);
+        }
     }
 
     private async Task UpdateRankingAsync(Guid userId, CancellationToken ct)

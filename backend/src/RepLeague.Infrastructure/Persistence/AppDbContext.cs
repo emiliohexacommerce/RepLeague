@@ -23,6 +23,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<StrengthSet> StrengthSets => Set<StrengthSet>();
     public DbSet<ManualLiftPr> ManualLiftPrs => Set<ManualLiftPr>();
     public DbSet<PushSubscription> PushSubscriptions => Set<PushSubscription>();
+    public DbSet<DailyWod> DailyWods => Set<DailyWod>();
+    public DbSet<DailyWodExercise> DailyWodExercises => Set<DailyWodExercise>();
+    public DbSet<DailyWodResult> DailyWodResults => Set<DailyWodResult>();
+    public DbSet<DailyWodResultExercise> DailyWodResultExercises => Set<DailyWodResultExercise>();
+    public DbSet<DailyPoints> DailyPoints => Set<DailyPoints>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
