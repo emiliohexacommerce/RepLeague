@@ -22,6 +22,11 @@ public interface IAppDbContext
     DbSet<StrengthSet> StrengthSets { get; }
     DbSet<ManualLiftPr> ManualLiftPrs { get; }
     DbSet<PushSubscription> PushSubscriptions { get; }
+    DbSet<DailyWod> DailyWods { get; }
+    DbSet<DailyWodExercise> DailyWodExercises { get; }
+    DbSet<DailyWodResult> DailyWodResults { get; }
+    DbSet<DailyWodResultExercise> DailyWodResultExercises { get; }
+    DbSet<DailyPoints> DailyPoints { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

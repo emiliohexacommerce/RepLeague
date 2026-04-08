@@ -32,5 +32,15 @@ public class LeagueConfiguration : IEntityTypeConfiguration<League>
             .WithOne(r => r.League)
             .HasForeignKey(r => r.LeagueId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(l => l.DailyWods)
+            .WithOne(w => w.League)
+            .HasForeignKey(w => w.LeagueId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(l => l.DailyPoints)
+            .WithOne(p => p.League)
+            .HasForeignKey(p => p.LeagueId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

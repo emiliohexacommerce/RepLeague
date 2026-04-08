@@ -33,3 +33,41 @@ public record InvitationResultDto(
     string JoinUrl,
     string Token
 );
+
+public record LiftSessionSummaryDto(
+    Guid Id,
+    DateOnly Date,
+    string? Title,
+    int SetCount
+);
+
+public record DailyWodResultSummaryDto(
+    Guid Id,
+    Guid DailyWodId,
+    string WodTitle,
+    string WodType,
+    DateOnly Date,
+    int? ElapsedSeconds,
+    int? RoundsCompleted,
+    int? TotalReps,
+    bool IsRx,
+    bool DidNotFinish
+);
+
+public record LeagueMemberProfileDto(
+    Guid UserId,
+    string DisplayName,
+    string? AvatarUrl,
+    string? Country,
+    string? City,
+    string? GymName,
+    string? Bio,
+    bool IsAnonymous,
+    // Stats
+    int TotalPointsThisMonth,
+    int TrainingDaysThisMonth,
+    int CurrentStreak,
+    // Sessions (null si private)
+    List<LiftSessionSummaryDto>? RecentLiftSessions,
+    List<DailyWodResultSummaryDto>? RecentWodResults
+);
