@@ -59,11 +59,12 @@ public class ActivateLeaguePointsCommandHandler(IAppDbContext db)
                 .OrderBy(d => d)
                 .ToListAsync(ct);
 
-            var allSessionDatesSorted = sessionDates.ToList();
+            // Build a set of session dates for fast streak lookups
+            var sessionDateSet = sessionDates.ToHashSet();
 
-            for (int i = 0; i < allSessionDatesSorted.Count; i++)
+            for (int i = 0; i < sessionDates.Count; i++)
             {
-                var date = allSessionDatesSorted[i];
+                var date = sessionDates[i];
 
                 // AttendancePoints = 1 always
                 var attendance = 1;
@@ -75,7 +76,7 @@ public class ActivateLeaguePointsCommandHandler(IAppDbContext db)
                              && !s.LiftSession.IsDeleted)
                     .SumAsync(s => (decimal?)(s.Reps * s.WeightKg), ct) ?? 0m;
 
-                var previousDates = allSessionDatesSorted.Take(i).ToList();
+                var previousDates = sessionDates.Take(i).ToList();
                 int volumePoints = 0;
                 if (previousDates.Count > 0)
                 {
@@ -101,18 +102,10 @@ public class ActivateLeaguePointsCommandHandler(IAppDbContext db)
                                 && s.IsPr, ct);
                 var prPoints = hasPr ? 2 : 0;
 
-                // StreakPoints: 3+ consecutive days
-                var streakPoints = 0;
-                if (i >= 2)
-                {
-                    var prevDay1 = allSessionDatesSorted[i - 1];
-                    var prevDay2 = allSessionDatesSorted[i - 2];
-                    if (date.DayNumber - prevDay1.DayNumber == 1 &&
-                        prevDay1.DayNumber - prevDay2.DayNumber == 1)
-                    {
-                        streakPoints = 2;
-                    }
-                }
+                // StreakPoints: 3+ consecutive calendar days (check previous 2 calendar days have sessions)
+                var prevCalendarDay1 = date.AddDays(-1);
+                var prevCalendarDay2 = date.AddDays(-2);
+                var streakPoints = (sessionDateSet.Contains(prevCalendarDay1) && sessionDateSet.Contains(prevCalendarDay2)) ? 2 : 0;
 
                 // Upsert DailyPoints
                 var existing = await db.DailyPoints

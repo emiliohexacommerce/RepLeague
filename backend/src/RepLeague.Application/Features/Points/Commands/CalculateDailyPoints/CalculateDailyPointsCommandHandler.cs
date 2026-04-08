@@ -33,7 +33,7 @@ public class CalculateDailyPointsCommandHandler(IAppDbContext db)
                      && s.LiftSession.Date < date
                      && !s.LiftSession.IsDeleted)
             .GroupBy(s => s.LiftSession.Date)
-            .Select(g => g.Sum(s => (decimal)(s.Reps * s.WeightKg)))
+            .Select(g => g.Sum(s => (decimal?)(s.Reps * s.WeightKg) ?? 0m))
             .ToListAsync(ct);
 
         int volumePoints = 0;
